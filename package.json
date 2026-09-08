@@ -2,19 +2,28 @@
   "name": "neuroqueer-apothecary",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20 <23"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "next build",
-    "pages:deploy": "wrangler pages deploy out"
+    "deploy": "wrangler deploy",
+    "pages:build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "pages:deploy": "wrangler deploy"
   },
+  "browserslist": [
+    ">0.5%",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
-    "next": "^15.1.5",
+    "lucide-react": "^0.469.0",
+    "next": "15.5.25",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "lucide-react": "^0.469.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
@@ -22,9 +31,10 @@
     "@types/react-dom": "^19.0.3",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.18.0",
-    "eslint-config-next": "^15.1.5",
+    "eslint-config-next": "15.5.25",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "wrangler": "4.86.0"
   }
 }
