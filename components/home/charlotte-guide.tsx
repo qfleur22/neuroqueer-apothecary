@@ -1,4 +1,58 @@
+import type { ReactNode } from 'react'
+import { RoomLink } from '@/components/home/room-link'
+
 const headingScrollClass = 'scroll-mt-[12.5rem] sm:scroll-mt-[15rem]'
+
+const completeGuidePhrases = [
+  'The Complete Charlotte / NC Resource Guide',
+  'the Complete Charlotte / NC Resource Guide',
+  'The Complete Charlotte Resource Guide',
+  'the Complete Charlotte Resource Guide',
+  'The Complete Local Resource Guide',
+  'the Complete Local Resource Guide',
+  'The complete directory',
+  'the complete directory',
+  'The complete guide',
+  'the complete guide',
+]
+
+export const LinkedGuideText = ({ text }: { text: string }) => {
+  const nodes: ReactNode[] = []
+  let remaining = text
+  let key = 0
+
+  while (remaining.length > 0) {
+    let earliest = -1
+    let match = ''
+
+    completeGuidePhrases.forEach((phrase) => {
+      const foundAt = remaining.indexOf(phrase)
+      if (foundAt !== -1 && (earliest === -1 || foundAt < earliest)) {
+        earliest = foundAt
+        match = phrase
+      }
+    })
+
+    if (earliest === -1) {
+      nodes.push(remaining)
+      break
+    }
+
+    if (earliest > 0) {
+      nodes.push(remaining.slice(0, earliest))
+    }
+
+    nodes.push(
+      <RoomLink key={key} href="/charlotte#complete-directory">
+        {match}
+      </RoomLink>
+    )
+    key += 1
+    remaining = remaining.slice(earliest + match.length)
+  }
+
+  return nodes
+}
 
 export interface DirectoryTopic {
   id: string
@@ -34,6 +88,37 @@ export const CompleteDirectory = ({ topics }: { topics: DirectoryTopic[] }) => {
   )
 }
 
+export const isShortListItem = ({ text }: { text: string }) => {
+  if (!text) {
+    return false
+  }
+
+  if (text === '⸻' || text.endsWith(':')) {
+    return false
+  }
+
+  if (/^\[.+\]$/.test(text)) {
+    return false
+  }
+
+  const words = text.split(/\s+/).length
+  if (words > 16 || text.length > 120) {
+    return false
+  }
+
+  return true
+}
+
+export const TopicBulletList = ({ items }: { items: string[] }) => {
+  return (
+    <ul className="guide-list guide-list-columns">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  )
+}
+
 export const ResourceListing = ({
   name,
   href,
@@ -61,13 +146,49 @@ export const ResourceListing = ({
       </p>
       {description.length > 0 ? (
         <div className="mt-2 space-y-3 text-base leading-relaxed text-black/80">
-          {description.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+          <ResourceDescription paragraphs={description} />
         </div>
       ) : null}
     </article>
   )
+}
+
+const ResourceDescription = ({ paragraphs }: { paragraphs: string[] }) => {
+  const nodes: ReactNode[] = []
+  let index = 0
+
+  while (index < paragraphs.length) {
+    const paragraph = paragraphs[index]
+    if (paragraph.endsWith(':')) {
+      const items: string[] = []
+      let cursor = index + 1
+
+      while (cursor < paragraphs.length && isShortListItem({ text: paragraphs[cursor] })) {
+        items.push(paragraphs[cursor])
+        cursor += 1
+      }
+
+      if (items.length >= 2) {
+        nodes.push(
+          <p key={`${paragraph}-${index}`}>
+            <LinkedGuideText text={paragraph} />
+          </p>
+        )
+        nodes.push(<TopicBulletList key={`${paragraph}-list-${index}`} items={items} />)
+        index = cursor
+        continue
+      }
+    }
+
+    nodes.push(
+      <p key={`${paragraph}-${index}`}>
+        <LinkedGuideText text={paragraph} />
+      </p>
+    )
+    index += 1
+  }
+
+  return nodes
 }
 
 export const TopicHeading = ({

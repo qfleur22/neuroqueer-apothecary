@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import { RoomPage, WallCard } from '@/components/home/room-page'
 import { GuideCta } from '@/components/home/guide-cta'
+import { LearnMoreSection } from '@/components/home/learn-more-section'
 import {
   CompleteDirectory,
   ResourceListing,
-  TopicHeading,
+  TopicBulletList,
+  LinkedGuideText,
+  isShortListItem,
 } from '@/components/home/charlotte-guide'
 import { charlotteGroups } from '@/data/charlotte-resources'
 
@@ -39,7 +42,6 @@ const linkMap: Record<string, { href: string; isDominant?: boolean }> = {
     href: '/charlotte#friendly-businesses',
   },
   'Browse the Full Resource Directory': { href: '/charlotte#complete-directory' },
-  'See Books & Educational Resources': { href: '/charlotte#books-guides' },
   'Work With Quinn': { href: CONTACT_HREF },
   'Explore Resource Navigation With Quinn': { href: CONTACT_HREF },
   'Suggest a Resource or Correction': { href: CONTACT_HREF },
@@ -71,7 +73,6 @@ const sectionIdByHeading: Record<string, string> = {
   'Looking for a Trans-Friendly Business?': 'friendly-businesses',
   'Looking for Gender-Affirming Care Providers?': 'providers',
   'National Resources Worth Knowing About': 'national',
-  'Books, Guides & “I Want to Learn More”': 'books-guides',
 }
 
 const directoryHeadingIds = new Set([
@@ -92,7 +93,6 @@ const directoryHeadingIds = new Set([
   'friendly-businesses',
   'providers',
   'national',
-  'books-guides',
 ])
 
 const directoryTopics = Object.entries(sectionIdByHeading)
@@ -831,52 +831,6 @@ Programs offering direct support to queer and trans people.
 
 ⸻
 
-Books, Guides & “I Want to Learn More”
-
-Not every resource is an organization.
-
-The full directory also includes books and educational resources on:
-
-Trans history
-
-Gender
-
-Pronouns and language
-
-Queer history
-
-Nonbinary identity
-
-Transmasculinity
-
-Asexuality
-
-Community organizing
-
-Collective liberation
-
-Trans healthcare
-
-Some books Quinn recommends starting with include:
-
-Before We Were Trans — Kit Heyam
-
-Stone Butch Blues — Leslie Feinberg
-
-We Both Laughed in Pleasure: The Selected Diaries of Lou Sullivan
-
-Ace — Angela Chen
-
-The Transgender Issue — Shon Faye
-
-Trans Bodies, Trans Selves — edited by Laura Erickson-Schroth
-
-and more in the full directory.
-
-[See Books & Educational Resources →]
-
-⸻
-
 Three Guides to Bookmark
 
 Changing Your Name?
@@ -1065,7 +1019,98 @@ type CharlotteBlock =
   | { type: 'heading'; text: string; id?: string }
   | { type: 'cta'; label: string; href: string; isDominant?: boolean }
   | { type: 'resource'; name: string; href?: string; description: string[] }
+  | { type: 'bullets'; items: string[] }
   | { type: 'paragraph'; text: string }
+
+type CharlotteGroupedBlock =
+  | CharlotteBlock
+  | {
+      type: 'section'
+      text: string
+      id?: string
+      children: CharlotteBlock[]
+    }
+
+const groupCharlotteSections = ({ blocks }: { blocks: CharlotteBlock[] }) => {
+  const grouped: CharlotteGroupedBlock[] = []
+  let current: Extract<CharlotteGroupedBlock, { type: 'section' }> | null = null
+
+  const flush = () => {
+    if (current) {
+      grouped.push(current)
+      current = null
+    }
+  }
+
+  blocks.forEach((block) => {
+    if (block.type === 'directory') {
+      flush()
+      grouped.push(block)
+      return
+    }
+
+    if (block.type === 'heading') {
+      flush()
+      current = {
+        type: 'section',
+        text: block.text,
+        id: block.id,
+        children: [],
+      }
+      return
+    }
+
+    if (current) {
+      current.children.push(block)
+      return
+    }
+
+    grouped.push(block)
+  })
+
+  flush()
+  return grouped
+}
+
+const CharlotteBlockView = ({ block }: { block: CharlotteBlock }) => {
+  if (block.type === 'directory') {
+    return <CompleteDirectory topics={directoryTopics} />
+  }
+
+  if (block.type === 'heading') {
+    return null
+  }
+
+  if (block.type === 'cta') {
+    return (
+      <GuideCta
+        href={block.href}
+        label={`${block.label} →`}
+        isDominant={block.isDominant}
+      />
+    )
+  }
+
+  if (block.type === 'resource') {
+    return (
+      <ResourceListing
+        name={block.name}
+        href={block.href}
+        description={block.description}
+      />
+    )
+  }
+
+  if (block.type === 'bullets') {
+    return <TopicBulletList items={block.items} />
+  }
+
+  return (
+    <p className="whitespace-pre-wrap">
+      <LinkedGuideText text={block.text} />
+    </p>
+  )
+}
 
 const parseCharlotteBlocks = ({ paragraphs }: { paragraphs: string[] }) => {
   const blocks: CharlotteBlock[] = []
@@ -1123,6 +1168,32 @@ const parseCharlotteBlocks = ({ paragraphs }: { paragraphs: string[] }) => {
       continue
     }
 
+    if (paragraph.endsWith(':')) {
+      const items: string[] = []
+      let cursor = index
+
+      while (cursor < paragraphs.length) {
+        const next = paragraphs[cursor].trim()
+        if (!next || next === '⸻' || next.match(/^\[(.+)\]$/) || sectionIdByHeading[next]) {
+          break
+        }
+
+        if (!isShortListItem({ text: next })) {
+          break
+        }
+
+        items.push(next)
+        cursor += 1
+      }
+
+      if (items.length >= 2) {
+        blocks.push({ type: 'paragraph', text: paragraph })
+        blocks.push({ type: 'bullets', items })
+        index = cursor
+        continue
+      }
+    }
+
     if (resourceNames.has(paragraph)) {
       const description: string[] = []
 
@@ -1159,47 +1230,23 @@ const parseCharlotteBlocks = ({ paragraphs }: { paragraphs: string[] }) => {
 
 export default function CharlottePage() {
   const paragraphs = CHARLOTTE_COPY.trim().split(/\n{2,}/)
-  const blocks = parseCharlotteBlocks({ paragraphs })
+  const blocks = groupCharlotteSections({ blocks: parseCharlotteBlocks({ paragraphs }) })
 
   return (
     <RoomPage>
       <WallCard title="Resources in Charlotte & North Carolina" wide="xl">
         {blocks.map((block, idx) => {
-          if (block.type === 'directory') {
-            return <CompleteDirectory key="complete-directory" topics={directoryTopics} />
-          }
-
-          if (block.type === 'heading') {
-            return <TopicHeading key={`${block.text}-${idx}`} text={block.text} id={block.id} />
-          }
-
-          if (block.type === 'cta') {
+          if (block.type === 'section') {
             return (
-              <GuideCta
-                key={`${block.label}-${idx}`}
-                href={block.href}
-                label={`${block.label} →`}
-                isDominant={block.isDominant}
-              />
+              <LearnMoreSection key={`${block.text}-${idx}`} title={block.text} id={block.id}>
+                {block.children.map((child, childIdx) => (
+                  <CharlotteBlockView key={`${block.text}-${childIdx}`} block={child} />
+                ))}
+              </LearnMoreSection>
             )
           }
 
-          if (block.type === 'resource') {
-            return (
-              <ResourceListing
-                key={`${block.name}-${idx}`}
-                name={block.name}
-                href={block.href}
-                description={block.description}
-              />
-            )
-          }
-
-          return (
-            <p key={idx} className="whitespace-pre-wrap">
-              {block.text}
-            </p>
-          )
+          return <CharlotteBlockView key={`${block.type}-${idx}`} block={block} />
         })}
       </WallCard>
     </RoomPage>

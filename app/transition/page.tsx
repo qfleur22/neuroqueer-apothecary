@@ -4,15 +4,16 @@ import { RoomLink } from '@/components/home/room-link'
 import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
+import { LearnMoreSection } from '@/components/home/learn-more-section'
 import { getTransitionGuideHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
-  title: 'So, You Think You’re Trans?',
+  title: 'Transition Guide',
   description:
     'A practical transition guide for questioning, exploring, and building a life that feels more like yours.',
 }
 
-const COACHING_HREF = '/about#contact'
+const COACHING_HREF = '/coaching'
 
 const experimentItems = [
   'Trying names',
@@ -135,7 +136,7 @@ export default function TransitionGuidePage() {
 
   return (
     <RoomPage>
-      <WallCard title="So, You Think You’re Trans?" wide="xl">
+      <WallCard title="Transition Guide" wide="xl">
         <p className="font-gallery text-xl italic text-room-brown">
           A practical transition guide for questioning, exploring, and building a life that feels
           more like yours.
@@ -143,7 +144,7 @@ export default function TransitionGuidePage() {
         <p className="text-center">Created by Quinn Fleur — from one trans person to another.</p>
         <div className="mx-auto max-w-xs">
           <GuideCover
-            title="So, You Think You’re Trans?"
+            title="Transition Guide"
             tagline="from one trans person to another"
           />
         </div>
@@ -158,7 +159,7 @@ export default function TransitionGuidePage() {
         <p>Or maybe you just want to understand what transitioning actually looks like.</p>
         <p>This guide was made for all of those places.</p>
         <p>
-          <em>So, You Think You’re Trans?</em> is a practical, lived-experience-informed guide to
+          The <em>Transition Guide</em> is a practical, lived-experience-informed guide to
           exploring gender and navigating transition—from the very first &ldquo;wait… am I
           trans?&rdquo; all the way through hormones, surgery, paperwork, relationships, community,
           and actually living your life after the initial transition checklist starts disappearing.
@@ -167,7 +168,7 @@ export default function TransitionGuidePage() {
         <p>You just need somewhere to start.</p>
         <GuideCta href={buyHref} label="Get the Transition Guide →" isDominant />
 
-        <RoomSection title="You Don’t Need to Be Sure Yet">
+        <LearnMoreSection title="You Don’t Need to Be Sure Yet">
           <p>There is no transgender entrance exam.</p>
           <p>
             Nobody is going to appear with a clipboard and decide whether you have experienced
@@ -185,9 +186,9 @@ export default function TransitionGuidePage() {
             The first part of the guide is designed to help you explore rather than pressure
             yourself into an answer.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Start With the Question Everyone Eventually Googles">
+        <LearnMoreSection title="Start With the Question Everyone Eventually Googles">
           <p className="italic">&ldquo;Am I Trans?&rdquo;</p>
           <p>
             Instead of giving you a checklist designed to prove something about yourself, the guide
@@ -209,9 +210,9 @@ export default function TransitionGuidePage() {
             sexuality, names, pronouns, and identity without pretending everyone experiences them
             the same way.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Try Things Before You Commit to Things">
+        <LearnMoreSection title="Try Things Before You Commit to Things">
           <p>Transition does not have to begin with a doctor&apos;s appointment.</p>
           <p>Sometimes it begins with a haircut.</p>
           <p>Or a Discord username.</p>
@@ -229,9 +230,9 @@ export default function TransitionGuidePage() {
             You are allowed to experiment without promising anyone that the experiment is
             permanent.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="There Is No One Transition Path">
+        <LearnMoreSection title="There Is No One Transition Path">
           <p>Some people change their name and nothing else.</p>
           <p>Some take hormones.</p>
           <p>Some have surgery.</p>
@@ -270,9 +271,9 @@ export default function TransitionGuidePage() {
           <p>Take all four.</p>
           <p>Take none.</p>
           <p>The guide exists to show you the map—not decide where you&apos;re supposed to go.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Hormones Without the Mystery">
+        <LearnMoreSection title="Hormones Without the Mystery">
           <p>
             HRT can feel especially overwhelming because information is scattered everywhere and
             different providers may explain it very differently.
@@ -300,9 +301,9 @@ export default function TransitionGuidePage() {
           <p>Ass: dramatically increased</p>
           <p>HRT works systemically, and genetics get a considerable vote.</p>
           <p>Understanding that before starting can make the process much less confusing.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Learn How to Advocate for Better HRT Care">
+        <LearnMoreSection title="Learn How to Advocate for Better HRT Care">
           <p>
             One of the most important sections of this guide is about becoming an informed
             participant in your own healthcare.
@@ -314,9 +315,9 @@ export default function TransitionGuidePage() {
             The goal is to help you understand enough about your treatment that you can recognize
             when you have questions worth asking.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Transition Isn’t Just HRT">
+        <LearnMoreSection title="Transition Isn’t Just HRT">
           <p>
             For some people, the most affirming parts of transition aren&apos;t medical at all.
           </p>
@@ -332,9 +333,9 @@ export default function TransitionGuidePage() {
           <p>You&apos;ll find approachable starting points for:</p>
           <BulletList items={makeupItems} />
           <p>No $400 Sephora pilgrimage required.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Hair & Presentation">
+        <LearnMoreSection title="Hair & Presentation">
           <p>Hair can change how your entire face reads.</p>
           <p>
             The guide discusses finding inspiration, choosing styles based on the effect you
@@ -346,9 +347,9 @@ export default function TransitionGuidePage() {
             when your actual morning routine consists of staring into the void and looking for your
             keys.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Voice">
+        <LearnMoreSection title="Voice">
           <p>You can explore your voice whether or not you&apos;re taking hormones.</p>
           <p>
             The guide introduces concepts used in masculinizing, feminizing, and androgynous voice
@@ -357,9 +358,9 @@ export default function TransitionGuidePage() {
           <BulletList items={voiceItems} />
           <p>The goal isn&apos;t to create one universally &ldquo;male&rdquo; or &ldquo;female&rdquo; voice.</p>
           <p>It&apos;s finding a voice that feels more comfortable to inhabit.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Thinking About Surgery?">
+        <LearnMoreSection title="Thinking About Surgery?">
           <p>
             Surgery can be one of the most intimidating areas of transition because researching it
             often means navigating medical terminology, insurance requirements, surgeon portfolios,
@@ -376,9 +377,9 @@ export default function TransitionGuidePage() {
           <BulletList items={surgeryPrepItems} />
           <p>You do not have to want surgery.</p>
           <p>And wanting one surgery doesn&apos;t obligate you to want another.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Paperwork Section Nobody Wants but Everybody Needs">
+        <LearnMoreSection title="The Paperwork Section Nobody Wants but Everybody Needs">
           <p>Unfortunately, gender sometimes comes with administrative side quests.</p>
           <p>The guide introduces the process of changing things like:</p>
           <BulletList items={paperworkItems} />
@@ -390,9 +391,9 @@ export default function TransitionGuidePage() {
             Because sometimes the government&apos;s timeline and your gender&apos;s timeline are
             not remotely interested in coordinating.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Transitioning While Poor Is Still Transitioning">
+        <LearnMoreSection title="Transitioning While Poor Is Still Transitioning">
           <p>Money should not determine whether someone gets to feel at home in their body.</p>
           <p>The guide includes resources for finding assistance with things like:</p>
           <p>
@@ -403,9 +404,9 @@ export default function TransitionGuidePage() {
             It includes national programs as well as Charlotte-area resources I&apos;ve encountered
             through years of queer and trans community involvement.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What Happens After the “Transition Checklist”?">
+        <LearnMoreSection title="What Happens After the “Transition Checklist”?">
           <p>This is one of the biggest reasons I wanted to make the guide.</p>
           <p>Because transition isn&apos;t really:</p>
           <p>New name → hormones → surgery → congratulations, gender completed.</p>
@@ -424,9 +425,9 @@ export default function TransitionGuidePage() {
             The later sections of the guide focus on living your transition, not simply completing
             it.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Making Friends When Socializing Feels Impossible">
+        <LearnMoreSection title="Making Friends When Socializing Feels Impossible">
           <p>There is also an entire section for the extremely specific problem of:</p>
           <p className="italic">
             &ldquo;How do I make queer friends when I am an introverted neurodivergent trans person
@@ -467,9 +468,9 @@ export default function TransitionGuidePage() {
             recurring groups, removing the expectation that you must immediately &ldquo;make
             friends,&rdquo; and letting familiarity build naturally over time.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Built From Lived Experience">
+        <LearnMoreSection title="Built From Lived Experience">
           <p>Hi. I&apos;m Quinn Fleur.</p>
           <p>
             I&apos;m a trans man, neurodivergent, disabled, deeply queer, and someone who has spent
@@ -493,16 +494,16 @@ export default function TransitionGuidePage() {
           <p className="italic">
             Okay. Here are your options. Let&apos;s figure out which ones actually sound like you.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="This Guide May Be For You If…">
+        <LearnMoreSection title="This Guide May Be For You If…">
           <p>You might find this guide helpful if:</p>
           <BulletList items={forYouItems} />
           <p>You don&apos;t need to know what your transition looks like yet.</p>
           <p>That&apos;s what the guide is for.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What You’ll Find Inside">
+        <LearnMoreSection title="What You’ll Find Inside">
           <p>
             <strong>Part I: Beginning the Journey</strong>
             <br />
@@ -527,9 +528,9 @@ export default function TransitionGuidePage() {
             National resources, Charlotte-area resources, funding programs, educational resources,
             support organizations, and plain-language definitions of common terminology.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="You Don’t Have to Earn Your Gender">
+        <LearnMoreSection title="You Don’t Have to Earn Your Gender">
           <p>You don&apos;t have to suffer enough.</p>
           <p>You don&apos;t have to transition medically.</p>
           <p>You don&apos;t have to medically transition enough.</p>
@@ -542,11 +543,11 @@ export default function TransitionGuidePage() {
           <p>And you don&apos;t have to convince me.</p>
           <p>This guide is here to give you information.</p>
           <p>You get to decide what to do with it.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Ready to Start Exploring?">
           <p>
-            Get <em>So, You Think You’re Trans?</em> and start building a transition that actually
+            Get the <em>Transition Guide</em> and start building a transition that actually
             belongs to you.
           </p>
           <p>Explore identity.</p>

@@ -4,6 +4,7 @@ import { RoomLink } from '@/components/home/room-link'
 import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
+import { LearnMoreSection } from '@/components/home/learn-more-section'
 import { getCarePlanWorkshopHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     'A ready-to-facilitate Care Plan Creation Workshop—curriculum, prompts, participant materials, and facilitation structure included.',
 }
 
-const COACHING_HREF = '/about#contact'
+const COACHING_HREF = '/coaching'
 const INDIVIDUAL_HREF = '/care-plan'
 const KIT_LABEL = 'Get the Care Plan Creation Workshop Kit →'
 
@@ -170,7 +171,7 @@ export default function CarePlanWorkshopPage() {
         </p>
         <GuideCta href={buyHref} label={KIT_LABEL} isDominant />
 
-        <RoomSection title="Stop Waiting for a Crisis to Learn How to Care for Each Other">
+        <LearnMoreSection title="Stop Waiting for a Crisis to Learn How to Care for Each Other">
           <p>A lot of communities are very good at saying:</p>
           <p className="italic">&ldquo;Ask for what you need.&rdquo;</p>
           <p>The problem is that sometimes we don&apos;t know.</p>
@@ -197,9 +198,9 @@ export default function CarePlanWorkshopPage() {
           <p>What support looks like during a crisis.</p>
           <p>How I want people to preserve my autonomy while helping me.</p>
           <p>That can be extraordinarily useful information to have written down.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What Is a Care Plan Creation Workshop?">
+        <LearnMoreSection title="What Is a Care Plan Creation Workshop?">
           <p>
             This isn&apos;t a lecture where participants spend an hour hearing about how they
             should take care of themselves.
@@ -221,9 +222,9 @@ export default function CarePlanWorkshopPage() {
           <p>Talk with trusted people</p>
           <p>and ultimately:</p>
           <p>Write something they can use after the workshop ends.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Who Is This Workshop For?">
+        <LearnMoreSection title="Who Is This Workshop For?">
           <p>Care planning can be useful in an enormous range of communities.</p>
           <p>The workshop can be especially valuable for:</p>
           <BulletList items={communityItems} />
@@ -233,9 +234,9 @@ export default function CarePlanWorkshopPage() {
             You don&apos;t need a diagnosis to benefit from understanding how you want to be
             supported.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Who Can Host It?">
+        <LearnMoreSection title="Who Can Host It?">
           <p>
             The Workshop Kit is designed for people who want to bring structured care planning
             into their existing communities or support work.
@@ -251,9 +252,9 @@ export default function CarePlanWorkshopPage() {
             support.
           </p>
           <p>Participants remain the experts on themselves.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Workshop Kit Gives You the Structure">
+        <LearnMoreSection title="The Workshop Kit Gives You the Structure">
           <p>
             You shouldn&apos;t have to create an entire curriculum before you can help people make
             care plans.
@@ -262,9 +263,9 @@ export default function CarePlanWorkshopPage() {
           <BulletList items={curriculumQuestions} />
           <p>I&apos;ve already done the curriculum-building part.</p>
           <p>You get to facilitate it.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What’s Included in the Care Plan Workshop Kit?">
+        <LearnMoreSection title="What’s Included in the Care Plan Workshop Kit?">
           <h3 className="font-display text-xl text-room-teal">1. Facilitator Guide</h3>
           <p>Your roadmap for running the workshop.</p>
           <p>
@@ -520,9 +521,9 @@ export default function CarePlanWorkshopPage() {
           </p>
           <p>A care-planning workshop is not group therapy.</p>
           <p>The kit helps facilitators maintain that distinction.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Privacy Is Part of the Workshop">
+        <LearnMoreSection title="Privacy Is Part of the Workshop">
           <p>Some parts of a Care Plan are personal.</p>
           <p>Really personal.</p>
           <p>Participants may be thinking about:</p>
@@ -544,9 +545,9 @@ export default function CarePlanWorkshopPage() {
           <p>Share only what they choose.</p>
           <p>The goal is:</p>
           <p>Reflection without forced disclosure.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Make the Workshop Neurodivergent-Friendly">
+        <LearnMoreSection title="Make the Workshop Neurodivergent-Friendly">
           <p>
             A workshop about supporting neurodivergent people should probably not require them to
             sit under fluorescent lights listening to uninterrupted verbal instruction for three
@@ -570,9 +571,9 @@ export default function CarePlanWorkshopPage() {
           <p>And:</p>
           <p>You do not have to finish everything today.</p>
           <p>Completion is not the measure of whether the workshop worked.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Adapt It for Your Community">
+        <LearnMoreSection title="Adapt It for Your Community">
           <p>The same Care Plan framework can become very different workshops.</p>
           <h3 className="font-display text-xl text-room-teal">Autism &amp; ADHD</h3>
           <p>
@@ -606,9 +607,9 @@ export default function CarePlanWorkshopPage() {
           </p>
           <p>The kit gives you the foundation.</p>
           <p>You decide what your community needs most.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Run a Short Workshop or Make It a Series">
+        <LearnMoreSection title="Run a Short Workshop or Make It a Series">
           <p>The complete Care Plan is substantial.</p>
           <p>That&apos;s intentional.</p>
           <p>You don&apos;t have to cram it into one session.</p>
@@ -659,9 +660,9 @@ export default function CarePlanWorkshopPage() {
             Participants can build their plans over several sessions instead of trying to
             understand their entire nervous system on a Saturday afternoon.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Great for Existing Communities">
+        <LearnMoreSection title="Great for Existing Communities">
           <p>You don&apos;t need to create a brand-new care-planning organization.</p>
           <p>Bring the workshop into a community that already exists.</p>
           <p>It can become programming for:</p>
@@ -675,9 +676,9 @@ export default function CarePlanWorkshopPage() {
             The workshop creates something people can take home and continue using long after the
             event ends.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="“I Love This. I Have Never Facilitated Anything in My Life.”">
+        <LearnMoreSection title="“I Love This. I Have Never Facilitated Anything in My Life.”">
           <p>You don&apos;t have to figure that part out alone either.</p>
           <h3 className="font-display text-xl text-room-teal">
             Care Plan Workshop Facilitator Coaching
@@ -685,9 +686,9 @@ export default function CarePlanWorkshopPage() {
           <p>The kit gives you the curriculum.</p>
           <p>I can help you turn it into your workshop.</p>
           <GuideCta href={COACHING_HREF} label="Book Facilitator Coaching →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What Can Facilitator Coaching Help With?">
+        <LearnMoreSection title="What Can Facilitator Coaching Help With?">
           <p>Depending on your experience and community, I can help with:</p>
           <BulletList items={coachingItems} />
           <p>You can bring me:</p>
@@ -696,9 +697,9 @@ export default function CarePlanWorkshopPage() {
             Help.&rdquo;
           </p>
           <p>That&apos;s enough to start.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Practice Your Workshop Before You Run It">
+        <LearnMoreSection title="Practice Your Workshop Before You Run It">
           <p>You can also book a facilitator session specifically to rehearse.</p>
           <p>Walk through:</p>
           <p>Your introduction.</p>
@@ -718,9 +719,9 @@ export default function CarePlanWorkshopPage() {
           <p>Where accessibility can be improved</p>
           <p>Whether your two-hour workshop currently contains approximately seven hours of material</p>
           <p>It happens.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Get Help Designing a Custom Version">
+        <LearnMoreSection title="Get Help Designing a Custom Version">
           <p>Maybe the standard workshop isn&apos;t quite right.</p>
           <p>You might want:</p>
           <p>A Care Plan Workshop for Autistic Adults</p>
@@ -734,7 +735,7 @@ export default function CarePlanWorkshopPage() {
           <p>Disability Care Planning for College Students</p>
           <p>I can help you adapt the existing framework around the needs of your specific audience.</p>
           <GuideCta href={COACHING_HREF} label="Ask About Workshop Customization →" />
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="The Complete Workshop Package">
           <h3 className="font-display text-xl text-room-teal">Care Plan Creation Workshop Kit</h3>
@@ -785,7 +786,7 @@ export default function CarePlanWorkshopPage() {
           <GuideCta href={INDIVIDUAL_HREF} label="Get the Individual Care Plan Resource →" />
         </RoomSection>
 
-        <RoomSection title="Want Someone to Help You Make Your Own?">
+        <LearnMoreSection title="Want Someone to Help You Make Your Own?">
           <p>I also offer:</p>
           <h3 className="font-display text-xl text-room-teal">One-on-One Care Plan Coaching</h3>
           <p>
@@ -793,9 +794,9 @@ export default function CarePlanWorkshopPage() {
             capacity, and crisis-support needs with me.
           </p>
           <GuideCta href={COACHING_HREF} label="Book Personal Care Plan Coaching →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Created by Quinn Fleur">
+        <LearnMoreSection title="Created by Quinn Fleur">
           <p>Hi, I&apos;m Quinn Fleur.</p>
           <p>
             I&apos;m autistic, ADHD, disabled, chronically ill, queer, and deeply interested in
@@ -825,9 +826,9 @@ export default function CarePlanWorkshopPage() {
             autonomy, and support together, you start building a culture of care.
           </p>
           <p>That&apos;s what this workshop is for.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Help People Write the Instructions They Wish Others Already Knew">
+        <LearnMoreSection title="Help People Write the Instructions They Wish Others Already Knew">
           <p>
             Your participants don&apos;t need you to tell them how they should be cared for.
           </p>
@@ -847,7 +848,7 @@ export default function CarePlanWorkshopPage() {
           <GuideCta href={COACHING_HREF} label="Book Care Plan Facilitator Coaching →" />
           <p>Need a customized workshop for your organization?</p>
           <GuideCta href={COACHING_HREF} label="Ask About Workshop Customization →" />
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Important Note for Facilitators">
           <p>

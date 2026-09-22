@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { RoomPage, WallCard } from '@/components/home/room-page'
 import { GuideCta } from '@/components/home/guide-cta'
+import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { BulletList } from '@/components/home/room-section'
+import { getHypermobileStoreItemHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
   title: 'Living in a Body That Bends',
@@ -8,9 +11,7 @@ export const metadata: Metadata = {
     'Ehlers-Danlos syndrome, disability, and the guide So, You Think You’re Hypermobile? — from me to you.',
 }
 
-const GUIDE_HREF =
-  'https://docs.google.com/document/d/1P4H0urHAuSWH1Dr9jHu0msuvmQgwXISLJcBiKBFwJoo/edit?usp=sharing'
-const GUIDE_CTA = 'Read So, You Think You’re Hypermobile?'
+const GUIDE_CTA = 'Get So, You Think You’re Hypermobile →'
 
 const experienceItems = [
   'Chronic joint and muscle pain',
@@ -75,6 +76,8 @@ const guideTopics = [
 ]
 
 export default function EdsPage() {
+  const guideHref = getHypermobileStoreItemHref()
+
   return (
     <RoomPage>
       <WallCard title="Living in a Body That Bends" wide="xl">
@@ -82,7 +85,7 @@ export default function EdsPage() {
           Ehlers-Danlos Syndrome, Disability, and Learning How to Live With My Body
         </p>
 
-        <GuideCta href={GUIDE_HREF} label={GUIDE_CTA} isDominant />
+        <GuideCta href={guideHref} label={GUIDE_CTA} isDominant />
 
         <p>Hi, I&apos;m Quinn.</p>
         <p>
@@ -106,9 +109,9 @@ export default function EdsPage() {
         </p>
         <p>And for a long time, I didn&apos;t have a map for any of it.</p>
 
-        <GuideCta href={GUIDE_HREF} label={GUIDE_CTA} />
+        <GuideCta href={guideHref} label={GUIDE_CTA} />
 
-        <Section title="So, You Think You’re Hypermobile?">
+        <LearnMoreSection title="So, You Think You’re Hypermobile?">
           <p className="italic">A guide from one trans EDSer to another.</p>
           <p>
             One of the hardest parts of discovering that you might have EDS is figuring out what
@@ -137,9 +140,9 @@ export default function EdsPage() {
             It&apos;s the resource I wish someone had handed me when I was trying to understand my
             body.
           </p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="EDS Is More Than Being Flexible">
+        <LearnMoreSection title="EDS Is More Than Being Flexible">
           <p>
             When people hear &ldquo;hypermobility,&rdquo; they often picture someone who can do the
             splits or bend their fingers backward.
@@ -165,9 +168,9 @@ export default function EdsPage() {
           <p>
             That context didn&apos;t magically make me healthy, but it gave me somewhere to start.
           </p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="My Experience With hEDS">
+        <LearnMoreSection title="My Experience With hEDS">
           <p>
             I was diagnosed with hypermobile Ehlers-Danlos syndrome in 2021, but the story starts
             much earlier than the diagnosis.
@@ -182,11 +185,7 @@ export default function EdsPage() {
             mobility problems became significant parts of my everyday life.
           </p>
           <p>I&apos;ve experienced things like:</p>
-          <ul className="list-disc space-y-1 pl-6">
-            {experienceItems.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <BulletList items={experienceItems} />
           <p>
             I also live with several conditions that can overlap with or complicate EDS, including
             POTS/dysautonomia, mast-cell-related symptoms, chronic gastrointestinal issues, chronic
@@ -201,9 +200,9 @@ export default function EdsPage() {
             treated as a checklist for what someone else&apos;s EDS is supposed to look like.
           </p>
           <p>But that&apos;s also why I think sharing our experiences matters.</p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="Disability Isn’t a Personal Failure">
+        <LearnMoreSection title="Disability Isn’t a Personal Failure">
           <p>
             One of the biggest things EDS has forced me to learn is that doing something the
             &ldquo;normal&rdquo; way isn&apos;t inherently better.
@@ -233,9 +232,9 @@ export default function EdsPage() {
           <p>
             That change in thinking has been as important to me as almost any individual treatment.
           </p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="Learning My Body">
+        <LearnMoreSection title="Learning My Body">
           <p>EDS has also required me to become extraordinarily familiar with my own body.</p>
           <p>
             I&apos;ve had to learn the difference between pain that means this muscle is angry,
@@ -265,9 +264,9 @@ export default function EdsPage() {
           <p className="italic">&ldquo;How do I make myself able to do this?&rdquo;</p>
           <p>It&apos;s:</p>
           <p className="italic">&ldquo;How can I change this so my body can do it?&rdquo;</p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="The Guide I Wish I’d Had">
+        <LearnMoreSection title="The Guide I Wish I’d Had">
           <p>
             <em>So, You Think You’re Hypermobile?</em> is my attempt to put years of lived
             experience, research, trial and error, conversations with other disabled people, and
@@ -275,18 +274,17 @@ export default function EdsPage() {
           </p>
           <p>The guide explores:</p>
           {guideTopics.map((topic) => (
-            <div key={topic.title} className="space-y-1">
-              <h3 className="font-display text-xl text-room-teal">{topic.title}</h3>
+            <LearnMoreSection key={topic.title} title={topic.title} headingLevel={3}>
               <p>{topic.body}</p>
-            </div>
+            </LearnMoreSection>
           ))}
           <p>
             And, perhaps most importantly, the guide talks about learning to accommodate yourself
             before your body forces you to.
           </p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="A Guide From One Trans EDSer to Another">
+        <LearnMoreSection title="A Guide From One Trans EDSer to Another">
           <p>I specifically wrote this resource from the perspective of a trans disabled person.</p>
           <p>
             Being trans can make navigating healthcare complicated enough before adding a poorly
@@ -308,15 +306,15 @@ export default function EdsPage() {
             for years.
           </p>
           <p>That&apos;s what I hope this guide can be.</p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="Start Here">
+        <LearnMoreSection title="Start Here">
           <p>
             If you&apos;ve recently discovered you&apos;re hypermobile, suspect you may have EDS or
             HSD, love someone who&apos;s beginning this process, or simply want to understand what
             living with a connective-tissue disorder can actually look like:
           </p>
-          <GuideCta href={GUIDE_HREF} label={GUIDE_CTA} isDominant />
+          <GuideCta href={guideHref} label={GUIDE_CTA} isDominant />
           <p className="text-center font-display text-2xl text-room-teal">
             So, You Think You’re Hypermobile?
           </p>
@@ -330,9 +328,9 @@ export default function EdsPage() {
           <p>
             Most of all, start learning the language your body has been speaking to you all along.
           </p>
-        </Section>
+        </LearnMoreSection>
 
-        <Section title="A Note About Medical Information">
+        <LearnMoreSection title="A Note About Medical Information">
           <p>
             This website discusses my personal experiences with disability, Ehlers-Danlos
             syndrome, medical care, medications, procedures, and strategies that I or other people
@@ -354,17 +352,8 @@ export default function EdsPage() {
             If something new, severe, or concerning is happening with your body, don&apos;t assume
             it&apos;s &ldquo;just EDS.&rdquo;
           </p>
-        </Section>
+        </LearnMoreSection>
       </WallCard>
     </RoomPage>
-  )
-}
-
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => {
-  return (
-    <section className="space-y-4 border-l-4 border-room-gold pl-4 sm:pl-5">
-      <h2 className="font-display text-2xl text-room-teal sm:text-3xl">{title}</h2>
-      {children}
-    </section>
   )
 }

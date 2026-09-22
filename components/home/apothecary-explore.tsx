@@ -26,8 +26,11 @@ const sitemap: SitemapSection[] = [
     href: '/',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'Coaching', href: '/coaching' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/about#contact' },
+      { label: 'Sitemap', href: '/sitemap' },
+      { label: 'Your library', href: '/library' },
     ],
   },
   {

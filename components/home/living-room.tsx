@@ -5,16 +5,18 @@ export const LivingRoom = () => {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-room-wall to-transparent" />
 
         <div className="relative mx-auto flex w-full max-w-6xl items-end justify-center">
+          <JarShelves side="left" shelves={leftJarSets} />
           <SideTable side="left" />
 
           <div className="relative min-w-0 flex-[2] px-1 sm:px-3">
             <CouchIllustration />
-            <div className="absolute bottom-[7%] left-1/2 z-20 w-56 -translate-x-1/2 sm:w-72">
+            <div className="gold-table absolute bottom-[7%] left-1/2 z-20 w-[min(18rem,42vw)] -translate-x-1/2 [font-size:clamp(0.45rem,2.6vw,1rem)]">
               <GoldTable />
             </div>
           </div>
 
           <SideTable side="right" />
+          <JarShelves side="right" shelves={rightJarSets} />
         </div>
 
         <p className="relative z-10 mt-8 text-center font-script text-3xl text-room-gold drop-shadow sm:mt-10 sm:text-5xl">
@@ -64,14 +66,119 @@ const CouchIllustration = () => {
   )
 }
 
-const SideTable = ({ side }: { side: 'left' | 'right' }) => {
+const leftJarSets: JarSpec[][] = [
+  [
+    { size: 'md', tint: 'rgba(19, 111, 99, 0.32)' },
+    { size: 'tall', tint: 'rgba(196, 146, 44, 0.24)' },
+    { size: 'sm', tint: 'rgba(245, 169, 184, 0.28)' },
+    { size: 'md', tint: 'rgba(47, 122, 110, 0.3)' },
+  ],
+  [
+    { size: 'sm', tint: 'rgba(91, 206, 250, 0.22)' },
+    { size: 'md', tint: 'rgba(133, 106, 93, 0.28)' },
+    { size: 'tall', tint: 'rgba(15, 92, 83, 0.3)' },
+    { size: 'md', tint: 'rgba(232, 180, 74, 0.22)' },
+  ],
+]
+
+const rightJarSets: JarSpec[][] = [
+  [
+    { size: 'tall', tint: 'rgba(15, 92, 83, 0.3)' },
+    { size: 'md', tint: 'rgba(245, 169, 184, 0.26)' },
+    { size: 'sm', tint: 'rgba(196, 146, 44, 0.24)' },
+    { size: 'md', tint: 'rgba(91, 206, 250, 0.22)' },
+  ],
+  [
+    { size: 'md', tint: 'rgba(47, 122, 110, 0.3)' },
+    { size: 'sm', tint: 'rgba(232, 180, 74, 0.22)' },
+    { size: 'tall', tint: 'rgba(133, 106, 93, 0.26)' },
+    { size: 'md', tint: 'rgba(19, 111, 99, 0.32)' },
+  ],
+]
+
+const JarShelves = ({
+  side,
+  shelves,
+}: {
+  side: 'left' | 'right'
+  shelves: JarSpec[][]
+}) => {
+  const sideClass = side === 'left' ? 'mr-1 sm:mr-3' : 'ml-1 sm:ml-3'
+
   return (
-    <div className="relative z-10 mb-8 flex w-[4.8rem] shrink-0 flex-col items-center sm:mb-10 sm:w-28">
+    <div
+      className={`relative z-10 mb-20 flex w-[5.4rem] shrink-0 flex-col gap-5 sm:mb-24 sm:w-40 sm:gap-7 ${sideClass}`}
+      role="img"
+      aria-label="Two black floating shelves of clear apothecary jars with gold lids"
+    >
+      {shelves.map((jars, shelfIndex) => (
+        <Shelf key={shelfIndex} jars={jars} />
+      ))}
+    </div>
+  )
+}
+
+interface JarSpec {
+  size: 'sm' | 'md' | 'tall'
+  tint: string
+}
+
+const Shelf = ({ jars }: { jars: JarSpec[] }) => {
+  return (
+    <div className="flex flex-col">
+      <div className="flex items-end justify-center gap-1 px-1 pb-0.5 sm:gap-1.5 sm:px-2">
+        {jars.map((jar, index) => (
+          <Jar key={`${jar.size}-${jar.tint}-${index}`} size={jar.size} tint={jar.tint} />
+        ))}
+      </div>
+      <div className="h-2 rounded-[2px] bg-gradient-to-b from-[#2a2a2a] via-black to-[#111] shadow-[0_8px_12px_rgba(0,0,0,0.4)] ring-1 ring-black sm:h-2.5" />
+      <div className="mx-auto h-[3px] w-[94%] bg-[#0a0a0a]" />
+    </div>
+  )
+}
+
+const Jar = ({ size, tint }: JarSpec) => {
+  const sizeClass = {
+    sm: 'h-9 w-[1.15rem] sm:h-11 sm:w-6',
+    md: 'h-11 w-[1.3rem] sm:h-14 sm:w-7',
+    tall: 'h-12 w-[1.2rem] sm:h-16 sm:w-6',
+  }[size]
+
+  return (
+    <div className={`relative flex ${sizeClass} flex-col items-center`}>
+      <div className="z-10 h-1.5 w-[88%] rounded-sm bg-gradient-to-r from-[#c4922c] via-room-gold to-[#e8b44a] ring-1 ring-[#8a6a1a] sm:h-2" />
+      <div className="h-1 w-full rounded-sm bg-[#b8862b]" />
+      <div
+        className="relative min-h-0 w-[78%] flex-1 overflow-hidden rounded-b-[5px] border border-white/55 shadow-[inset_0_0_10px_rgba(255,255,255,0.28),0_2px_4px_rgba(0,0,0,0.18)]"
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(255,255,255,0.42) 0%, rgba(210,228,232,0.14) 38%, rgba(255,255,255,0.2) 100%)',
+        }}
+      >
+        <span
+          className="absolute inset-x-[12%] bottom-[8%] top-[48%] rounded-b-sm"
+          style={{ background: tint }}
+          aria-hidden="true"
+        />
+        <span className="absolute left-[16%] top-[12%] h-[70%] w-[18%] rounded-full bg-white/40" aria-hidden="true" />
+        <span className="absolute left-1/2 top-[36%] h-[26%] w-[72%] -translate-x-1/2 rounded-[2px] bg-[#f7f0e6] shadow-sm ring-1 ring-black/10" />
+      </div>
+    </div>
+  )
+}
+
+const SideTable = ({ side }: { side: 'left' | 'right' }) => {
+  const tuckClass = side === 'left' ? '-mr-2 sm:-mr-4' : '-ml-2 sm:-ml-4'
+
+  return (
+    <div
+      className={`relative z-10 mb-1 flex w-[4.8rem] shrink-0 flex-col items-center sm:mb-2 sm:w-28 ${tuckClass}`}
+    >
       <div className="relative w-full">
         <div className="absolute left-1/2 top-[18%] z-0 h-2.5 w-[4.4rem] -translate-x-1/2 rounded-sm bg-gradient-to-r from-[#c4922c] via-room-gold to-[#c4922c] shadow-md ring-1 ring-[#8a6a1a] sm:h-3 sm:w-24" />
         <div className="absolute left-1/2 top-[calc(18%+10px)] z-0 flex w-12 -translate-x-1/2 justify-between sm:w-16">
-          <div className="h-14 w-1 origin-top -rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a] sm:h-16 sm:w-1.5" />
-          <div className="h-14 w-1 origin-top rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a] sm:h-16 sm:w-1.5" />
+          <div className="h-10 w-1 origin-top -rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a] sm:h-12 sm:w-1.5" />
+          <div className="h-10 w-1 origin-top rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a] sm:h-12 sm:w-1.5" />
         </div>
         <HangingPothos flip={side === 'right'} />
       </div>
@@ -83,7 +190,7 @@ const HangingPothos = ({ flip }: { flip: boolean }) => {
   return (
     <svg
       viewBox="0 0 130 320"
-      className={`relative z-20 h-52 w-full overflow-visible sm:h-64 ${flip ? '-scale-x-100' : ''}`}
+      className={`relative z-20 h-36 w-full overflow-visible sm:h-48 ${flip ? '-scale-x-100' : ''}`}
       aria-hidden="true"
     >
       <path d="M44 36 L86 36 L94 62 L36 62 Z" fill="#856A5D" />
@@ -162,19 +269,19 @@ const HangingPothos = ({ flip }: { flip: boolean }) => {
 const GoldTable = () => {
   return (
     <div className="relative">
-      <div className="mb-1 flex items-end justify-center gap-3 sm:gap-5">
+      <div className="mb-[0.25em] flex items-end justify-center gap-[0.75em] sm:gap-[1.25em]">
         <Candle wax="#F5A9B8" glow="bg-[#F5A9B8]/60" />
         <Candle wax="#F7F1E4" glow="bg-white/70" />
         <Candle wax="#5BCEFA" glow="bg-[#5BCEFA]/60" />
-        <div className="ml-4 sm:ml-8">
+        <div className="ml-[1em] sm:ml-[2em]">
           <Incense />
         </div>
       </div>
-      <div className="h-3.5 rounded-full bg-gradient-to-r from-[#c4922c] via-room-gold to-[#c4922c] shadow-[0_10px_18px_rgba(0,0,0,0.4)] ring-1 ring-[#8a6a1a]" />
-      <div className="mx-auto h-2 w-[90%] -translate-y-[1px] rounded-b-full bg-[#b8862b]" />
-      <div className="flex justify-between px-8">
-        <div className="h-12 w-1.5 origin-top -rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a]" />
-        <div className="h-12 w-1.5 origin-top rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a]" />
+      <div className="h-[0.875em] rounded-full bg-gradient-to-r from-[#c4922c] via-room-gold to-[#c4922c] shadow-[0_10px_18px_rgba(0,0,0,0.4)] ring-1 ring-[#8a6a1a]" />
+      <div className="mx-auto h-[0.5em] w-[90%] -translate-y-px rounded-b-full bg-[#b8862b]" />
+      <div className="flex justify-between px-[12%]">
+        <div className="h-[3em] w-[0.375em] origin-top -rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a]" />
+        <div className="h-[3em] w-[0.375em] origin-top rotate-6 bg-gradient-to-b from-room-gold to-[#8a6a1a]" />
       </div>
     </div>
   )
@@ -183,15 +290,17 @@ const GoldTable = () => {
 const Candle = ({ wax, glow }: { wax: string; glow: string }) => {
   return (
     <div className="relative flex flex-col items-center">
-      <div className={`absolute -top-6 left-1/2 h-10 w-10 -translate-x-1/2 rounded-full blur-md animate-glow ${glow}`} />
-      <div className="relative z-10 h-6 w-3.5 origin-bottom rounded-full bg-gradient-to-t from-orange-600 via-yellow-300 to-white animate-flicker" />
       <div
-        className="h-14 w-4 rounded-sm shadow-inner sm:h-16 sm:w-5"
+        className={`absolute -top-[1.5em] left-1/2 h-[2.5em] w-[2.5em] -translate-x-1/2 rounded-full blur-md animate-glow ${glow}`}
+      />
+      <div className="relative z-10 h-[1.5em] w-[0.875em] origin-bottom rounded-full bg-gradient-to-t from-orange-600 via-yellow-300 to-white animate-flicker" />
+      <div
+        className="h-[4em] w-[1.25em] rounded-sm shadow-inner"
         style={{
           background: `linear-gradient(to bottom, ${wax}, color-mix(in srgb, ${wax} 70%, #856A5D))`,
         }}
       />
-      <div className="h-2 w-6 rounded-sm bg-room-gold sm:h-2.5 sm:w-7" />
+      <div className="h-[0.5em] w-[1.75em] rounded-sm bg-room-gold" />
     </div>
   )
 }
@@ -199,16 +308,16 @@ const Candle = ({ wax, glow }: { wax: string; glow: string }) => {
 const Incense = () => {
   return (
     <div className="relative flex flex-col items-center">
-      <div className="relative h-20 w-12">
-        <SmokeWisp delay="0s" drift="-3px" />
-        <SmokeWisp delay="1.1s" drift="7px" />
-        <SmokeWisp delay="2.2s" drift="0px" />
-        <SmokeWisp delay="3.3s" drift="-6px" />
-        <div className="absolute bottom-0 left-1/2 h-[4.6rem] w-[3px] origin-bottom -translate-x-1/2 -rotate-[12deg] bg-gradient-to-t from-[#4a3428] via-room-brown to-[#d7c09a]">
-          <span className="absolute -top-0.5 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-orange-300 shadow-[0_0_8px_rgba(255,200,87,0.9)]" />
+      <div className="relative h-[5em] w-[3em]">
+        <SmokeWisp delay="0s" drift="-0.2em" />
+        <SmokeWisp delay="1.1s" drift="0.45em" />
+        <SmokeWisp delay="2.2s" drift="0em" />
+        <SmokeWisp delay="3.3s" drift="-0.4em" />
+        <div className="absolute bottom-0 left-1/2 h-[4.6em] w-[0.2em] origin-bottom -translate-x-1/2 -rotate-[12deg] bg-gradient-to-t from-[#4a3428] via-room-brown to-[#d7c09a]">
+          <span className="absolute -top-[0.125em] left-1/2 h-[0.5em] w-[0.5em] -translate-x-1/2 rounded-full bg-orange-300 shadow-[0_0_8px_rgba(255,200,87,0.9)]" />
         </div>
       </div>
-      <div className="h-2.5 w-12 rounded-full bg-gradient-to-b from-room-brown to-[#5c4639]" />
+      <div className="h-[0.625em] w-[3em] rounded-full bg-gradient-to-b from-room-brown to-[#5c4639]" />
     </div>
   )
 }
@@ -216,7 +325,7 @@ const Incense = () => {
 const SmokeWisp = ({ delay, drift }: { delay: string; drift: string }) => {
   return (
     <span
-      className="absolute bottom-16 left-1/2 h-16 w-7 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.65),rgba(232,220,200,0.15)_70%,transparent_80%)] blur-[2px] animate-smoke-wisp"
+      className="absolute bottom-[4em] left-1/2 h-[4em] w-[1.75em] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.65),rgba(232,220,200,0.15)_70%,transparent_80%)] blur-[2px] animate-smoke-wisp"
       style={{ animationDelay: delay, marginLeft: drift }}
       aria-hidden="true"
     />

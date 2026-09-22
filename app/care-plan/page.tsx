@@ -4,6 +4,7 @@ import { RoomLink } from '@/components/home/room-link'
 import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
+import { LearnMoreSection } from '@/components/home/learn-more-section'
 import { getCarePlanGuideHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     'A practical care-plan system for neurodivergence, chronic illness, disability, mental health, overwhelm, burnout, crisis, and everyday support.',
 }
 
-const COACHING_HREF = '/about#contact'
+const COACHING_HREF = '/coaching'
 const WORKSHOP_HREF = '/care-plan-workshop'
 const DIY_LABEL = 'Get the Care Plan Guide + Blank Template →'
 
@@ -185,7 +186,7 @@ export default function CarePlanPage() {
         </p>
         <GuideCta href={buyHref} label={DIY_LABEL} isDominant />
 
-        <RoomSection title="What Is a Care Plan?">
+        <LearnMoreSection title="What Is a Care Plan?">
           <p>Think of it as:</p>
           <p>An instruction manual for being you.</p>
           <p>Not because you&apos;re a machine.</p>
@@ -208,9 +209,9 @@ export default function CarePlanPage() {
             Your care plan externalizes information that otherwise has to live entirely in your
             head.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="This Isn’t Just a Crisis Plan">
+        <LearnMoreSection title="This Isn’t Just a Crisis Plan">
           <p>Crisis plans matter.</p>
           <p>But this Care Plan starts much earlier.</p>
           <p>
@@ -235,9 +236,9 @@ export default function CarePlanPage() {
             pain, haven&apos;t taken your medication, and have agreed to three more things than
             your brain can currently process.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Blank Care Plan">
+        <LearnMoreSection title="The Blank Care Plan">
           <p>You don&apos;t have to invent the structure yourself.</p>
           <p>
             The Blank Personal Care Plan Template walks you through creating your own plan using
@@ -253,9 +254,9 @@ export default function CarePlanPage() {
           <p>Go absolutely feral with the highlighter.</p>
           <p>The point is to make a document that actually reflects the person using it.</p>
           <GuideCta href={buyHref} label="Get the Blank Care Plan Template →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Start With a Quick Reference">
+        <LearnMoreSection title="Start With a Quick Reference">
           <p>
             Your first pages shouldn&apos;t require someone to read your autobiography before they
             can help you.
@@ -272,9 +273,9 @@ export default function CarePlanPage() {
             It&apos;s designed so someone can get the basics in a few minutes and go deeper when
             they need to.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="“People Think I’m Angry When I’m Actually Overwhelmed.”">
+        <LearnMoreSection title="“People Think I’m Angry When I’m Actually Overwhelmed.”">
           <p>This is exactly the kind of information a care plan can capture.</p>
           <p>Maybe:</p>
           <p>Your silence gets interpreted as punishment.</p>
@@ -293,9 +294,9 @@ export default function CarePlanPage() {
           <p>and</p>
           <p>What it actually means.</p>
           <p>Sometimes that distinction can prevent an enormous amount of unnecessary conflict.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Create an “Understanding Me” Guide">
+        <LearnMoreSection title="Create an “Understanding Me” Guide">
           <p>The template walks you through what support looks like across different states.</p>
           <h3 className="font-display text-xl text-room-teal">When I’m Doing Well</h3>
           <p>How do I normally communicate?</p>
@@ -353,9 +354,9 @@ export default function CarePlanPage() {
           <p className="italic">&ldquo;Soup, sandwich, or should I choose?&rdquo;</p>
           <p>Sometimes support isn&apos;t doing more.</p>
           <p>It&apos;s making the cognitive load smaller.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Communication Guide">
+        <LearnMoreSection title="The Communication Guide">
           <p>Because &ldquo;just communicate&rdquo; is terrible advice if nobody explains how.</p>
           <p>A major section of the Care Plan is devoted entirely to communication.</p>
           <p>You&apos;ll work out:</p>
@@ -383,9 +384,9 @@ export default function CarePlanPage() {
           <p>Maybe you start making decisions.</p>
           <p>Maybe you ask for food.</p>
           <p>Those tiny signs matter.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Build Backup Communication for When Words Stop Working">
+        <LearnMoreSection title="Build Backup Communication for When Words Stop Working">
           <p>Maybe verbal communication becomes difficult when you&apos;re overwhelmed.</p>
           <p>Your plan can identify alternatives such as:</p>
           <p>Texting</p>
@@ -404,9 +405,9 @@ export default function CarePlanPage() {
             while having the worst day of your month.
           </p>
           <p>Build another route.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Green / Yellow / Orange / Red System">
+        <LearnMoreSection title="The Green / Yellow / Orange / Red System">
           <p>One of the core tools in the Care Plan is a personalized distress scale.</p>
           <h3 className="font-display text-xl text-room-teal">🟢 Green — My Normal Range</h3>
           <p>Green doesn&apos;t mean perfectly healthy or symptom-free.</p>
@@ -445,9 +446,9 @@ export default function CarePlanPage() {
             Instead of asking supporters to invent a crisis response while everyone is scared:
           </p>
           <p>You already wrote one.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="“I Don’t Know What’s Wrong.”">
+        <LearnMoreSection title="“I Don’t Know What’s Wrong.”">
           <p>Open the Distress Checklist.</p>
           <p>Sometimes you genuinely don&apos;t know.</p>
           <p>So the Care Plan includes a systematic check of:</p>
@@ -505,9 +506,9 @@ export default function CarePlanPage() {
           <p>What’s the smallest next step?</p>
           <p>You don’t have to intuitively identify the answer.</p>
           <p>Work the problem.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Build a Comfort Menu">
+        <LearnMoreSection title="Build a Comfort Menu">
           <p>A Comfort Menu isn’t simply:</p>
           <p>Things That Make Me Happy™</p>
           <p>
@@ -568,9 +569,9 @@ export default function CarePlanPage() {
           <p>Then when someone asks:</p>
           <p className="italic">&ldquo;What can I do?&rdquo;</p>
           <p>you have an actual menu.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Support for Chronic Illness & Disability">
+        <LearnMoreSection title="Support for Chronic Illness & Disability">
           <p>Some people need another layer.</p>
           <p>
             The template includes an optional Medical Support section for chronically ill,
@@ -595,9 +596,9 @@ export default function CarePlanPage() {
           <p>
             Then you personalize them based on your own healthcare plan and clinician guidance.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Create a High / Medium / Low Capacity Plan">
+        <LearnMoreSection title="Create a High / Medium / Low Capacity Plan">
           <p>Not every day has the same number of spoons.</p>
           <p>
             Instead of expecting yourself to maintain your highest level of functioning every day,
@@ -615,9 +616,9 @@ export default function CarePlanPage() {
           <p>What should someone else take over?</p>
           <p>A low-capacity plan means you don’t have to decide whether you’re “failing.”</p>
           <p>You’re following the plan for the capacity you actually have.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Relationships Need Care Plans Too">
+        <LearnMoreSection title="Relationships Need Care Plans Too">
           <p>Your Care Plan can also explain how you want conflict handled.</p>
           <p>Not:</p>
           <p className="italic">&ldquo;Nobody is ever allowed to disagree with me.&rdquo;</p>
@@ -643,9 +644,9 @@ export default function CarePlanPage() {
             works much better than launching into the issue while someone is half-asleep, hungry,
             overstimulated, and trying to put on their shoes.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Know When to Pause">
+        <LearnMoreSection title="Know When to Pause">
           <p>Your plan helps identify signs that productive communication has stopped.</p>
           <p>Maybe you’re:</p>
           <p>Dissociating</p>
@@ -663,9 +664,9 @@ export default function CarePlanPage() {
           <p>When are we coming back?</p>
           <p>What does “I need a break” actually mean?</p>
           <p>Because taking a break from conflict and abandoning conflict aren’t the same thing.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Make the Emergency Plan Before the Emergency">
+        <LearnMoreSection title="Make the Emergency Plan Before the Emergency">
           <p>The Safety &amp; Red Alert Plan is the:</p>
           <p>Everything Has Gone Sideways Page.</p>
           <p>
@@ -690,9 +691,9 @@ export default function CarePlanPage() {
             It removes decisions from a moment when your ability to make decisions may already be
             compromised.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Make Healthcare Easier Too">
+        <LearnMoreSection title="Make Healthcare Easier Too">
           <p>The Care Plan includes a section specifically designed to share with:</p>
           <p>
             Doctors • Specialists • Therapists • Psychiatrists • Emergency departments • Physical
@@ -724,9 +725,9 @@ export default function CarePlanPage() {
             A short explanation of what someone needs to understand about you within the first 30
             seconds.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What’s Included in the Blank Care Plan?">
+        <LearnMoreSection title="What’s Included in the Blank Care Plan?">
           <p>The complete template includes sections for:</p>
           <BulletList items={templateSections} />
           <p>
@@ -734,9 +735,9 @@ export default function CarePlanPage() {
             the framework into your plan.
           </p>
           <GuideCta href={buyHref} label="Get the Blank Care Plan →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="And There’s a Guide for Actually Making It">
+        <LearnMoreSection title="And There’s a Guide for Actually Making It">
           <p>Because giving someone a 50-page blank template and saying:</p>
           <p className="italic">&ldquo;Have fun!&rdquo;</p>
           <p>would be an objectively terrible care-planning system.</p>
@@ -744,9 +745,9 @@ export default function CarePlanPage() {
           <p>You’ll learn how to:</p>
           <BulletList items={guideSkills} />
           <GuideCta href={buyHref} label={DIY_LABEL} isDominant />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="“This Is Exactly What I Need, and I Have No Idea How to Fill It Out.”">
+        <LearnMoreSection title="“This Is Exactly What I Need, and I Have No Idea How to Fill It Out.”">
           <p>Perfectly reasonable.</p>
           <p>Figuring out what you need is often the hard part.</p>
           <p>Especially if you’re:</p>
@@ -763,7 +764,7 @@ export default function CarePlanPage() {
           <p>thinking:</p>
           <p className="italic">I don’t fucking know. That’s why I’m overwhelmed.</p>
           <p>You don’t have to figure it out alone.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Build Your Care Plan With Me">
           <h3 className="font-display text-xl text-room-teal">One-on-One Care Plan Coaching</h3>
@@ -782,15 +783,15 @@ export default function CarePlanPage() {
           <GuideCta href={COACHING_HREF} label="Book Care Plan Coaching →" />
         </RoomSection>
 
-        <RoomSection title="We Can Build the Plan Together">
+        <LearnMoreSection title="We Can Build the Plan Together">
           <p>Depending on your needs, coaching can focus on:</p>
           <BulletList items={coachingTopics} />
           <p>Or:</p>
           <p className="italic">&ldquo;I have no idea what I need. Help me figure it out.&rdquo;</p>
           <p>That’s a valid place to start.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Make a Care Plan for Someone You Love">
+        <LearnMoreSection title="Make a Care Plan for Someone You Love">
           <p>The template doesn’t have to be completed alone.</p>
           <p>It can become a structured conversation between:</p>
           <p>Partners</p>
@@ -816,7 +817,7 @@ export default function CarePlanPage() {
           <p>What helps them retain autonomy?</p>
           <p>A good care plan isn’t instructions for controlling another person.</p>
           <p>It’s instructions for supporting them without erasing them.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Want to Help Other People Build Their Own Care Plans?">
           <p>Maybe you don’t only want one for yourself.</p>
@@ -841,7 +842,7 @@ export default function CarePlanPage() {
           <p>They leave having begun to make one.</p>
         </RoomSection>
 
-        <RoomSection title="Get the Care Plan Workshop Kit">
+        <LearnMoreSection title="Get the Care Plan Workshop Kit">
           <p>
             For facilitators who want to run their own Care Plan Creation session, I offer a
             workshop resource package built from the same framework.
@@ -896,9 +897,9 @@ export default function CarePlanPage() {
             to disclose personal information publicly.
           </p>
           <GuideCta href={WORKSHOP_HREF} label="Get the Care Plan Workshop Kit →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="You Don’t Have to Be Someone’s Therapist to Help Them Think">
+        <LearnMoreSection title="You Don’t Have to Be Someone’s Therapist to Help Them Think">
           <p>
             A care-plan workshop shouldn’t involve the facilitator diagnosing participants or
             deciding what they need.
@@ -926,7 +927,7 @@ export default function CarePlanPage() {
           </p>
           <p>The workshop framework is built around:</p>
           <p>Curiosity rather than assumptions.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Learn How to Facilitate the Workshop With Me">
           <h3 className="font-display text-xl text-room-teal">Care Plan Facilitator Coaching</h3>
@@ -939,7 +940,7 @@ export default function CarePlanPage() {
           <GuideCta href={COACHING_HREF} label="Book Facilitator Coaching →" />
         </RoomSection>
 
-        <RoomSection title="Adapt the Workshop to Your Community">
+        <LearnMoreSection title="Adapt the Workshop to Your Community">
           <p>Not every group needs the same Care Plan.</p>
           <p>A workshop for autistic adults may spend much more time on:</p>
           <p>Communication • Sensory needs • Shutdowns • Meltdowns • Masking • Executive function</p>
@@ -955,9 +956,9 @@ export default function CarePlanPage() {
             I can help you adapt the framework without requiring every participant to squeeze
             themselves into the same template.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Want to Help Someone One-on-One?">
+        <LearnMoreSection title="Want to Help Someone One-on-One?">
           <p>
             The facilitator resources can also support structured individual care-plan creation,
             not only workshops.
@@ -978,7 +979,7 @@ export default function CarePlanPage() {
           <p>The principle stays the same:</p>
           <p>You’re not writing a plan about someone.</p>
           <p>You’re helping them create a plan that belongs to them.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Four Ways to Use the Care Plan System">
           <h3 className="font-display text-xl text-room-teal">1. Make One Yourself</h3>
@@ -1011,7 +1012,7 @@ export default function CarePlanPage() {
           <GuideCta href={COACHING_HREF} label="Book Facilitator Coaching →" />
         </RoomSection>
 
-        <RoomSection title="Created by Quinn Fleur">
+        <LearnMoreSection title="Created by Quinn Fleur">
           <p>Hi, I&apos;m Quinn Fleur.</p>
           <p>
             I&apos;m autistic, ADHD, disabled, chronically ill, queer, and someone whose ability
@@ -1042,9 +1043,9 @@ export default function CarePlanPage() {
             for.
           </p>
           <p>A care plan can help us understand ourselves on ordinary days too.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="A Care Plan Isn’t Permission to Control Someone">
+        <LearnMoreSection title="A Care Plan Isn’t Permission to Control Someone">
           <p>This is important.</p>
           <p>A Care Plan should support autonomy.</p>
           <p>It should not become:</p>
@@ -1065,9 +1066,9 @@ export default function CarePlanPage() {
           <p>
             The purpose of knowing someone’s needs is to support their autonomy—not replace it.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Your Care Plan Is Allowed to Change">
+        <LearnMoreSection title="Your Care Plan Is Allowed to Change">
           <p>The plan you make today isn’t a contract with Future You.</p>
           <p>Maybe you discover a better communication strategy.</p>
           <p>Maybe medication changes your baseline.</p>
@@ -1085,7 +1086,7 @@ export default function CarePlanPage() {
           <p className="italic">&ldquo;We tried this. Turns out I fucking hate it.&rdquo;</p>
           <p>That’s useful information.</p>
           <p>A Care Plan should grow alongside the person it belongs to.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Stop Expecting Yourself to Explain Everything in the Moment">
           <p>

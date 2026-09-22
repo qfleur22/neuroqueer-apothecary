@@ -15,14 +15,6 @@ export default function AboutPage() {
   return (
     <RoomPage>
       <WallCard title="The Neuroqueer Apothecary" wide>
-        <div className="relative mx-auto mb-8 h-64 w-48 overflow-hidden ornate-gold p-2 sm:h-80 sm:w-60">
-          <img
-            src="/gallery/quinn-portrait.png"
-            alt="Portrait of Quinn Fleur"
-            className="h-full w-full object-cover object-[center_20%]"
-          />
-        </div>
-
         <p>
           The Neuroqueer Apothecary is a collection of resources, tools, and peer coaching by Quinn
           Fleur, built for those of us living in the messy intersections of transness,
@@ -69,8 +61,15 @@ export default function AboutPage() {
 
         <ApothecaryExplore />
 
-        <section className="space-y-5 border-t border-room-brown/30 pt-8">
+        <section id="quinn" className="scroll-mt-[12.5rem] space-y-5 border-t border-room-brown/30 pt-8 sm:scroll-mt-[15rem]">
           <h2 className="font-display text-3xl text-room-teal sm:text-4xl">About me</h2>
+          <div className="relative mx-auto h-64 w-48 overflow-hidden ornate-gold p-2 sm:h-80 sm:w-60">
+            <img
+              src="/gallery/quinn-portrait.png"
+              alt="Portrait of Quinn Fleur"
+              className="h-full w-full object-cover object-[center_20%]"
+            />
+          </div>
           <p>
             Hi, I&apos;m Quinten Thistle Fleur, also known as Quinn. I&apos;m a 30-year-old web
             developer, activist, and doer of things. I&apos;ve found that I consistently send people

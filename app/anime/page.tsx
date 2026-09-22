@@ -4,6 +4,7 @@ import { RoomLink } from '@/components/home/room-link'
 import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
+import { LearnMoreSection } from '@/components/home/learn-more-section'
 
 export const metadata: Metadata = {
   title: 'Trans+ Representation in Anime',
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 const DATABASE =
   'https://docs.google.com/spreadsheets/d/1RAGFgfxsFJCaiNvmvz7g1qVpm3gXo6Em_gMJOZppL64/edit'
-const COACHING_HREF = '/about#contact'
+const COACHING_HREF = '/coaching'
 const PANEL_HREF = '/anime-panel'
 
 const audienceItems = [
@@ -90,7 +91,7 @@ export default function AnimePage() {
         <p className="italic">What actually makes trans representation good?</p>
         <GuideCta href={DATABASE} label="Explore Trans+ Representation in Anime →" isDominant />
 
-        <RoomSection title="More Than a List of Trans Anime Characters">
+        <LearnMoreSection title="More Than a List of Trans Anime Characters">
           <p>If you&apos;re looking for a spreadsheet that simply says:</p>
           <p>Character: trans</p>
           <p>Anime: yes</p>
@@ -120,9 +121,9 @@ export default function AnimePage() {
           <p>Are they a complete person—or a gender joke wearing a wig?</p>
           <p>What did this representation mean when it was created?</p>
           <p>And what can we learn from it now?</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What Makes Good Representation?">
+        <LearnMoreSection title="What Makes Good Representation?">
           <p>
             Putting a trans character on screen doesn&apos;t automatically make something good
             representation.
@@ -199,9 +200,9 @@ export default function AnimePage() {
             The strongest representation gives gender-diverse characters enough complexity to
             simply be people.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Database">
+        <LearnMoreSection title="The Database">
           <p>Come for the recommendations. Accidentally spend three hours sorting a spreadsheet.</p>
           <p>
             At the center of this project is Quinn&apos;s growing Trans+ Representation in Anime
@@ -222,9 +223,9 @@ export default function AnimePage() {
           <p>Context.</p>
           <p>Because a star rating alone can&apos;t tell you why something matters.</p>
           <GuideCta href={DATABASE} label="Explore the Anime Representation Database →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Find Your Next Watch">
+        <LearnMoreSection title="Find Your Next Watch">
           <p>Maybe you&apos;re not here to write a thesis about gender.</p>
           <p>Maybe you just want something gay to watch tonight.</p>
           <p>Excellent.</p>
@@ -237,9 +238,9 @@ export default function AnimePage() {
             complicated cases, and shows Quinn includes specifically because they&apos;re useful
             examples of what not to do.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Great Big “Is This Actually Trans Representation?” Problem">
+        <LearnMoreSection title="The Great Big “Is This Actually Trans Representation?” Problem">
           <p>Anime makes this question especially interesting.</p>
           <p>What do we do with:</p>
           <p>Body-swapping stories?</p>
@@ -260,9 +261,9 @@ export default function AnimePage() {
             The project distinguishes between explicit representation and gender exploration,
             allowing us to talk about both without pretending they&apos;re the same thing.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Some Anime Were Queer Before You Were Born">
+        <LearnMoreSection title="Some Anime Were Queer Before You Were Born">
           <p>Trans and gender-diverse themes in anime didn&apos;t suddenly appear in the 2020s.</p>
           <p>
             The project reaches backward through anime and manga history to examine works such as:
@@ -287,9 +288,9 @@ export default function AnimePage() {
             Problematic Trash Can™.
           </p>
           <p>It&apos;s to understand what it did, when it did it, and what came next.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="And Yes, We’re Talking About the Bad Ones Too">
+        <LearnMoreSection title="And Yes, We’re Talking About the Bad Ones Too">
           <p>
             You cannot really understand the history of trans representation without talking about
             the representations that failed.
@@ -311,9 +312,9 @@ export default function AnimePage() {
           <p>Who is the audience expected to laugh at?</p>
           <p>How could the same premise be handled differently?</p>
           <p>Bad representation can teach us an enormous amount about good representation.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Quinn’s Representation Ratings">
+        <LearnMoreSection title="Quinn’s Representation Ratings">
           <p>Every representation rating answers a specific question:</p>
           <p className="italic">
             How well does this work handle its transgender or gender-diverse representation?
@@ -337,9 +338,9 @@ export default function AnimePage() {
           </p>
           <p>The score starts the conversation.</p>
           <p>The analysis explains it.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Some Favorites to Start With">
+        <LearnMoreSection title="Some Favorites to Start With">
           <p>If you&apos;re looking for stronger examples, the project explores works such as:</p>
           <p>
             <strong>Wandering Son</strong>
@@ -369,9 +370,9 @@ export default function AnimePage() {
           <p>Anime is a beautiful medium.</p>
           <p>These are only the beginning.</p>
           <GuideCta href={DATABASE} label="Browse All Recommendations →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Turn the Research Into a Convention Panel">
+        <LearnMoreSection title="Turn the Research Into a Convention Panel">
           <p>Maybe you&apos;re looking at all of this thinking:</p>
           <p className="italic">
             I would absolutely listen to someone yell about this for an hour at an anime
@@ -402,7 +403,7 @@ export default function AnimePage() {
             organization, library, college, or community event, you don&apos;t have to build the
             presentation from scratch.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Get the Complete Convention Panel Kit">
           <p>The research is already done. The slides are already made. The speaker notes are already there.</p>
@@ -451,7 +452,7 @@ export default function AnimePage() {
           <GuideCta href={PANEL_HREF} label="Get the Complete Panel Kit →" isDominant />
         </RoomSection>
 
-        <RoomSection title="“I Want to Present This, but I’ve Never Run a Con Panel.”">
+        <LearnMoreSection title="“I Want to Present This, but I’ve Never Run a Con Panel.”">
           <p>That&apos;s also something Quinn can help with.</p>
           <h3 className="font-display text-xl text-room-teal">Convention Panel Coaching</h3>
           <p>
@@ -467,9 +468,9 @@ export default function AnimePage() {
             people?
           </p>
           <p>We can work on that.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What Can Panel Coaching Help With?">
+        <LearnMoreSection title="What Can Panel Coaching Help With?">
           <p>Depending on what you need, coaching can cover:</p>
           <BulletList items={coachingItems} />
           <p>
@@ -488,9 +489,9 @@ export default function AnimePage() {
             allotted panel time.
           </p>
           <GuideCta href={COACHING_HREF} label="Book Convention Panel Coaching →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Build Your Version, Not a Quinn Impression">
+        <LearnMoreSection title="Build Your Version, Not a Quinn Impression">
           <p>The presentation kit gives you a foundation.</p>
           <p>It isn&apos;t supposed to turn you into Quinn.</p>
           <p>
@@ -507,7 +508,7 @@ export default function AnimePage() {
             Quinn can help you adapt the material into a panel that fits your event and your voice
             while maintaining the research and analytical framework underneath it.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Choose Your Rabbit Hole">
           <h3 className="font-display text-xl text-room-teal">I Want to Explore</h3>
@@ -537,7 +538,7 @@ export default function AnimePage() {
           <GuideCta href={COACHING_HREF} label="Book Panel Coaching →" />
         </RoomSection>
 
-        <RoomSection title="Built by a Trans Anime Nerd Who Had Questions">
+        <LearnMoreSection title="Built by a Trans Anime Nerd Who Had Questions">
           <p>Hi, I&apos;m Quinn Fleur.</p>
           <p>
             I&apos;m trans, neurodivergent, a lifelong lover of media analysis, and the kind of
@@ -564,16 +565,16 @@ export default function AnimePage() {
           <p>The deeper I went, the more interesting the history became.</p>
           <p>So I built the resource I wanted to exist.</p>
           <p>And then, naturally, I made a PowerPoint about it.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="For Fans, Researchers, Educators & Professional PowerPoint Enjoyers">
+        <LearnMoreSection title="For Fans, Researchers, Educators & Professional PowerPoint Enjoyers">
           <p>You might love this project if:</p>
           <BulletList items={audienceItems} />
           <p>Welcome.</p>
           <p>There&apos;s a spreadsheet.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="A Living Resource">
+        <LearnMoreSection title="A Living Resource">
           <p>Representation doesn&apos;t stop.</p>
           <p>New anime air.</p>
           <p>New manga get translated.</p>
@@ -593,7 +594,7 @@ export default function AnimePage() {
           <p>If something is wrong, corrections are welcome.</p>
           <p>The goal isn&apos;t for one person to become the Supreme Authority on Anime Gender.</p>
           <p>The goal is to build something genuinely useful.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Ready to Start?">
           <p>

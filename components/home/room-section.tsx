@@ -1,3 +1,9 @@
+const isCompactList = ({ items }: { items: string[] }) => {
+  return items.every((item) => {
+    return item.split(/\s+/).length <= 16 && item.length <= 120
+  })
+}
+
 export const RoomSection = ({
   title,
   children,
@@ -16,8 +22,10 @@ export const RoomSection = ({
 }
 
 export const BulletList = ({ items }: { items: string[] }) => {
+  const isCompact = isCompactList({ items })
+
   return (
-    <ul className="list-disc space-y-1 pl-6">
+    <ul className={isCompact ? 'guide-list guide-list-columns' : 'guide-list'}>
       {items.map((item) => (
         <li key={item}>{item}</li>
       ))}

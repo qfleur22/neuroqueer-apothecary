@@ -1,3 +1,4 @@
+import { DollarSign } from 'lucide-react'
 import { ResourceGroup, ResourceItem } from '@/models/resource-group'
 
 export const ResourceSections = ({ groups }: { groups: ResourceGroup[] }) => {
@@ -30,20 +31,40 @@ export const ResourceSections = ({ groups }: { groups: ResourceGroup[] }) => {
   )
 }
 
+const ResourceName = ({ item }: { item: ResourceItem }) => {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span>{item.name}</span>
+      {item.showDollar ? (
+        <DollarSign
+          size={18}
+          aria-hidden="true"
+          className="shrink-0 text-room-teal"
+        />
+      ) : null}
+    </span>
+  )
+}
+
 const ResourceEntry = ({ item }: { item: ResourceItem }) => {
+  const label = item.showDollar ? `${item.name} (store)` : item.name
+
   return (
     <li>
       {item.href ? (
         <a
           href={item.href}
+          aria-label={label}
           target={item.href.startsWith('http') ? '_blank' : undefined}
           rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           className="font-display text-xl text-black underline decoration-room-gold underline-offset-4 transition hover:text-room-teal"
         >
-          {item.name}
+          <ResourceName item={item} />
         </a>
       ) : (
-        <h3 className="font-display text-xl text-black">{item.name}</h3>
+        <h3 className="font-display text-xl text-black">
+          <ResourceName item={item} />
+        </h3>
       )}
       {item.description ? (
         <p className="mt-1.5 text-base leading-relaxed text-black/80">{item.description}</p>

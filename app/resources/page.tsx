@@ -6,7 +6,7 @@ import { ResourceGroup } from '@/models/resource-group'
 export const metadata: Metadata = {
   title: 'Resources',
   description:
-    'Herbalism, disability, trans, and Charlotte resources from the Neuroqueer Apothecary.',
+    'Herbalism, disability, trans, relationship, and Charlotte resources from the Neuroqueer Apothecary.',
 }
 
 const groups: ResourceGroup[] = [
@@ -47,7 +47,23 @@ const groups: ResourceGroup[] = [
       {
         name: 'Transition guide',
         href: '/transition',
-        description: 'A practical transition guide for questioning, exploring, and building a life that feels more like yours.',
+        description:
+          'A practical transition guide for questioning, exploring, and building a life that feels more like yours.',
+        showDollar: true,
+      },
+      {
+        name: 'Trans+ Representation in Anime',
+        href: '/anime',
+        description:
+          'Explore the characters, stories, history, and wonderfully complicated relationship between anime and gender.',
+        showDollar: true,
+      },
+      {
+        name: 'Trans Representation in Anime Panel Kit',
+        href: '/anime-panel',
+        description:
+          'A ready-to-present panel kit with the PowerPoint, presenter notes, and research spreadsheet already built.',
+        showDollar: true,
       },
       {
         name: 'Queer sex and bodily autonomy guide',
@@ -56,8 +72,40 @@ const groups: ResourceGroup[] = [
       },
       {
         name: 'Know your rights, boundaries, and consent',
-        href: 'https://docs.google.com/document/d/1RMwGjV46_AVT6jsHbFsBRZBrfDYr1WWTI_H2bvjBQz8/edit?usp=sharing',
+        href: '/consent',
         description: 'A primer on rights, boundaries, and consent.',
+      },
+    ],
+  },
+  {
+    id: 'relationships',
+    title: 'Relationship things',
+    href: '/love-languages',
+    cta: '→',
+    items: [
+      {
+        name: 'Love languages',
+        href: '/love-languages',
+        description:
+          'Twelve ways people may communicate and experience care, including seven modern connection styles and five neurodivergent love languages.',
+      },
+      {
+        name: 'Giving love language quiz',
+        href: '/love-languages/giving',
+        description:
+          'Discover the ways you naturally communicate affection, support, attention, and connection.',
+      },
+      {
+        name: 'Receiving love language quiz',
+        href: '/love-languages/receiving',
+        description:
+          'Discover which forms of affection, support, attention, and connection most reliably register as love for you.',
+      },
+      {
+        name: 'Love language coaching',
+        href: '/coaching#love-language-coaching',
+        description:
+          'Work with Quinn to turn giving and receiving profiles into specific, realistic, consent-based ways of building connection.',
       },
     ],
   },
@@ -66,16 +114,25 @@ const groups: ResourceGroup[] = [
     title: 'Disability things',
     items: [
       {
-        name: 'So you think you\'re hypermobile: a guide to EDS',
-        href: '/eds',
+        name: 'So, You Think You’re Hypermobile?',
+        href: '/store/so-you-think-youre-hypermobile',
         description:
-          'A guide to Ehlers-Danlos syndrome, hypermobility, and what to do if this sounds like you.',
+          'A practical guide to hypermobility, Ehlers-Danlos syndrome, and figuring out what the hell your body is doing.',
+        showDollar: true,
       },
       {
-        name: 'How to create a medical binder',
-        href: '/binder',
+        name: 'How to Make Your Own Medical Binder',
+        href: '/diy-binder',
         description:
-          'A system for turning a scattered medical history into something you can actually use at appointments.',
+          'A DIY guide and blank template for turning a scattered medical history into something you can actually use at appointments.',
+        showDollar: true,
+      },
+      {
+        name: 'Custom Medical Binder Creation',
+        href: '/custom-binder',
+        description:
+          'A done-for-you service that turns your scattered medical history into an organized, usable medical binder.',
+        showDollar: true,
       },
     ],
   },

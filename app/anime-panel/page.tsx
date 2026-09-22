@@ -4,6 +4,7 @@ import { RoomLink } from '@/components/home/room-link'
 import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
+import { LearnMoreSection } from '@/components/home/learn-more-section'
 import { getAnimeKitHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 const DATABASE =
   'https://docs.google.com/spreadsheets/d/1RAGFgfxsFJCaiNvmvz7g1qVpm3gXo6Em_gMJOZppL64/edit'
-const COACHING_HREF = '/about#contact'
+const COACHING_HREF = '/coaching'
 const KIT_LABEL = 'Get the Convention Panel Kit →'
 
 const topicItems = [
@@ -164,7 +165,7 @@ export default function AnimePanelPage() {
         </p>
         <GuideCta href={buyHref} label={KIT_LABEL} isDominant />
 
-        <RoomSection title="Built for Anime Convention Panelists">
+        <LearnMoreSection title="Built for Anime Convention Panelists">
           <p>This kit is specifically for people who want to present at:</p>
           <p>
             Anime conventions • Comic conventions • Fan conventions • University anime clubs •
@@ -181,9 +182,9 @@ export default function AnimePanelPage() {
             spend your time learning and personalizing the material instead of rebuilding the
             entire subject from scratch.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="The Panel Topic">
+        <LearnMoreSection title="The Panel Topic">
           <h3 className="font-display text-xl text-room-teal">Trans+ Representation in Anime</h3>
           <p>Anime has a long, fascinating, and often extremely complicated relationship with gender.</p>
           <p>The presentation explores:</p>
@@ -192,9 +193,9 @@ export default function AnimePanelPage() {
             It&apos;s designed to give audiences both recommendations and something interesting to
             think about afterward.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Not Just “Here Are Some Trans Anime Characters”">
+        <LearnMoreSection title="Not Just “Here Are Some Trans Anime Characters”">
           <p>A good convention panel needs an argument.</p>
           <p>Otherwise you&apos;re just reading a list off a screen.</p>
           <p>
@@ -223,9 +224,9 @@ export default function AnimePanelPage() {
             &ldquo;like&rdquo; a character.
           </p>
           <p>It gives the room a way to participate in the analysis.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="What’s Included" id="whats-included">
+        <LearnMoreSection title="What’s Included" id="whats-included">
           <h3 id="presentation" className="scroll-mt-40 font-display text-xl text-room-teal">
             1. The Complete PowerPoint Presentation
           </h3>
@@ -285,9 +286,9 @@ export default function AnimePanelPage() {
           <p>The PowerPoint gives you the panel.</p>
           <p>The spreadsheet gives you the research library behind it.</p>
           <GuideCta href={DATABASE} label="Explore the Research Database →" />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Why Buy a Panel Kit Instead of Making One Yourself?">
+        <LearnMoreSection title="Why Buy a Panel Kit Instead of Making One Yourself?">
           <p>You absolutely can make your own.</p>
           <p>
             But making a good convention panel takes more work than it looks like from the
@@ -316,9 +317,9 @@ export default function AnimePanelPage() {
             This kit gives you the benefit of my existing research so you don&apos;t have to begin
             at the beginning.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Made to Be Customized">
+        <LearnMoreSection title="Made to Be Customized">
           <p>You do not have to give my exact panel.</p>
           <p>In fact, you probably shouldn&apos;t.</p>
           <p>The kit is designed to be a foundation.</p>
@@ -341,9 +342,9 @@ export default function AnimePanelPage() {
             The best version of the presentation is the version you actually feel comfortable
             presenting.
           </p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Great for First-Time Panelists">
+        <LearnMoreSection title="Great for First-Time Panelists">
           <p>
             If you&apos;ve never submitted a convention panel before, starting with a complete
             presentation can make the process dramatically less intimidating.
@@ -362,9 +363,9 @@ export default function AnimePanelPage() {
           <p>Backup material.</p>
           <p>That gives you more room to practice the part that really matters:</p>
           <p>Presenting.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Great for Experienced Panelists Too">
+        <LearnMoreSection title="Great for Experienced Panelists Too">
           <p>
             Experienced presenters know exactly how much time research and slide creation can
             consume.
@@ -376,9 +377,9 @@ export default function AnimePanelPage() {
           <p>Use it to:</p>
           <BulletList items={experiencedUses} />
           <p>You don&apos;t have to reinvent every panel you present.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Turn One Kit Into Multiple Panels">
+        <LearnMoreSection title="Turn One Kit Into Multiple Panels">
           <p>The research behind this kit can support much more than one presentation.</p>
           <p>For example, you could eventually build panels like:</p>
           <p>
@@ -413,9 +414,9 @@ export default function AnimePanelPage() {
           </p>
           <p>The included panel gets you started.</p>
           <p>The database gives you room to keep going.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Worried About Audience Questions?">
+        <LearnMoreSection title="Worried About Audience Questions?">
           <p>Welcome to anime conventions.</p>
           <p>At some point, someone may ask:</p>
           <p className="italic">
@@ -434,7 +435,7 @@ export default function AnimePanelPage() {
             &ldquo;I haven&apos;t researched that one enough to give you a good answer.&rdquo;
           </p>
           <p>But having a giant spreadsheet helps.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Want Help Getting the Panel Convention-Ready?">
           <p>You can also work directly with me.</p>
@@ -469,7 +470,7 @@ export default function AnimePanelPage() {
           </p>
         </RoomSection>
 
-        <RoomSection title="What You Get">
+        <LearnMoreSection title="What You Get">
           <h3 className="font-display text-xl text-room-teal">
             The Complete Trans+ Representation in Anime Convention Panel Kit
           </h3>
@@ -491,14 +492,14 @@ export default function AnimePanelPage() {
           <p>Together, these give you:</p>
           <p>The visual presentation + the material to teach it + the research to expand it.</p>
           <GuideCta href={buyHref} label="Get the Complete Panel Kit →" isDominant />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Who Is This For?">
+        <LearnMoreSection title="Who Is This For?">
           <p>This kit is a strong fit if:</p>
           <BulletList items={forYouItems} />
-        </RoomSection>
+        </LearnMoreSection>
 
-        <RoomSection title="Created by Quinn Fleur">
+        <LearnMoreSection title="Created by Quinn Fleur">
           <p>Hi, I&apos;m Quinn Fleur.</p>
           <p>
             I&apos;m trans, neurodivergent, an anime fan, a media-analysis nerd, and someone who
@@ -520,7 +521,7 @@ export default function AnimePanelPage() {
           <p>Then I made the panel.</p>
           <p>Then I made the spreadsheet much, much larger than the panel.</p>
           <p>Now you can use all of it without having to recreate the whole project yourself.</p>
-        </RoomSection>
+        </LearnMoreSection>
 
         <RoomSection title="Stop Building Every Panel From Scratch">
           <p>You still get to make the presentation yours.</p>
