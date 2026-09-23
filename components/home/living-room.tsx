@@ -1,7 +1,19 @@
+import Link from 'next/link'
+
+const footerSitemap = [
+  { label: 'Home', href: '/' },
+  { label: 'Store', href: '/store' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Coaching', href: '/coaching' },
+  { label: 'EDS', href: '/eds' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/about#contact' },
+]
+
 export const LivingRoom = () => {
   return (
     <section className="relative overflow-x-hidden">
-      <div className="wood-floor relative px-2 pb-12 pt-16 sm:px-4 sm:pt-24">
+      <div className="wood-floor relative px-2 pb-24 pt-16 sm:px-4 sm:pb-28 sm:pt-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-room-wall to-transparent" />
 
         <div className="relative mx-auto flex w-full max-w-6xl items-end justify-center">
@@ -22,6 +34,27 @@ export const LivingRoom = () => {
         <p className="relative z-10 mt-8 text-center font-script text-3xl text-room-gold drop-shadow sm:mt-10 sm:text-5xl">
           thanks for visiting the apothecary!
         </p>
+
+        <nav
+          aria-label="Footer sitemap"
+          className="relative z-10 mx-auto mt-5 flex max-w-3xl flex-wrap items-center justify-center gap-x-0 gap-y-2 px-3 text-center font-display text-lg text-room-gold sm:mt-6 sm:text-xl"
+        >
+          {footerSitemap.map((link, index) => (
+            <span key={link.href} className="inline-flex items-center">
+              {index > 0 ? (
+                <span className="mx-2.5 text-room-gold" aria-hidden="true">
+                  •
+                </span>
+              ) : null}
+              <Link
+                href={link.href}
+                className="underline decoration-room-gold/70 underline-offset-4 transition hover:text-[#ffe08a]"
+              >
+                {link.label}
+              </Link>
+            </span>
+          ))}
+        </nav>
       </div>
     </section>
   )
