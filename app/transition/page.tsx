@@ -8,7 +8,7 @@ import { LearnMoreSection } from '@/components/home/learn-more-section'
 import { getTransitionGuideHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
-  title: 'Transition Guide',
+  title: 'Transition Guide: Now What?',
   description:
     'A practical transition guide for questioning, exploring, and building a life that feels more like yours.',
 }
@@ -136,7 +136,7 @@ export default function TransitionGuidePage() {
 
   return (
     <RoomPage>
-      <WallCard title="Transition Guide" wide="xl">
+      <WallCard title="Transition Guide: Now What?" wide="xl">
         <p className="font-gallery text-xl italic text-room-brown">
           A practical transition guide for questioning, exploring, and building a life that feels
           more like yours.
@@ -144,7 +144,7 @@ export default function TransitionGuidePage() {
         <p className="text-center">Created by Quinn Fleur — from one trans person to another.</p>
         <div className="mx-auto max-w-xs">
           <GuideCover
-            title="Transition Guide"
+            title="Transition Guide: Now What?"
             tagline="from one trans person to another"
           />
         </div>
@@ -159,14 +159,14 @@ export default function TransitionGuidePage() {
         <p>Or maybe you just want to understand what transitioning actually looks like.</p>
         <p>This guide was made for all of those places.</p>
         <p>
-          The <em>Transition Guide</em> is a practical, lived-experience-informed guide to
+          <em>Transition Guide: Now What?</em> is a practical, lived-experience-informed guide to
           exploring gender and navigating transition—from the very first &ldquo;wait… am I
           trans?&rdquo; all the way through hormones, surgery, paperwork, relationships, community,
           and actually living your life after the initial transition checklist starts disappearing.
         </p>
         <p>You do not need to know exactly who you are before you begin.</p>
         <p>You just need somewhere to start.</p>
-        <GuideCta href={buyHref} label="Get the Transition Guide →" isDominant />
+        <GuideCta href={buyHref} label="Get Transition Guide: Now What? →" isDominant />
 
         <LearnMoreSection title="You Don’t Need to Be Sure Yet">
           <p>There is no transgender entrance exam.</p>
@@ -547,7 +547,7 @@ export default function TransitionGuidePage() {
 
         <RoomSection title="Ready to Start Exploring?">
           <p>
-            Get the <em>Transition Guide</em> and start building a transition that actually
+            Get <em>Transition Guide: Now What?</em> and start building a transition that actually
             belongs to you.
           </p>
           <p>Explore identity.</p>
@@ -559,7 +559,7 @@ export default function TransitionGuidePage() {
           <p>Change your mind.</p>
           <p>Keep what works.</p>
           <p>Leave what doesn&apos;t.</p>
-          <GuideCta href={buyHref} label="Get the Transition Guide →" isDominant />
+          <GuideCta href={buyHref} label="Get Transition Guide: Now What? →" isDominant />
         </RoomSection>
 
         <RoomSection title="Want Someone to Help You Sort Through It?">

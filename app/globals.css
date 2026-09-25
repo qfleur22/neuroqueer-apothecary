@@ -165,6 +165,71 @@ body {
   .guide-list-columns {
     @apply grid grid-cols-1 gap-x-8 gap-y-2 space-y-0 sm:grid-cols-2 lg:grid-cols-3;
   }
+
+  .site-btn {
+    @apply inline-flex max-w-full items-center justify-center rounded-full border-2 border-room-gold bg-room-teal text-center font-display text-room-gold shadow-md transition hover:bg-[#0f5c53] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-room-gold;
+  }
+
+  .site-btn-lg {
+    @apply px-7 py-3.5 text-lg sm:px-8 sm:py-4 sm:text-2xl;
+  }
+
+  .site-btn-md {
+    @apply px-6 py-3 text-base sm:text-lg;
+  }
+
+  .site-btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .site-btn:disabled,
+  .site-btn-muted {
+    @apply cursor-not-allowed border-[#9aa8a5] bg-[#9aa8a5] text-[#f4efe6] shadow-none hover:bg-[#9aa8a5];
+  }
+
+  .site-btn-outline {
+    @apply inline-flex max-w-full items-center justify-center rounded-full border-2 border-room-teal bg-[#f7f0e6] text-center font-display text-room-teal transition hover:bg-room-teal/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-room-gold;
+  }
+
+  .site-btn-outline[aria-pressed='true'] {
+    @apply border-room-gold bg-room-teal text-room-gold shadow-md hover:bg-[#0f5c53];
+  }
+
+  .flowchart-cloud {
+    @apply flex flex-wrap items-center justify-center gap-2 sm:gap-3;
+  }
+
+  .flowchart-cloud-lg {
+    @apply px-4 py-2 text-base sm:text-lg;
+  }
+
+  .flowchart-cloud-md {
+    @apply px-3.5 py-1.5 text-sm sm:text-base;
+  }
+
+  .flowchart-cloud-sm {
+    @apply px-3 py-1 text-xs sm:text-sm;
+  }
+
+  .flowchart-question {
+    @apply rounded-md px-4 py-4 sm:px-5;
+  }
+
+  .flowchart-question-even {
+    @apply bg-white;
+  }
+
+  .flowchart-question-odd {
+    @apply bg-room-teal/15;
+  }
+
+  .flowchart-question-warn {
+    @apply ring-2 ring-red-600;
+  }
+
+  .flowchart-dismiss {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-room-brown/40 font-display text-xl leading-none text-room-brown transition hover:border-room-gold hover:bg-room-gold hover:text-[#5a463d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-room-gold;
+  }
 }
 
 @media (min-width: 640px) {

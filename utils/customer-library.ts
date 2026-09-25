@@ -1,5 +1,5 @@
 import { LibraryItem } from '@/models/library-item'
-import { getLibraryItemByHandle, libraryItems } from '@/data/library-items'
+import { getLibraryItemsByHandle, libraryItems } from '@/data/library-items'
 import { CustomerSession } from '@/models/customer-session'
 import { customerGraphql, refreshCustomerToken } from '@/utils/shopify-customer-auth'
 
@@ -41,7 +41,7 @@ const libraryQuery = `
   }
 `
 
-const matchLibraryItem = ({
+const matchLibraryItems = ({
   handle,
   title,
 }: {
@@ -49,18 +49,25 @@ const matchLibraryItem = ({
   title?: string
 }) => {
   if (handle) {
-    const byHandle = getLibraryItemByHandle({ handle })
+    const byHandle = getLibraryItemsByHandle({ handle })
 
-    if (byHandle) {
+    if (byHandle.length > 0) {
       return byHandle
     }
   }
 
   if (!title) {
-    return undefined
+    return []
   }
 
-  return libraryItems.find((item) => item.title.toLowerCase() === title.toLowerCase())
+  const normalizedTitle = title.toLowerCase()
+
+  return libraryItems.filter((item) => {
+    if (item.title.toLowerCase() === normalizedTitle) {
+      return true
+    }
+    return item.aliasTitles?.some((alias) => alias.toLowerCase() === normalizedTitle) ?? false
+  })
 }
 
 export const getOwnedLibraryItems = async ({
@@ -84,12 +91,12 @@ export const getOwnedLibraryItems = async ({
 
   for (const order of data.customer.orders?.nodes ?? []) {
     for (const line of order.lineItems.nodes) {
-      const item = matchLibraryItem({
+      const matches = matchLibraryItems({
         handle: line.product?.handle,
         title: line.title,
       })
 
-      if (item) {
+      for (const item of matches) {
         owned.set(item.slug, item)
       }
     }

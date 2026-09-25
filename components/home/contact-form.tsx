@@ -110,7 +110,7 @@ export const ContactForm = ({ subject = 'A note from the gallery' }: { subject?:
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="rounded-full border border-room-gold bg-room-teal px-6 py-2.5 font-display text-base text-room-gold shadow-md transition hover:bg-[#0f5c53] disabled:opacity-60"
+        className="site-btn site-btn-md disabled:opacity-60"
       >
         {status === 'sending' ? 'Sending…' : 'Send a note'}
       </button>

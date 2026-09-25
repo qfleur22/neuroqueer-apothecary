@@ -1,3 +1,5 @@
+import { getShopifyCatalogProduct, getShopifyCatalogProductByEnvKey } from '@/data/shopify-catalog'
+
 const storeDomain = (process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN ?? '')
   .replace(/^https?:\/\//, '')
   .replace(/\/$/, '')
@@ -30,10 +32,14 @@ export const parseShopifyVariantId = ({ variantId }: { variantId: string }) => {
   return ''
 }
 
+const isConfiguredStorefront = () => {
+  return Boolean(storeDomain) && !storeDomain.startsWith('your-store')
+}
+
 export const getShopifyCheckoutHref = ({ variantId }: { variantId: string }) => {
   const numericVariantId = parseShopifyVariantId({ variantId })
 
-  if (!storeDomain || !numericVariantId) {
+  if (!isConfiguredStorefront() || !numericVariantId) {
     return null
   }
 
@@ -42,10 +48,6 @@ export const getShopifyCheckoutHref = ({ variantId }: { variantId: string }) => 
 
 const purchaseHref = ({ variantId, subject }: { variantId: string; subject: string }) => {
   return getShopifyCheckoutHref({ variantId }) ?? mailtoPurchase({ subject })
-}
-
-const isConfiguredStorefront = () => {
-  return Boolean(storeDomain) && !storeDomain.startsWith('your-store')
 }
 
 export const getShopifyProductHref = ({
@@ -62,86 +64,117 @@ export const getShopifyProductHref = ({
   return `https://${storeDomain}/products/${handle}`
 }
 
-export const getHypermobileStoreItemHref = () => {
+const catalogPurchaseHref = ({
+  variantId,
+  variantEnvKey,
+}: {
+  variantId: string
+  variantEnvKey: string
+}) => {
+  const product = getShopifyCatalogProductByEnvKey({ variantEnvKey })
+
+  return purchaseHref({
+    variantId,
+    subject: product?.title ?? 'Neuroqueer Apothecary resource',
+  })
+}
+
+export const getCatalogProductHref = ({
+  handle,
+  fallback,
+}: {
+  handle: string
+  fallback: string
+}) => {
+  const product = getShopifyCatalogProduct({ handle })
+
   return getShopifyProductHref({
+    handle: product?.handle ?? handle,
+    fallback,
+  })
+}
+
+export const getHypermobileStoreItemHref = () => {
+  return getCatalogProductHref({
     handle: 'so-you-think-youre-hypermobile',
     fallback: '/store/so-you-think-youre-hypermobile',
   })
 }
 
 export const getHypermobileGuideHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_HYPERMOBILE_VARIANT_ID ?? '',
-    subject: 'So, You Think You’re Hypermobile',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_HYPERMOBILE_VARIANT_ID',
   })
 }
 
 export const getTransitionGuideHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_TRANSITION_VARIANT_ID ?? '',
-    subject: 'Transition Guide',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_TRANSITION_VARIANT_ID',
+  })
+}
+
+export const getAnimeGuideHref = () => {
+  return catalogPurchaseHref({
+    variantId: process.env.NEXT_PUBLIC_SHOPIFY_ANIME_GUIDE_VARIANT_ID ?? '',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_ANIME_GUIDE_VARIANT_ID',
   })
 }
 
 export const getAnimeKitHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_ANIME_KIT_VARIANT_ID ?? '',
-    subject: 'Trans+ Representation in Anime panel kit',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_ANIME_KIT_VARIANT_ID',
   })
 }
 
 export const getAnimePresentationHref = () => {
-  return purchaseHref({
-    variantId: process.env.NEXT_PUBLIC_SHOPIFY_ANIME_PRESENTATION_VARIANT_ID ?? '',
-    subject: 'Trans+ Representation in Anime presentation',
-  })
+  return getAnimeKitHref()
 }
 
 export const getAnimeNotesHref = () => {
-  return purchaseHref({
-    variantId: process.env.NEXT_PUBLIC_SHOPIFY_ANIME_NOTES_VARIANT_ID ?? '',
-    subject: 'Trans+ Representation in Anime presenter notes',
-  })
+  return getAnimeKitHref()
 }
 
 export const getBinderGuideHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_BINDER_VARIANT_ID ?? '',
-    subject: 'Medical Binder Guide + Template',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_BINDER_VARIANT_ID',
   })
 }
 
 export const getCustomBinderHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_CUSTOM_BINDER_VARIANT_ID ?? '',
-    subject: 'Custom Medical Binder Creation',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_CUSTOM_BINDER_VARIANT_ID',
   })
 }
 
 export const getCarePlanGuideHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_CARE_PLAN_VARIANT_ID ?? '',
-    subject: 'Care Plan Guide + Blank Template',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_CARE_PLAN_VARIANT_ID',
   })
 }
 
 export const getCarePlanWorkshopHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_CARE_PLAN_WORKSHOP_VARIANT_ID ?? '',
-    subject: 'Care Plan Creation Workshop Kit',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_CARE_PLAN_WORKSHOP_VARIANT_ID',
   })
 }
 
 export const getConsentGuideHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_CONSENT_VARIANT_ID ?? '',
-    subject: 'Know Your Rights: Bodily Autonomy, Boundaries & Consent',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_CONSENT_VARIANT_ID',
   })
 }
 
 export const getConsentWorkshopHref = () => {
-  return purchaseHref({
+  return catalogPurchaseHref({
     variantId: process.env.NEXT_PUBLIC_SHOPIFY_CONSENT_WORKSHOP_VARIANT_ID ?? '',
-    subject: 'Know Your Rights Workshop & Presentation Kit',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_CONSENT_WORKSHOP_VARIANT_ID',
   })
 }

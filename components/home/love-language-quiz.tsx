@@ -164,7 +164,7 @@ export const LoveLanguageQuiz = ({
             <button
               type="submit"
               disabled={!isComplete}
-              className="inline-flex max-w-full items-center justify-center rounded-full border-2 border-room-gold bg-room-teal px-7 py-3.5 text-center font-display text-lg text-room-gold shadow-md transition hover:bg-[#0f5c53] disabled:cursor-not-allowed disabled:opacity-50 sm:px-8 sm:py-4 sm:text-2xl"
+              className="site-btn site-btn-lg disabled:cursor-not-allowed disabled:opacity-50"
             >
               See my {direction} profile →
             </button>

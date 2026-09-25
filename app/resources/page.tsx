@@ -45,7 +45,7 @@ const groups: ResourceGroup[] = [
     title: 'Trans things',
     items: [
       {
-        name: 'Transition guide',
+        name: 'Transition Guide: Now What?',
         href: '/transition',
         description:
           'A practical transition guide for questioning, exploring, and building a life that feels more like yours.',
@@ -113,6 +113,12 @@ const groups: ResourceGroup[] = [
     id: 'disability',
     title: 'Disability things',
     items: [
+      {
+        name: 'Symptom flowchart',
+        href: '/flowchart',
+        description:
+          'A symptom-navigation tool for people with EDS/HSD. Choose what you are feeling right now and get safer next-step guidance. This does not diagnose a cause.',
+      },
       {
         name: 'So, You Think You’re Hypermobile?',
         href: '/store/so-you-think-youre-hypermobile',

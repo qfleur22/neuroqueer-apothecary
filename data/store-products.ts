@@ -10,8 +10,8 @@ export const storeProducts: StoreProduct[] = [
     tagline: 'from one trans EDSer to another',
   },
   {
-    slug: 'so-you-think-youre-trans',
-    name: 'Transition Guide',
+    slug: 'transition-guide-now-what',
+    name: 'Transition Guide: Now What?',
     summary:
       'A practical transition guide for questioning, exploring, and building a life that feels more like yours.',
     href: '/transition',

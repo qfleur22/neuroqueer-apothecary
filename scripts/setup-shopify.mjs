@@ -19,12 +19,22 @@ const catalog = [
   },
   {
     envKey: 'NEXT_PUBLIC_SHOPIFY_TRANSITION_VARIANT_ID',
-    handle: 'so-you-think-youre-trans',
-    title: 'Transition Guide',
+    handle: 'transition-guide-now-what',
+    previousHandles: ['so-you-think-youre-trans'],
+    title: 'Transition Guide: Now What?',
     description:
       'A practical transition guide for questioning, exploring, and building a life that feels more like yours.',
     productType: 'Digital guide',
     sku: 'NQA-TRANSITION',
+  },
+  {
+    envKey: 'NEXT_PUBLIC_SHOPIFY_ANIME_GUIDE_VARIANT_ID',
+    handle: 'trans-representation-in-anime',
+    title: 'Trans+ Representation in Anime',
+    description:
+      'Explore the characters, stories, history, and wonderfully complicated relationship between anime and gender.',
+    productType: 'Digital guide',
+    sku: 'NQA-ANIME',
   },
   {
     envKey: 'NEXT_PUBLIC_SHOPIFY_ANIME_KIT_VARIANT_ID',
@@ -36,25 +46,10 @@ const catalog = [
     sku: 'NQA-ANIME-KIT',
   },
   {
-    envKey: 'NEXT_PUBLIC_SHOPIFY_ANIME_PRESENTATION_VARIANT_ID',
-    handle: 'trans-representation-in-anime-presentation',
-    title: 'Trans+ Representation in Anime Presentation',
-    description: 'A ready-to-present PowerPoint on trans representation in anime.',
-    productType: 'Digital kit',
-    sku: 'NQA-ANIME-DECK',
-  },
-  {
-    envKey: 'NEXT_PUBLIC_SHOPIFY_ANIME_NOTES_VARIANT_ID',
-    handle: 'trans-representation-in-anime-notes',
-    title: 'Trans+ Representation in Anime Presenter Notes',
-    description: 'Presenter notes for the Trans+ Representation in Anime panel.',
-    productType: 'Digital kit',
-    sku: 'NQA-ANIME-NOTES',
-  },
-  {
     envKey: 'NEXT_PUBLIC_SHOPIFY_BINDER_VARIANT_ID',
-    handle: 'medical-binder-guide',
-    title: 'Medical Binder Guide + Template',
+    handle: 'how-to-create-a-medical-binder',
+    previousHandles: ['medical-binder-guide'],
+    title: 'How to Create a Medical Binder',
     description:
       'Build a medical binder that helps you explain years of symptoms, diagnoses, medications, testing, and treatment.',
     productType: 'Digital guide',
@@ -62,7 +57,8 @@ const catalog = [
   },
   {
     envKey: 'NEXT_PUBLIC_SHOPIFY_CUSTOM_BINDER_VARIANT_ID',
-    handle: 'custom-medical-binder',
+    handle: 'custom-medical-binder-creation',
+    previousHandles: ['custom-medical-binder'],
     title: 'Custom Medical Binder Creation',
     description:
       'A done-for-you service that turns your scattered medical history into an organized, usable medical binder.',
@@ -71,8 +67,9 @@ const catalog = [
   },
   {
     envKey: 'NEXT_PUBLIC_SHOPIFY_CARE_PLAN_VARIANT_ID',
-    handle: 'care-plan-guide',
-    title: 'Care Plan Guide + Blank Template',
+    handle: 'how-to-make-a-care-plan',
+    previousHandles: ['care-plan-guide'],
+    title: 'How to Make a Care Plan',
     description:
       'A practical care-plan system for neurodivergence, chronic illness, disability, mental health, overwhelm, and everyday support.',
     productType: 'Digital guide',
@@ -80,7 +77,8 @@ const catalog = [
   },
   {
     envKey: 'NEXT_PUBLIC_SHOPIFY_CARE_PLAN_WORKSHOP_VARIANT_ID',
-    handle: 'care-plan-workshop-kit',
+    handle: 'care-plan-creation-workshop-kit',
+    previousHandles: ['care-plan-workshop-kit'],
     title: 'Care Plan Creation Workshop Kit',
     description:
       'A ready-to-facilitate workshop so your community can make care plans—curriculum, prompts, and facilitation structure included.',
@@ -89,7 +87,8 @@ const catalog = [
   },
   {
     envKey: 'NEXT_PUBLIC_SHOPIFY_CONSENT_VARIANT_ID',
-    handle: 'know-your-rights',
+    handle: 'know-your-rights-bodily-autonomy-boundaries-consent',
+    previousHandles: ['know-your-rights'],
     title: 'Know Your Rights: Bodily Autonomy, Boundaries & Consent',
     description:
       'A practical guide to autonomy in our bodies, relationships, medical care, communities, and everyday lives.',
@@ -98,7 +97,8 @@ const catalog = [
   },
   {
     envKey: 'NEXT_PUBLIC_SHOPIFY_CONSENT_WORKSHOP_VARIANT_ID',
-    handle: 'know-your-rights-workshop',
+    handle: 'know-your-rights-workshop-presentation-kit',
+    previousHandles: ['know-your-rights-workshop'],
     title: 'Know Your Rights Workshop & Presentation Kit',
     description:
       'A community conversation about power, safety, and reclaiming our bodies—slides and presenter notes included.',
@@ -465,6 +465,16 @@ const main = async () => {
 
   for (const item of catalog) {
     let product = await findProduct({ hostname, token, handle: item.handle })
+
+    if (!product && item.previousHandles) {
+      for (const previousHandle of item.previousHandles) {
+        product = await findProduct({ hostname, token, handle: previousHandle })
+        if (product) {
+          break
+        }
+      }
+    }
+
     const existed = Boolean(product)
 
     if (!product) {

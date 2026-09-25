@@ -5,6 +5,7 @@ import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { getAnimeGuideHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
   title: 'Trans+ Representation in Anime',
@@ -55,6 +56,8 @@ const coachingItems = [
 ]
 
 export default function AnimePage() {
+  const buyHref = getAnimeGuideHref()
+
   return (
     <RoomPage>
       <WallCard title="Trans+ Representation in Anime" wide="xl">
@@ -89,7 +92,8 @@ export default function AnimePage() {
           archive, and part convention panel—built around one deceptively complicated question:
         </p>
         <p className="italic">What actually makes trans representation good?</p>
-        <GuideCta href={DATABASE} label="Explore Trans+ Representation in Anime →" isDominant />
+        <GuideCta href={buyHref} label="Get Trans+ Representation in Anime →" isDominant />
+        <GuideCta href={DATABASE} label="Explore Trans+ Representation in Anime →" />
 
         <LearnMoreSection title="More Than a List of Trans Anime Characters">
           <p>If you&apos;re looking for a spreadsheet that simply says:</p>
@@ -602,6 +606,7 @@ export default function AnimePage() {
             gender-diverse anime and manga, and learn a framework for thinking more critically
             about representation.
           </p>
+          <GuideCta href={buyHref} label="Get Trans+ Representation in Anime →" isDominant />
           <GuideCta href={DATABASE} label="Explore the Guide + Database →" />
           <p>
             Take it to a convention. Get the complete presentation, presenter notes, research, and

@@ -349,7 +349,7 @@ export default function CoachingPage() {
             you one.
           </p>
           <p>
-            Drawing from Quinn’s <RoomLink href="/transition">Transition Guide</RoomLink> and
+            Drawing from Quinn’s <RoomLink href="/transition">Transition Guide: Now What?</RoomLink> and
             community-organizing experience, these sessions offer a place to explore possibilities
             around names, pronouns, presentation, social transition, HRT, surgery, healthcare,
             paperwork, community, and the enormous space between questioning your gender and deciding

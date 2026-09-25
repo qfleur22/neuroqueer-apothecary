@@ -4,4 +4,6 @@ export interface LibraryItem {
   title: string
   href: string
   salesHref: string
+  aliasHandles?: string[]
+  aliasTitles?: string[]
 }

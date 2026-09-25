@@ -1,0 +1,3853 @@
+{
+  "systems": [
+    "Musculoskeletal / Joint",
+    "Musculoskeletal / Muscle",
+    "Neurologic / Spine",
+    "Neurologic / Head",
+    "Neurologic / Vision",
+    "Cardiovascular / Dysautonomia",
+    "Cardiovascular",
+    "Respiratory / Allergy",
+    "Allergy / Mast Cell",
+    "GI",
+    "GI / Swallowing",
+    "Pelvic / Urologic",
+    "Spine / Lower Neurologic",
+    "Head / Neck",
+    "Jaw / TMJ",
+    "Skin / Bleeding",
+    "Skin / Wound",
+    "Vascular Red Flag",
+    "Fatigue / Exercise",
+    "Functional / Falls",
+    "Respiratory / Chest Wall",
+    "GI / Rectal",
+    "Pelvic",
+    "General Emergency Screen"
+  ],
+  "symptoms": [
+    {
+      "id": "MSK-JOINT-FEELS-OUT",
+      "system": "Musculoskeletal / Joint",
+      "label": "Joint feels out of place / suspected subluxation",
+      "questions": [
+        {
+          "id": "MSK-JOINT-FEELS-OUT-01",
+          "prompt": "Which joint is affected?",
+          "answers": [
+            {
+              "id": "SHOULDER",
+              "label": "Shoulder",
+              "isRedFlag": false
+            },
+            {
+              "id": "KNEE",
+              "label": "Knee / kneecap",
+              "isRedFlag": false
+            },
+            {
+              "id": "HIP",
+              "label": "Hip",
+              "isRedFlag": false
+            },
+            {
+              "id": "ANKLE",
+              "label": "Ankle / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "WRIST",
+              "label": "Wrist / hand / finger",
+              "isRedFlag": false
+            },
+            {
+              "id": "RIB",
+              "label": "Rib / chest wall",
+              "isRedFlag": false
+            },
+            {
+              "id": "TMJ",
+              "label": "Jaw / TMJ",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck / upper cervical",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-JOINT-FEELS-OUT-02",
+          "prompt": "Was there an injury, fall, or unusual force?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-JOINT-FEELS-OUT-03",
+          "prompt": "Is there visible deformity, inability to use the limb, severe swelling, numbness, or color/temperature change?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Visible deformity after injury; loss of pulse; blue/pale/cold limb; new major numbness/weakness; open injury; severe uncontrolled pain.",
+      "triage": "Emergency if neurovascular compromise/deformity; otherwise prompt clinician/urgent care if it will not reduce naturally or function is significantly impaired.",
+      "mechanisms": [
+        "Joint instability",
+        "subluxation/dislocation",
+        "ligament/tendon injury",
+        "labral/cartilage injury",
+        "muscle guarding."
+      ],
+      "nextStep": "Joint-specific injury branch → neurovascular check → trauma/severity branch."
+    },
+    {
+      "id": "MSK-COMPLETE-DISLOCATION",
+      "system": "Musculoskeletal / Joint",
+      "label": "Complete dislocation",
+      "questions": [
+        {
+          "id": "MSK-COMPLETE-DISLOCATION-01",
+          "prompt": "Which joint is dislocated?",
+          "answers": [
+            {
+              "id": "SHOULDER",
+              "label": "Shoulder",
+              "isRedFlag": false
+            },
+            {
+              "id": "KNEE",
+              "label": "Knee / kneecap",
+              "isRedFlag": false
+            },
+            {
+              "id": "HIP",
+              "label": "Hip",
+              "isRedFlag": false
+            },
+            {
+              "id": "ANKLE",
+              "label": "Ankle / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "WRIST",
+              "label": "Wrist / hand / finger",
+              "isRedFlag": false
+            },
+            {
+              "id": "RIB",
+              "label": "Rib / chest wall",
+              "isRedFlag": false
+            },
+            {
+              "id": "TMJ",
+              "label": "Jaw / TMJ",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck / upper cervical",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-COMPLETE-DISLOCATION-02",
+          "prompt": "Did it reduce on its own, or is it still visibly displaced?",
+          "answers": [
+            {
+              "id": "REDUCED",
+              "label": "It reduced on its own",
+              "isRedFlag": false
+            },
+            {
+              "id": "DISPLACED",
+              "label": "It is still visibly displaced",
+              "isRedFlag": true
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-COMPLETE-DISLOCATION-03",
+          "prompt": "Any numbness, weakness, absent/weak pulse, pale/blue/cold skin, or major trauma?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Any unreduced dislocation; neurovascular symptoms; open injury; major trauma.",
+      "triage": "Urgent/emergency evaluation; do not repeatedly force a joint back into place unless specifically trained and instructed for that joint.",
+      "mechanisms": [
+        "Joint instability",
+        "recurrent dislocation",
+        "fracture",
+        "nerve or vascular injury."
+      ],
+      "nextStep": "Emergency injury branch → joint/location → neurovascular status."
+    },
+    {
+      "id": "MSK-JOINT-PAIN",
+      "system": "Musculoskeletal / Joint",
+      "label": "Joint pain",
+      "questions": [
+        {
+          "id": "MSK-JOINT-PAIN-01",
+          "prompt": "Where is the pain located?",
+          "answers": [
+            {
+              "id": "SHOULDER",
+              "label": "Shoulder",
+              "isRedFlag": false
+            },
+            {
+              "id": "KNEE",
+              "label": "Knee / kneecap",
+              "isRedFlag": false
+            },
+            {
+              "id": "HIP",
+              "label": "Hip",
+              "isRedFlag": false
+            },
+            {
+              "id": "ANKLE",
+              "label": "Ankle / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "WRIST",
+              "label": "Wrist / hand / finger",
+              "isRedFlag": false
+            },
+            {
+              "id": "RIB",
+              "label": "Rib / chest wall",
+              "isRedFlag": false
+            },
+            {
+              "id": "TMJ",
+              "label": "Jaw / TMJ",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck / upper cervical",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-JOINT-PAIN-02",
+          "prompt": "Did it begin suddenly or gradually, and was there an injury?",
+          "answers": [
+            {
+              "id": "SUDDEN-INJ",
+              "label": "Suddenly, with an injury",
+              "isRedFlag": false
+            },
+            {
+              "id": "SUDDEN",
+              "label": "Suddenly, no injury",
+              "isRedFlag": false
+            },
+            {
+              "id": "GRAD-INJ",
+              "label": "Gradually, with an injury",
+              "isRedFlag": false
+            },
+            {
+              "id": "GRAD",
+              "label": "Gradually, no injury",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-JOINT-PAIN-03",
+          "prompt": "Is the joint red/hot/swollen, locked, unable to bear weight/use, or accompanied by fever?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Major trauma/deformity; inability to bear weight/use limb; hot swollen joint with fever; neurovascular changes.",
+      "triage": "Emergency for major red flags; same-day evaluation for acute hot/swollen joint or major loss of function; routine if familiar/stable.",
+      "mechanisms": [
+        "Instability/overuse",
+        "sprain/strain",
+        "tendon injury",
+        "cartilage/labral injury",
+        "osteoarthritis",
+        "myofascial compensation",
+        "inflammatory/infectious causes not explained by EDS."
+      ],
+      "nextStep": "Location → trauma vs atraumatic → inflammation/function → chronic instability branch."
+    },
+    {
+      "id": "MSK-JOINT-LOCKING-CATCHI",
+      "system": "Musculoskeletal / Joint",
+      "label": "Joint locking / catching",
+      "questions": [
+        {
+          "id": "MSK-JOINT-LOCKING-CATCHI-01",
+          "prompt": "Which joint locks or catches?",
+          "answers": [
+            {
+              "id": "SHOULDER",
+              "label": "Shoulder",
+              "isRedFlag": false
+            },
+            {
+              "id": "KNEE",
+              "label": "Knee / kneecap",
+              "isRedFlag": false
+            },
+            {
+              "id": "HIP",
+              "label": "Hip",
+              "isRedFlag": false
+            },
+            {
+              "id": "ANKLE",
+              "label": "Ankle / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "WRIST",
+              "label": "Wrist / hand / finger",
+              "isRedFlag": false
+            },
+            {
+              "id": "RIB",
+              "label": "Rib / chest wall",
+              "isRedFlag": false
+            },
+            {
+              "id": "TMJ",
+              "label": "Jaw / TMJ",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck / upper cervical",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-JOINT-LOCKING-CATCHI-02",
+          "prompt": "Can you fully move it now?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-JOINT-LOCKING-CATCHI-03",
+          "prompt": "Was there swelling, trauma, a pop, or inability to bear weight?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Locked joint that cannot move, major swelling after trauma, deformity, or neurovascular symptoms.",
+      "triage": "Prompt orthopedic/urgent assessment if acutely locked or function is lost.",
+      "mechanisms": [
+        "Meniscal/labral/cartilage injury",
+        "patellar instability",
+        "tendon snapping",
+        "joint subluxation",
+        "degenerative change."
+      ],
+      "nextStep": "Joint location → locked now? → trauma/swelling → orthopedic branch."
+    },
+    {
+      "id": "MSK-SEVERE-MUSCLE-SPASM",
+      "system": "Musculoskeletal / Muscle",
+      "label": "Severe muscle spasm / cramping",
+      "questions": [
+        {
+          "id": "MSK-SEVERE-MUSCLE-SPASM-01",
+          "prompt": "Where is the spasm?",
+          "answers": [
+            {
+              "id": "HEAD",
+              "label": "Head / face",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck",
+              "isRedFlag": false
+            },
+            {
+              "id": "CHEST",
+              "label": "Chest",
+              "isRedFlag": false
+            },
+            {
+              "id": "ABDOMEN",
+              "label": "Abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "BACK",
+              "label": "Back",
+              "isRedFlag": false
+            },
+            {
+              "id": "PELVIS",
+              "label": "Pelvis",
+              "isRedFlag": false
+            },
+            {
+              "id": "ARM",
+              "label": "Arm / hand",
+              "isRedFlag": false
+            },
+            {
+              "id": "LEG",
+              "label": "Leg / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "MULTI",
+              "label": "Multiple areas",
+              "isRedFlag": false
+            },
+            {
+              "id": "OTHER",
+              "label": "Other",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-SEVERE-MUSCLE-SPASM-02",
+          "prompt": "Is it new, persistent, or associated with exertion/dehydration?",
+          "answers": [
+            {
+              "id": "NEW",
+              "label": "New",
+              "isRedFlag": false
+            },
+            {
+              "id": "PERS",
+              "label": "Persistent",
+              "isRedFlag": false
+            },
+            {
+              "id": "EXERT",
+              "label": "With exertion or dehydration",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "MSK-SEVERE-MUSCLE-SPASM-03",
+          "prompt": "Any new weakness, paralysis, dark urine, chest symptoms, or severe electrolyte-loss illness?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "New paralysis/major weakness, breathing difficulty, severe systemic illness, or dark urine after extreme exertion.",
+      "triage": "Emergency for neurologic/respiratory red flags; otherwise hydration/medication review and clinician follow-up if persistent.",
+      "mechanisms": [
+        "Muscle guarding from instability",
+        "myofascial spasm",
+        "dysautonomia/dehydration",
+        "medication/electrolyte issues",
+        "nerve irritation."
+      ],
+      "nextStep": "Location → neurologic symptoms? → hydration/systemic trigger → musculoskeletal branch."
+    },
+    {
+      "id": "NEURO-NEW-WEAKNESS",
+      "system": "Neurologic / Spine",
+      "label": "New weakness",
+      "questions": [
+        {
+          "id": "NEURO-NEW-WEAKNESS-01",
+          "prompt": "Where is the weakness—face, one arm, one leg, both legs, or generalized?",
+          "answers": [
+            {
+              "id": "OPT-FACE",
+              "label": "Face",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-ONE-ARM",
+              "label": "One arm",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-ONE-LEG",
+              "label": "One leg",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-BOTH-LEGS",
+              "label": "Both legs",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-GENERALIZED",
+              "label": "Generalized",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "NEURO-NEW-WEAKNESS-02",
+          "prompt": "Did it start suddenly?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "NEURO-NEW-WEAKNESS-03",
+          "prompt": "Any speech difficulty, facial droop, severe headache, loss of coordination, new bowel/bladder changes, or saddle numbness?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Sudden focal weakness/stroke signs; rapidly progressive weakness; new bowel/bladder dysfunction with saddle anesthesia; inability to walk.",
+      "triage": "Emergency evaluation.",
+      "mechanisms": [
+        "Stroke/vascular event (not assumed EDS)",
+        "spinal cord/nerve compression",
+        "tethered-cord-type symptoms",
+        "craniocervical pathology",
+        "neuropathy."
+      ],
+      "nextStep": "Immediate neurologic red-flag branch."
+    },
+    {
+      "id": "NEURO-NEW-NUMBNESS-TINGLIN",
+      "system": "Neurologic / Spine",
+      "label": "New numbness / tingling",
+      "questions": [
+        {
+          "id": "NEURO-NEW-NUMBNESS-TINGLIN-01",
+          "prompt": "Where is it located?",
+          "answers": [
+            {
+              "id": "HEAD",
+              "label": "Head / face",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck",
+              "isRedFlag": false
+            },
+            {
+              "id": "CHEST",
+              "label": "Chest",
+              "isRedFlag": false
+            },
+            {
+              "id": "ABDOMEN",
+              "label": "Abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "BACK",
+              "label": "Back",
+              "isRedFlag": false
+            },
+            {
+              "id": "PELVIS",
+              "label": "Pelvis",
+              "isRedFlag": false
+            },
+            {
+              "id": "ARM",
+              "label": "Arm / hand",
+              "isRedFlag": false
+            },
+            {
+              "id": "LEG",
+              "label": "Leg / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "MULTI",
+              "label": "Multiple areas",
+              "isRedFlag": false
+            },
+            {
+              "id": "OTHER",
+              "label": "Other",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "NEURO-NEW-NUMBNESS-TINGLIN-02",
+          "prompt": "Is it one-sided, both legs, hands/arms, or saddle/perineal area?",
+          "answers": [
+            {
+              "id": "FACE_ARM",
+              "label": "Face and/or one arm, especially one-sided",
+              "isRedFlag": false
+            },
+            {
+              "id": "ONE_LIMB",
+              "label": "One arm or one leg",
+              "isRedFlag": false
+            },
+            {
+              "id": "BOTH_LEGS",
+              "label": "Both legs",
+              "isRedFlag": false
+            },
+            {
+              "id": "HANDS_FEET",
+              "label": "Hands and/or feet symmetrically",
+              "isRedFlag": false
+            },
+            {
+              "id": "SADDLE",
+              "label": "Groin, inner thighs, buttocks, or saddle/perineal area",
+              "isRedFlag": true
+            }
+          ]
+        },
+        {
+          "id": "NEURO-NEW-NUMBNESS-TINGLIN-03",
+          "prompt": "Any weakness, gait change, bowel/bladder change, severe neck/back pain, or recent trauma?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Saddle anesthesia; new bladder retention/incontinence; progressive weakness; stroke signs; spinal trauma with neurologic symptoms.",
+      "triage": "Emergency for red flags; prompt evaluation if persistent/progressive.",
+      "mechanisms": [
+        "Nerve entrapment",
+        "radiculopathy",
+        "peripheral/small-fiber neuropathy",
+        "spinal instability/compression",
+        "tethered cord",
+        "disc disease."
+      ],
+      "nextStep": "Distribution → motor symptoms → bowel/bladder/saddle screen → neuro branch."
+    },
+    {
+      "id": "HEAD-HEADACHE",
+      "system": "Neurologic / Head",
+      "label": "Headache",
+      "questions": [
+        {
+          "id": "HEAD-HEADACHE-01",
+          "prompt": "Where did the headache start—front, one side, behind eyes, base of skull, or diffuse?",
+          "answers": [
+            {
+              "id": "THUNDER",
+              "label": "Sudden thunderclap / instantly maximal",
+              "isRedFlag": true
+            },
+            {
+              "id": "OCCIPITAL",
+              "label": "Starts at the base/back of skull",
+              "isRedFlag": false
+            },
+            {
+              "id": "POSITIONAL",
+              "label": "Clearly changes when upright vs lying down",
+              "isRedFlag": false
+            },
+            {
+              "id": "STRAIN",
+              "label": "Worse with coughing, sneezing, bearing down, or straining",
+              "isRedFlag": false
+            },
+            {
+              "id": "MIGRAINE",
+              "label": "Familiar migraine-like pattern",
+              "isRedFlag": false
+            },
+            {
+              "id": "TRAUMA",
+              "label": "Started after head/neck trauma",
+              "isRedFlag": true
+            }
+          ]
+        },
+        {
+          "id": "HEAD-HEADACHE-02",
+          "prompt": "Was onset sudden/thunderclap, or is it the worst/newest headache you have had?",
+          "answers": [
+            {
+              "id": "THUNDER",
+              "label": "Sudden / thunderclap",
+              "isRedFlag": true
+            },
+            {
+              "id": "WORST",
+              "label": "Worst or newest headache I have had",
+              "isRedFlag": true
+            },
+            {
+              "id": "NEITHER",
+              "label": "Neither of those",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "HEAD-HEADACHE-03",
+          "prompt": "Is it strongly positional or worsened by cough/strain; any fever, stiff neck, fainting, confusion, weakness, vision loss, or recent head/neck trauma?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Thunderclap/worst sudden headache; new neurologic deficit; altered mental status; seizure; fever with stiff neck; severe headache after trauma; sudden vision loss.",
+      "triage": "Emergency for red flags; prompt specialist review for new persistent positional/strain-related pattern.",
+      "mechanisms": [
+        "Migraine",
+        "cervicogenic/TMJ headache",
+        "craniocervical instability",
+        "Chiari I",
+        "CSF leak/intracranial hypotension",
+        "intracranial hypertension",
+        "vascular causes require exclusion when acute."
+      ],
+      "nextStep": "Emergency headache screen → positional/strain branch → neck/migraine branch."
+    },
+    {
+      "id": "HEAD-DIZZINESS-VERTIGO",
+      "system": "Neurologic / Head",
+      "label": "Dizziness / vertigo",
+      "questions": [
+        {
+          "id": "HEAD-DIZZINESS-VERTIGO-01",
+          "prompt": "Is it spinning, lightheadedness, imbalance, or near-fainting?",
+          "answers": [
+            {
+              "id": "LIGHT",
+              "label": "Lightheaded / about to faint",
+              "isRedFlag": false
+            },
+            {
+              "id": "SPIN",
+              "label": "Room spinning / vertigo",
+              "isRedFlag": false
+            },
+            {
+              "id": "BALANCE",
+              "label": "Off-balance / unsteady",
+              "isRedFlag": false
+            },
+            {
+              "id": "BLACKOUT",
+              "label": "Actually fainted / lost consciousness",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "HEAD-DIZZINESS-VERTIGO-02",
+          "prompt": "Does it occur mainly upright, with head/neck movement, or constantly?",
+          "answers": [
+            {
+              "id": "UPRIGHT",
+              "label": "Mostly when upright",
+              "isRedFlag": false
+            },
+            {
+              "id": "HEAD",
+              "label": "With head or neck movement",
+              "isRedFlag": false
+            },
+            {
+              "id": "CONST",
+              "label": "Constant",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "HEAD-DIZZINESS-VERTIGO-03",
+          "prompt": "Any new weakness, speech trouble, severe headache, chest pain, fainting during exertion, or inability to walk?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Stroke signs; severe new headache; chest pain; exertional syncope; persistent severe vertigo with new neurologic deficits.",
+      "triage": "Emergency for red flags; otherwise autonomic/vestibular/neurologic evaluation depending pattern.",
+      "mechanisms": [
+        "Dysautonomia/POTS",
+        "migraine",
+        "vestibular disorder",
+        "cervicogenic symptoms",
+        "craniocervical pathology",
+        "medication/dehydration."
+      ],
+      "nextStep": "Type of dizziness → posture vs head movement → neuro/cardiac screen."
+    },
+    {
+      "id": "VISION-NEW-VISUAL-DISTURBAN",
+      "system": "Neurologic / Vision",
+      "label": "New visual disturbance",
+      "questions": [
+        {
+          "id": "VISION-NEW-VISUAL-DISTURBAN-01",
+          "prompt": "Is it blurry vision, double vision, flashing lights, field loss, or complete loss?",
+          "answers": [
+            {
+              "id": "OPT-BLURRY-VISION",
+              "label": "Blurry vision",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-DOUBLE-VISION",
+              "label": "Double vision",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-FLASHING-LIGHTS",
+              "label": "Flashing lights",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-FIELD-LOSS",
+              "label": "Field loss",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-COMPLETE-LOSS",
+              "label": "Complete loss",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "VISION-NEW-VISUAL-DISTURBAN-02",
+          "prompt": "One eye or both? Sudden or gradual?",
+          "answers": [
+            {
+              "id": "ONE-SUDDEN",
+              "label": "One eye, sudden",
+              "isRedFlag": false
+            },
+            {
+              "id": "ONE-GRAD",
+              "label": "One eye, gradual",
+              "isRedFlag": false
+            },
+            {
+              "id": "BOTH-SUDDEN",
+              "label": "Both eyes, sudden",
+              "isRedFlag": false
+            },
+            {
+              "id": "BOTH-GRAD",
+              "label": "Both eyes, gradual",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "VISION-NEW-VISUAL-DISTURBAN-03",
+          "prompt": "Any severe headache, eye pain/redness, weakness, speech change, or pulsating sound in the head?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Sudden vision loss; new neurologic deficits; painful red eye with vision change; in known/suspected vEDS, red painful eye plus pulsatile head noise.",
+      "triage": "Emergency evaluation.",
+      "mechanisms": [
+        "Migraine aura",
+        "ocular disease",
+        "dysautonomia",
+        "intracranial pressure disorders",
+        "carotid-cavernous fistula particularly in vEDS."
+      ],
+      "nextStep": "Vision-loss emergency screen → eye vs neurologic branch."
+    },
+    {
+      "id": "CV-FAINTING-LOSS-OF",
+      "system": "Cardiovascular / Dysautonomia",
+      "label": "Fainting / loss of consciousness",
+      "questions": [
+        {
+          "id": "CV-FAINTING-LOSS-OF-01",
+          "prompt": "Were you standing, sitting, lying down, exercising, or experiencing pain/heat?",
+          "answers": [
+            {
+              "id": "STAND",
+              "label": "Standing",
+              "isRedFlag": false
+            },
+            {
+              "id": "SIT",
+              "label": "Sitting",
+              "isRedFlag": false
+            },
+            {
+              "id": "LIE",
+              "label": "Lying down",
+              "isRedFlag": false
+            },
+            {
+              "id": "EXER",
+              "label": "Exercising",
+              "isRedFlag": false
+            },
+            {
+              "id": "PAIN",
+              "label": "Pain or heat",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-FAINTING-LOSS-OF-02",
+          "prompt": "How long were you unconscious and did you recover fully?",
+          "answers": [
+            {
+              "id": "BRIEF",
+              "label": "Brief, recovered fully",
+              "isRedFlag": false
+            },
+            {
+              "id": "LONG",
+              "label": "Longer than a minute, or not fully recovered",
+              "isRedFlag": true
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-FAINTING-LOSS-OF-03",
+          "prompt": "Any chest pain, severe shortness of breath, palpitations immediately before, injury, seizure-like activity, bleeding, pregnancy possibility, or new neurologic symptoms?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Fainting during exertion or while lying down; chest pain; severe dyspnea; sustained abnormal heartbeat; significant injury; persistent confusion; neurologic deficit.",
+      "triage": "Emergency for red flags; prompt clinician assessment for new/recurrent unexplained syncope.",
+      "mechanisms": [
+        "POTS/orthostatic intolerance",
+        "neurally mediated hypotension",
+        "dehydration",
+        "arrhythmia/cardiac causes",
+        "bleeding/anemia",
+        "medication effects."
+      ],
+      "nextStep": "Syncope context → cardiac/neuro/injury screen → orthostatic branch."
+    },
+    {
+      "id": "CV-NEAR-FAINTING-SEVERE",
+      "system": "Cardiovascular / Dysautonomia",
+      "label": "Near-fainting / severe lightheadedness",
+      "questions": [
+        {
+          "id": "CV-NEAR-FAINTING-SEVERE-01",
+          "prompt": "Are you upright, overheated, post-meal, dehydrated, or ill?",
+          "answers": [
+            {
+              "id": "UPRIGHT",
+              "label": "Upright",
+              "isRedFlag": false
+            },
+            {
+              "id": "HEAT",
+              "label": "Overheated",
+              "isRedFlag": false
+            },
+            {
+              "id": "MEAL",
+              "label": "After a meal",
+              "isRedFlag": false
+            },
+            {
+              "id": "DEHY",
+              "label": "Dehydrated",
+              "isRedFlag": false
+            },
+            {
+              "id": "ILL",
+              "label": "Ill",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-NEAR-FAINTING-SEVERE-02",
+          "prompt": "What are your heart rate and blood pressure if safely available?",
+          "answers": [
+            {
+              "id": "HAVE",
+              "label": "I have recent numbers",
+              "isRedFlag": false
+            },
+            {
+              "id": "NONE",
+              "label": "I do not have numbers right now",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-NEAR-FAINTING-SEVERE-03",
+          "prompt": "Any chest pain, severe shortness of breath, new neurologic symptoms, or inability to stay conscious?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Progression to loss of consciousness; chest pain; severe dyspnea; new neurologic deficit; signs of shock.",
+      "triage": "Emergency for red flags; otherwise use established dysautonomia plan and seek care if new/severe/persistent.",
+      "mechanisms": [
+        "POTS",
+        "orthostatic hypotension",
+        "neurally mediated hypotension",
+        "dehydration/hypovolemia",
+        "medication effects."
+      ],
+      "nextStep": "Red-flag screen → orthostatic trigger → established POTS plan vs medical review."
+    },
+    {
+      "id": "CV-CHEST-PAIN",
+      "system": "Cardiovascular",
+      "label": "Chest pain",
+      "questions": [
+        {
+          "id": "CV-CHEST-PAIN-01",
+          "prompt": "Where is the pain and what does it feel like—pressure, sharp, tearing, burning, reproducible with touch/movement?",
+          "answers": [
+            {
+              "id": "OPT-PRESSURE",
+              "label": "Pressure",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-SHARP",
+              "label": "Sharp",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-TEARING",
+              "label": "Tearing",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-BURNING",
+              "label": "Burning",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-REPRODUCIBLE-WITH-TOUCH-MOVEMENT",
+              "label": "Reproducible with touch/movement",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-CHEST-PAIN-02",
+          "prompt": "Did it begin suddenly, during exertion, or with shortness of breath/fainting?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-CHEST-PAIN-03",
+          "prompt": "Any radiation to arm/jaw/back, sweating, severe breathlessness, neurologic symptoms, or known vEDS/aortic disease?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "New/severe chest pressure; tearing chest/back pain; chest pain with dyspnea, fainting, neurologic symptoms, or shock; any concerning acute chest pain in vEDS.",
+      "triage": "Emergency evaluation.",
+      "mechanisms": [
+        "Cardiac/vascular emergencies must be excluded",
+        "dysautonomia can cause atypical chest pain",
+        "costochondral/musculoskeletal pain",
+        "reflux",
+        "aortic pathology is especially important in vEDS."
+      ],
+      "nextStep": "Emergency cardiac/vascular screen before EDS-mechanical branch."
+    },
+    {
+      "id": "CV-PALPITATIONS-RACING",
+      "system": "Cardiovascular",
+      "label": "Palpitations / racing heart",
+      "questions": [
+        {
+          "id": "CV-PALPITATIONS-RACING-01",
+          "prompt": "Is your heart rate fast, irregular, pounding, or skipping?",
+          "answers": [
+            {
+              "id": "FAST",
+              "label": "Fast",
+              "isRedFlag": false
+            },
+            {
+              "id": "IRREG",
+              "label": "Irregular",
+              "isRedFlag": false
+            },
+            {
+              "id": "POUND",
+              "label": "Pounding",
+              "isRedFlag": false
+            },
+            {
+              "id": "SKIP",
+              "label": "Skipping",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-PALPITATIONS-RACING-02",
+          "prompt": "Does it happen upright, at rest, or with exertion?",
+          "answers": [
+            {
+              "id": "UPRIGHT",
+              "label": "Upright",
+              "isRedFlag": false
+            },
+            {
+              "id": "REST",
+              "label": "At rest",
+              "isRedFlag": false
+            },
+            {
+              "id": "EXERT",
+              "label": "With exertion",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "CV-PALPITATIONS-RACING-03",
+          "prompt": "Any chest pain, fainting, severe shortness of breath, or sustained very rapid/irregular rhythm?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Palpitations with fainting, chest pain, severe dyspnea, or persistent unstable symptoms.",
+      "triage": "Emergency for red flags; otherwise autonomic/cardiac assessment if new or changing.",
+      "mechanisms": [
+        "POTS/postural tachycardia",
+        "autonomic dysfunction",
+        "arrhythmia",
+        "dehydration",
+        "medication effects."
+      ],
+      "nextStep": "Stability screen → posture relation → rhythm/cardiology branch."
+    },
+    {
+      "id": "RESP-SHORTNESS-OF-BREATH",
+      "system": "Respiratory / Allergy",
+      "label": "Shortness of breath",
+      "questions": [
+        {
+          "id": "RESP-SHORTNESS-OF-BREATH-01",
+          "prompt": "Did it start suddenly or gradually?",
+          "answers": [
+            {
+              "id": "SUDDEN",
+              "label": "Suddenly",
+              "isRedFlag": false
+            },
+            {
+              "id": "GRAD",
+              "label": "Gradually",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "RESP-SHORTNESS-OF-BREATH-02",
+          "prompt": "Is there wheezing, throat tightness, swelling, chest pain, fever, or positional symptoms?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "RESP-SHORTNESS-OF-BREATH-03",
+          "prompt": "Can you speak full sentences; are lips/face blue; is there fainting or severe distress?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Severe breathing difficulty; blue/gray lips; inability to speak normally; chest pain/fainting; rapidly worsening throat/tongue swelling.",
+      "triage": "Emergency evaluation.",
+      "mechanisms": [
+        "Anaphylaxis/MCAD",
+        "asthma",
+        "autonomic dysfunction",
+        "thoracic cage/diaphragmatic mechanics",
+        "infection",
+        "pulmonary/cardiac causes."
+      ],
+      "nextStep": "Airway emergency screen → allergic vs chest/cardiac vs mechanical branch."
+    },
+    {
+      "id": "ALLERGY-THROAT-TIGHTNESS-SWE",
+      "system": "Allergy / Mast Cell",
+      "label": "Throat tightness / swelling during reaction",
+      "questions": [
+        {
+          "id": "ALLERGY-THROAT-TIGHTNESS-SWE-01",
+          "prompt": "Is your tongue, lips, face, or throat swelling?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "ALLERGY-THROAT-TIGHTNESS-SWE-02",
+          "prompt": "Are you wheezing, struggling to breathe, dizzy/faint, or vomiting repeatedly?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "ALLERGY-THROAT-TIGHTNESS-SWE-03",
+          "prompt": "Was there a likely trigger and do you have a prescribed epinephrine plan?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Any airway swelling, breathing difficulty, faintness/shock, or rapidly progressing multi-system allergic reaction.",
+      "triage": "Emergency; follow prescribed anaphylaxis plan and seek emergency care.",
+      "mechanisms": [
+        "Anaphylaxis",
+        "mast-cell activation disorder",
+        "angioedema",
+        "asthma/laryngeal inflammation."
+      ],
+      "nextStep": "Anaphylaxis branch immediately."
+    },
+    {
+      "id": "ALLERGY-HIVES-FLUSHING-ITCHI",
+      "system": "Allergy / Mast Cell",
+      "label": "Hives / flushing / itching",
+      "questions": [
+        {
+          "id": "ALLERGY-HIVES-FLUSHING-ITCHI-01",
+          "prompt": "Are symptoms limited to skin or are other systems involved?",
+          "answers": [
+            {
+              "id": "SKIN",
+              "label": "Only skin symptoms such as hives, flushing, or itching",
+              "isRedFlag": false
+            },
+            {
+              "id": "AIRWAY",
+              "label": "Throat/tongue/lip swelling, wheeze, or breathing difficulty",
+              "isRedFlag": true
+            },
+            {
+              "id": "CIRC",
+              "label": "Faintness, collapse, or signs of shock",
+              "isRedFlag": true
+            },
+            {
+              "id": "MULTI",
+              "label": "Symptoms in multiple body systems progressing quickly",
+              "isRedFlag": true
+            },
+            {
+              "id": "GI_ONLY",
+              "label": "GI symptoms without airway/circulatory symptoms",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "ALLERGY-HIVES-FLUSHING-ITCHI-02",
+          "prompt": "Any throat symptoms, wheeze, vomiting/diarrhea, faintness, or swelling?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "ALLERGY-HIVES-FLUSHING-ITCHI-03",
+          "prompt": "How quickly are symptoms progressing and is there a known trigger?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Skin symptoms plus breathing/airway compromise, hypotension/faintness, or rapidly progressive systemic reaction.",
+      "triage": "Emergency for anaphylaxis signs; otherwise follow established allergy/MCAS plan and clinician advice.",
+      "mechanisms": [
+        "Urticaria",
+        "mast-cell activation",
+        "contact/allergic reaction",
+        "medication/food trigger."
+      ],
+      "nextStep": "Skin-only vs multisystem branch."
+    },
+    {
+      "id": "GI-ABDOMINAL-PAIN",
+      "system": "GI",
+      "label": "Abdominal pain",
+      "questions": [
+        {
+          "id": "GI-ABDOMINAL-PAIN-01",
+          "prompt": "Where is the pain—upper middle, right upper, left upper, right lower, left lower, around navel, lower pelvis, flank, or diffuse?",
+          "answers": [
+            {
+              "id": "RUQ",
+              "label": "Right upper abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "EPIG",
+              "label": "Upper middle / epigastric",
+              "isRedFlag": false
+            },
+            {
+              "id": "LUQ",
+              "label": "Left upper abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "RLQ",
+              "label": "Right lower abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "LLQ",
+              "label": "Left lower abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "PERI",
+              "label": "Around the navel",
+              "isRedFlag": false
+            },
+            {
+              "id": "FLANK",
+              "label": "Flank / side",
+              "isRedFlag": false
+            },
+            {
+              "id": "PELVIC",
+              "label": "Lower abdomen / pelvis",
+              "isRedFlag": false
+            },
+            {
+              "id": "DIFF",
+              "label": "Diffuse / all over",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-ABDOMINAL-PAIN-02",
+          "prompt": "Did it begin suddenly or gradually; is it constant, cramping, post-meal, or positional?",
+          "answers": [
+            {
+              "id": "POSTMEAL",
+              "label": "Mostly after meals",
+              "isRedFlag": false
+            },
+            {
+              "id": "BOWEL",
+              "label": "Changes with bowel movements / constipation / diarrhea",
+              "isRedFlag": false
+            },
+            {
+              "id": "POSITION",
+              "label": "Strongly affected by posture or body position",
+              "isRedFlag": false
+            },
+            {
+              "id": "ALLERGY",
+              "label": "Occurs with flushing, hives, itching, throat symptoms, or food-reaction episodes",
+              "isRedFlag": false
+            },
+            {
+              "id": "CONSTANT",
+              "label": "Constant without a clear trigger",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-ABDOMINAL-PAIN-03",
+          "prompt": "Any rigid/distended abdomen, repeated vomiting, blood/black stool, fever, fainting, inability to pass stool/gas, or known vEDS?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Sudden severe or rapidly worsening pain; rigid abdomen; shock/fainting; GI bleeding; persistent vomiting with severe pain; inability to pass stool/gas with distension; acute abdominal/flank pain in vEDS.",
+      "triage": "Emergency for red flags; prompt evaluation for persistent/new focal pain.",
+      "mechanisms": [
+        "IBS/disorder of gut-brain interaction",
+        "constipation",
+        "gastroparesis",
+        "GERD/gastritis",
+        "abdominal wall/nerve entrapment",
+        "hernia",
+        "pelvic floor dysfunction",
+        "vascular compression syndromes (e.g., MALS/SMAS)",
+        "obstruction/pseudo-obstruction",
+        "vEDS arterial/intestinal rupture."
+      ],
+      "nextStep": "Pain location → obstruction/bleeding/vascular red flags → meal/position/bowel-pattern branch."
+    },
+    {
+      "id": "SYMP-NAUSEA",
+      "system": "GI",
+      "label": "Nausea",
+      "questions": [
+        {
+          "id": "SYMP-NAUSEA-01",
+          "prompt": "Is nausea related to meals, standing, pain, medications, or allergic-type episodes?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SYMP-NAUSEA-02",
+          "prompt": "Are you vomiting; can you keep fluids down?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SYMP-NAUSEA-03",
+          "prompt": "Any severe abdominal pain/distension, blood, fainting, fever, or inability to pass stool/gas?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Inability to keep fluids down with dehydration; severe abdominal pain/distension; GI bleeding; obstruction signs; shock.",
+      "triage": "Urgent/emergency depending severity; otherwise GI/autonomic/medication review.",
+      "mechanisms": [
+        "Gastroparesis/delayed gastric emptying",
+        "dysautonomia",
+        "reflux/gastritis",
+        "IBS",
+        "MCAD",
+        "medication effects",
+        "vascular compression syndromes."
+      ],
+      "nextStep": "Hydration/vomiting screen → pain/obstruction screen → meal/posture trigger."
+    },
+    {
+      "id": "GI-VOMITING",
+      "system": "GI",
+      "label": "Vomiting",
+      "questions": [
+        {
+          "id": "GI-VOMITING-01",
+          "prompt": "How many times and for how long?",
+          "answers": [
+            {
+              "id": "FEW",
+              "label": "Once or twice",
+              "isRedFlag": false
+            },
+            {
+              "id": "MANY",
+              "label": "Repeatedly today",
+              "isRedFlag": false
+            },
+            {
+              "id": "HOURS",
+              "label": "Ongoing for hours",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-VOMITING-02",
+          "prompt": "Can you keep down liquids; is there blood or coffee-ground material?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-VOMITING-03",
+          "prompt": "Any severe abdominal pain/distension, no stool/gas, severe headache/neurologic symptoms, or allergic reaction?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Blood/coffee-ground vomit; severe dehydration; obstruction signs; severe abdominal pain; altered mental status; anaphylaxis.",
+      "triage": "Emergency for red flags; same-day evaluation if persistent or unable to hydrate.",
+      "mechanisms": [
+        "Gastroparesis",
+        "obstruction/pseudo-obstruction",
+        "gastroenteritis",
+        "migraine",
+        "dysautonomia",
+        "MCAD",
+        "medication effects",
+        "vascular compression syndromes."
+      ],
+      "nextStep": "Bleeding/hydration → obstruction → neuro/allergy branch."
+    },
+    {
+      "id": "GI-BLOATING-ABDOMINAL-D",
+      "system": "GI",
+      "label": "Bloating / abdominal distension",
+      "questions": [
+        {
+          "id": "GI-BLOATING-ABDOMINAL-D-01",
+          "prompt": "Is the abdomen mildly bloated or markedly/distressingly distended?",
+          "answers": [
+            {
+              "id": "MILD",
+              "label": "Mildly bloated",
+              "isRedFlag": false
+            },
+            {
+              "id": "MARKED",
+              "label": "Markedly / distressingly distended",
+              "isRedFlag": true
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-BLOATING-ABDOMINAL-D-02",
+          "prompt": "Are you passing stool and gas?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-BLOATING-ABDOMINAL-D-03",
+          "prompt": "Any vomiting, severe pain, fever, rapid heart rate, or rigid abdomen?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Marked distension plus inability to pass stool/gas, vomiting, severe pain, fever, or systemic illness.",
+      "triage": "Emergency/urgent evaluation if obstruction signs; otherwise routine GI evaluation if recurrent.",
+      "mechanisms": [
+        "Constipation",
+        "IBS",
+        "dysmotility",
+        "gastroparesis",
+        "intestinal pseudo-obstruction",
+        "mechanical obstruction",
+        "pelvic floor dysfunction."
+      ],
+      "nextStep": "Stool/gas → vomiting/pain → constipation/dysmotility branch."
+    },
+    {
+      "id": "GI-CONSTIPATION-CANNOT",
+      "system": "GI",
+      "label": "Constipation / cannot pass stool",
+      "questions": [
+        {
+          "id": "GI-CONSTIPATION-CANNOT-01",
+          "prompt": "When was the last bowel movement?",
+          "answers": [
+            {
+              "id": "TODAY",
+              "label": "Today",
+              "isRedFlag": false
+            },
+            {
+              "id": "YDAY",
+              "label": "Yesterday",
+              "isRedFlag": false
+            },
+            {
+              "id": "DAYS",
+              "label": "Two or more days ago",
+              "isRedFlag": false
+            },
+            {
+              "id": "WEEK",
+              "label": "A week or more",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-CONSTIPATION-CANNOT-02",
+          "prompt": "Are you still passing gas?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-CONSTIPATION-CANNOT-03",
+          "prompt": "Any severe distension, vomiting, severe pain, fever, or inability to pass gas?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Complete inability to pass stool or gas with abdominal pain/distension, especially with vomiting.",
+      "triage": "Emergency/urgent evaluation for obstruction signs; routine management for familiar uncomplicated constipation.",
+      "mechanisms": [
+        "Slow transit",
+        "IBS-C",
+        "pelvic floor dyssynergia",
+        "rectocele/prolapse",
+        "medication effects",
+        "dysautonomia",
+        "obstruction/pseudo-obstruction."
+      ],
+      "nextStep": "Gas passage → obstruction red flags → outlet vs slow-transit branch."
+    },
+    {
+      "id": "GI-DIARRHEA",
+      "system": "GI",
+      "label": "Diarrhea",
+      "questions": [
+        {
+          "id": "GI-DIARRHEA-01",
+          "prompt": "How frequent and how long has it been happening?",
+          "answers": [
+            {
+              "id": "FEW",
+              "label": "A few times",
+              "isRedFlag": false
+            },
+            {
+              "id": "MANY",
+              "label": "Many times today",
+              "isRedFlag": false
+            },
+            {
+              "id": "DAYS",
+              "label": "For days",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-DIARRHEA-02",
+          "prompt": "Is there blood/black stool, fever, severe pain, or signs of dehydration?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-DIARRHEA-03",
+          "prompt": "Is it associated with foods, allergic-type symptoms, medications, or alternating constipation?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Large-volume bleeding/black stool; severe dehydration/fainting; severe abdominal pain; toxic appearance.",
+      "triage": "Emergency for severe bleeding/shock; prompt care for significant dehydration or persistent bloody diarrhea.",
+      "mechanisms": [
+        "IBS-D/mixed IBS",
+        "MCAD/food-triggered symptoms",
+        "infection",
+        "medication effects",
+        "autonomic dysfunction."
+      ],
+      "nextStep": "Bleeding/dehydration → infection/systemic → IBS/MCAD trigger branch."
+    },
+    {
+      "id": "GI-EARLY-FULLNESS-CANNO",
+      "system": "GI",
+      "label": "Early fullness / cannot eat much",
+      "questions": [
+        {
+          "id": "GI-EARLY-FULLNESS-CANNO-01",
+          "prompt": "How soon after starting a meal do you feel full?",
+          "answers": [
+            {
+              "id": "NOW",
+              "label": "Almost immediately",
+              "isRedFlag": false
+            },
+            {
+              "id": "SMALL",
+              "label": "After a small amount",
+              "isRedFlag": false
+            },
+            {
+              "id": "NORMAL",
+              "label": "After a usual amount",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-EARLY-FULLNESS-CANNO-02",
+          "prompt": "Is there nausea, vomiting, weight loss, dehydration, or severe post-meal pain?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-EARLY-FULLNESS-CANNO-03",
+          "prompt": "Does pain improve/worsen with position; are symptoms progressively limiting intake?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Inability to maintain hydration/nutrition; persistent vomiting; severe post-meal pain with fainting/shock; rapidly worsening symptoms.",
+      "triage": "Prompt GI/nutrition evaluation; urgent if unable to hydrate or significant acute deterioration.",
+      "mechanisms": [
+        "Gastroparesis/delayed gastric emptying",
+        "functional dyspepsia",
+        "autonomic dysfunction",
+        "MALS/SMAS or other vascular compression",
+        "medication effects."
+      ],
+      "nextStep": "Hydration/nutrition → vomiting/pain → motility vs compression branch."
+    },
+    {
+      "id": "GI-DIFFICULTY-SWALLOWIN",
+      "system": "GI / Swallowing",
+      "label": "Difficulty swallowing / food stuck",
+      "questions": [
+        {
+          "id": "GI-DIFFICULTY-SWALLOWIN-01",
+          "prompt": "Is the problem with liquids, solids, or both?",
+          "answers": [
+            {
+              "id": "LIQ",
+              "label": "Liquids",
+              "isRedFlag": false
+            },
+            {
+              "id": "SOL",
+              "label": "Solids",
+              "isRedFlag": false
+            },
+            {
+              "id": "BOTH",
+              "label": "Both",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-DIFFICULTY-SWALLOWIN-02",
+          "prompt": "Does food feel stuck in the throat or chest?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GI-DIFFICULTY-SWALLOWIN-03",
+          "prompt": "Can you swallow saliva; is there choking, breathing trouble, drooling, or complete blockage?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Unable to swallow saliva, airway compromise/choking, or complete food impaction.",
+      "triage": "Emergency for airway/complete obstruction; prompt GI/ENT evaluation for recurrent dysphagia.",
+      "mechanisms": [
+        "Esophageal dysmotility",
+        "reflux/inflammation",
+        "structural narrowing",
+        "swallowing/phonation disorders associated with hEDS",
+        "MCAD-related inflammation."
+      ],
+      "nextStep": "Airway/impaction → solids vs liquids → GI/ENT branch."
+    },
+    {
+      "id": "PELVIC-UNABLE-TO-URINATE",
+      "system": "Pelvic / Urologic",
+      "label": "Unable to urinate / urinary retention",
+      "questions": [
+        {
+          "id": "PELVIC-UNABLE-TO-URINATE-01",
+          "prompt": "When did you last urinate and do you feel a full/painful bladder?",
+          "answers": [
+            {
+              "id": "FULL",
+              "label": "I feel a full or painful bladder",
+              "isRedFlag": true
+            },
+            {
+              "id": "RECENT",
+              "label": "I urinated recently and do not feel full",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-UNABLE-TO-URINATE-02",
+          "prompt": "Is this new or a known recurrent issue?",
+          "answers": [
+            {
+              "id": "NEW",
+              "label": "New",
+              "isRedFlag": false
+            },
+            {
+              "id": "KNOWN",
+              "label": "Known / recurrent",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-UNABLE-TO-URINATE-03",
+          "prompt": "Any new leg weakness, saddle numbness, severe back pain, fever, or bowel-control change?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Acute inability to urinate; retention with new saddle anesthesia/leg weakness/bowel changes; severe systemic illness.",
+      "triage": "Urgent/emergency evaluation, especially with neurologic red flags.",
+      "mechanisms": [
+        "Neurogenic bladder",
+        "tethered-cord-type symptoms",
+        "spinal/cauda-equina compression",
+        "pelvic floor dysfunction",
+        "medication effects."
+      ],
+      "nextStep": "Retention → neurologic red flags → urologic vs spine branch."
+    },
+    {
+      "id": "PELVIC-NEW-URINARY-INCONTIN",
+      "system": "Pelvic / Urologic",
+      "label": "New urinary incontinence",
+      "questions": [
+        {
+          "id": "PELVIC-NEW-URINARY-INCONTIN-01",
+          "prompt": "Is leakage stress-related, urgency-related, or continuous/new without warning?",
+          "answers": [
+            {
+              "id": "STRESS",
+              "label": "Stress-related",
+              "isRedFlag": false
+            },
+            {
+              "id": "URG",
+              "label": "Urgency-related",
+              "isRedFlag": false
+            },
+            {
+              "id": "CONT",
+              "label": "Continuous / new without warning",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-NEW-URINARY-INCONTIN-02",
+          "prompt": "Any new saddle numbness, leg weakness, gait change, or severe back pain?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-NEW-URINARY-INCONTIN-03",
+          "prompt": "Any fever, painful urination, blood in urine, or inability to empty?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "New loss of bladder control with saddle anesthesia/leg weakness; severe back pain with neurologic change.",
+      "triage": "Emergency for spinal red flags; otherwise prompt urologic/pelvic-floor evaluation if new.",
+      "mechanisms": [
+        "Pelvic floor dysfunction",
+        "prolapse",
+        "autonomic/urologic dysfunction",
+        "tethered cord/spinal compression",
+        "UTI (not EDS-specific)."
+      ],
+      "nextStep": "Neurologic screen → infection/retention → pelvic floor branch."
+    },
+    {
+      "id": "PELVIC-PELVIC-PAIN-PRESSURE",
+      "system": "Pelvic / Urologic",
+      "label": "Pelvic pain / pressure",
+      "questions": [
+        {
+          "id": "PELVIC-PELVIC-PAIN-PRESSURE-01",
+          "prompt": "Where is the pain/pressure?",
+          "answers": [
+            {
+              "id": "HEAD",
+              "label": "Head / face",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck",
+              "isRedFlag": false
+            },
+            {
+              "id": "CHEST",
+              "label": "Chest",
+              "isRedFlag": false
+            },
+            {
+              "id": "ABDOMEN",
+              "label": "Abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "BACK",
+              "label": "Back",
+              "isRedFlag": false
+            },
+            {
+              "id": "PELVIS",
+              "label": "Pelvis",
+              "isRedFlag": false
+            },
+            {
+              "id": "ARM",
+              "label": "Arm / hand",
+              "isRedFlag": false
+            },
+            {
+              "id": "LEG",
+              "label": "Leg / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "MULTI",
+              "label": "Multiple areas",
+              "isRedFlag": false
+            },
+            {
+              "id": "OTHER",
+              "label": "Other",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-PELVIC-PAIN-PRESSURE-02",
+          "prompt": "Sudden or chronic; related to standing, bowel movements, urination, or sexual activity?",
+          "answers": [
+            {
+              "id": "OPT-SUDDEN",
+              "label": "Sudden",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-CHRONIC-RELATED-TO-STANDING",
+              "label": "Chronic; related to standing",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-BOWEL-MOVEMENTS",
+              "label": "Bowel movements",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-URINATION",
+              "label": "Urination",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-SEXUAL-ACTIVITY",
+              "label": "Sexual activity",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-PELVIC-PAIN-PRESSURE-03",
+          "prompt": "Any heavy bleeding, fainting, fever, vomiting, pregnancy possibility, visible prolapse that cannot be reduced, or urinary retention?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Sudden severe pelvic pain with fainting/shock; heavy bleeding; fever/systemic illness; acute urinary retention.",
+      "triage": "Emergency for acute systemic/bleeding red flags; prompt pelvic evaluation for new significant symptoms.",
+      "mechanisms": [
+        "Pelvic floor spasm/dysfunction",
+        "pelvic organ/rectal prolapse",
+        "hernia",
+        "constipation/rectocele",
+        "gynecologic/urologic causes."
+      ],
+      "nextStep": "Acute vs chronic → bleeding/systemic → prolapse/pelvic-floor branch."
+    },
+    {
+      "id": "SPINE-SEVERE-LOW-BACK",
+      "system": "Spine / Lower Neurologic",
+      "label": "Severe low-back pain with leg symptoms",
+      "questions": [
+        {
+          "id": "SPINE-SEVERE-LOW-BACK-01",
+          "prompt": "Did pain start suddenly or after injury?",
+          "answers": [
+            {
+              "id": "SUDDEN",
+              "label": "Suddenly",
+              "isRedFlag": false
+            },
+            {
+              "id": "INJ",
+              "label": "After an injury",
+              "isRedFlag": false
+            },
+            {
+              "id": "BOTH",
+              "label": "Suddenly after an injury",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SPINE-SEVERE-LOW-BACK-02",
+          "prompt": "Is there new weakness/numbness in one or both legs?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SPINE-SEVERE-LOW-BACK-03",
+          "prompt": "Any saddle/perineal numbness, urinary retention/incontinence, bowel-control loss, fever, or inability to walk?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Saddle anesthesia; new bladder/bowel dysfunction; progressive leg weakness; major trauma; fever with severe spinal pain.",
+      "triage": "Emergency evaluation for cauda-equina/spinal cord red flags.",
+      "mechanisms": [
+        "Disc/nerve compression",
+        "instability",
+        "tethered-cord-type symptoms",
+        "Tarlov cysts",
+        "musculoskeletal pain."
+      ],
+      "nextStep": "Immediate cauda-equina screen → trauma/infection → mechanical branch."
+    },
+    {
+      "id": "NECK-NECK-PAIN-NECK",
+      "system": "Head / Neck",
+      "label": "Neck pain / neck feels unstable",
+      "questions": [
+        {
+          "id": "NECK-NECK-PAIN-NECK-01",
+          "prompt": "Was there recent trauma or manipulation?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "NECK-NECK-PAIN-NECK-02",
+          "prompt": "Is pain new/severe or familiar/chronic?",
+          "answers": [
+            {
+              "id": "NEW",
+              "label": "New or severe",
+              "isRedFlag": false
+            },
+            {
+              "id": "FAM",
+              "label": "Familiar or chronic",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "NECK-NECK-PAIN-NECK-03",
+          "prompt": "Any new weakness/numbness, difficulty walking, swallowing/breathing change, severe headache, fainting, or loss of coordination?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Major trauma; new neurologic deficits; severe sudden headache; breathing/swallowing compromise; inability to walk.",
+      "triage": "Emergency for red flags; specialist assessment for progressive neurologic symptoms.",
+      "mechanisms": [
+        "Muscle guarding",
+        "cervical instability",
+        "craniocervical instability",
+        "disc/nerve pathology",
+        "cervicogenic headache."
+      ],
+      "nextStep": "Trauma/neuro screen → progressive vs familiar mechanical symptoms."
+    },
+    {
+      "id": "TMJ-JAW-LOCKED-SHIFTED",
+      "system": "Jaw / TMJ",
+      "label": "Jaw locked / shifted",
+      "questions": [
+        {
+          "id": "TMJ-JAW-LOCKED-SHIFTED-01",
+          "prompt": "Is the mouth stuck open, closed, or partly open?",
+          "answers": [
+            {
+              "id": "OPEN",
+              "label": "Stuck open",
+              "isRedFlag": false
+            },
+            {
+              "id": "CLOSED",
+              "label": "Stuck closed",
+              "isRedFlag": false
+            },
+            {
+              "id": "PART",
+              "label": "Partly open",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "TMJ-JAW-LOCKED-SHIFTED-02",
+          "prompt": "Can you swallow and breathe normally?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "TMJ-JAW-LOCKED-SHIFTED-03",
+          "prompt": "Was there trauma; is there severe swelling, numbness, or dental injury?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Airway/swallowing compromise; major facial trauma; uncontrolled bleeding.",
+      "triage": "Emergency for airway/major trauma; urgent dental/maxillofacial care if jaw remains locked/dislocated.",
+      "mechanisms": [
+        "TMJ laxity/dysfunction",
+        "jaw subluxation/dislocation",
+        "muscle spasm",
+        "dental pathology."
+      ],
+      "nextStep": "Airway → locked/dislocated → TMJ/dental branch."
+    },
+    {
+      "id": "SKIN-UNUSUAL-BLEEDING-LAR",
+      "system": "Skin / Bleeding",
+      "label": "Unusual bleeding / large bruise",
+      "questions": [
+        {
+          "id": "SKIN-UNUSUAL-BLEEDING-LAR-01",
+          "prompt": "Where is the bleeding or bruise?",
+          "answers": [
+            {
+              "id": "HEAD",
+              "label": "Head / face",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck",
+              "isRedFlag": false
+            },
+            {
+              "id": "CHEST",
+              "label": "Chest",
+              "isRedFlag": false
+            },
+            {
+              "id": "ABDOMEN",
+              "label": "Abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "BACK",
+              "label": "Back",
+              "isRedFlag": false
+            },
+            {
+              "id": "PELVIS",
+              "label": "Pelvis",
+              "isRedFlag": false
+            },
+            {
+              "id": "ARM",
+              "label": "Arm / hand",
+              "isRedFlag": false
+            },
+            {
+              "id": "LEG",
+              "label": "Leg / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "MULTI",
+              "label": "Multiple areas",
+              "isRedFlag": false
+            },
+            {
+              "id": "OTHER",
+              "label": "Other",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SKIN-UNUSUAL-BLEEDING-LAR-02",
+          "prompt": "Was there trauma and is bleeding stopping with direct pressure?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SKIN-UNUSUAL-BLEEDING-LAR-03",
+          "prompt": "Any dizziness/fainting, rapidly expanding swelling, blood in vomit/stool/urine, severe headache, or anticoagulant use?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Bleeding that will not stop; signs of shock; rapidly expanding hematoma; GI bleeding; severe head symptoms after trauma.",
+      "triage": "Emergency for uncontrolled/internal bleeding signs; clinician review for recurrent disproportionate bleeding.",
+      "mechanisms": [
+        "Capillary/soft-tissue fragility",
+        "platelet/von Willebrand or other bleeding disorder",
+        "medication effects",
+        "vascular fragility (especially vEDS)."
+      ],
+      "nextStep": "Bleeding control → internal bleeding screen → hematology/EDS branch."
+    },
+    {
+      "id": "SKIN-WOUND-OPENED-POOR",
+      "system": "Skin / Wound",
+      "label": "Wound opened / poor healing",
+      "questions": [
+        {
+          "id": "SKIN-WOUND-OPENED-POOR-01",
+          "prompt": "How large/deep is the wound and where is it?",
+          "answers": [
+            {
+              "id": "SMALL",
+              "label": "Small / shallow",
+              "isRedFlag": false
+            },
+            {
+              "id": "LARGE",
+              "label": "Large / deep",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SKIN-WOUND-OPENED-POOR-02",
+          "prompt": "Is bleeding controlled?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SKIN-WOUND-OPENED-POOR-03",
+          "prompt": "Any exposed deeper tissue, spreading redness, pus, fever, or wound after surgery?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Uncontrolled bleeding; deep/gaping wound; exposed structures; rapidly spreading infection; fever/systemic illness.",
+      "triage": "Urgent wound care depending depth/infection; routine clinician review for chronic poor healing.",
+      "mechanisms": [
+        "Skin/soft-tissue fragility",
+        "atrophic scarring",
+        "impaired wound integrity",
+        "infection",
+        "dehiscence."
+      ],
+      "nextStep": "Bleeding/depth → infection → wound-healing branch."
+    },
+    {
+      "id": "VASC-SUDDEN-SEVERE-CHEST",
+      "system": "Vascular Red Flag",
+      "label": "Sudden severe chest, abdominal, flank, back, or neck pain in known/suspected vascular EDS",
+      "questions": [
+        {
+          "id": "VASC-SUDDEN-SEVERE-CHEST-01",
+          "prompt": "Where is the pain and did it begin abruptly?",
+          "answers": [
+            {
+              "id": "HEAD",
+              "label": "Head / face",
+              "isRedFlag": false
+            },
+            {
+              "id": "NECK",
+              "label": "Neck",
+              "isRedFlag": false
+            },
+            {
+              "id": "CHEST",
+              "label": "Chest",
+              "isRedFlag": false
+            },
+            {
+              "id": "ABDOMEN",
+              "label": "Abdomen",
+              "isRedFlag": false
+            },
+            {
+              "id": "BACK",
+              "label": "Back",
+              "isRedFlag": false
+            },
+            {
+              "id": "PELVIS",
+              "label": "Pelvis",
+              "isRedFlag": false
+            },
+            {
+              "id": "ARM",
+              "label": "Arm / hand",
+              "isRedFlag": false
+            },
+            {
+              "id": "LEG",
+              "label": "Leg / foot",
+              "isRedFlag": false
+            },
+            {
+              "id": "MULTI",
+              "label": "Multiple areas",
+              "isRedFlag": false
+            },
+            {
+              "id": "OTHER",
+              "label": "Other",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "VASC-SUDDEN-SEVERE-CHEST-02",
+          "prompt": "Is it severe, unusual, tearing, or unlike your baseline?",
+          "answers": [
+            {
+              "id": "OPT-SEVERE",
+              "label": "Severe",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-UNUSUAL",
+              "label": "Unusual",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-TEARING",
+              "label": "Tearing",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-UNLIKE-YOUR-BASELINE",
+              "label": "Unlike your baseline",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "VASC-SUDDEN-SEVERE-CHEST-03",
+          "prompt": "Any fainting, weakness, neurologic change, shortness of breath, bleeding, or signs of shock?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Any sudden unexplained severe chest/abdominal/flank/back/neck pain in known vEDS warrants immediate hospital assessment for arterial/organ complications.",
+      "triage": "Emergency evaluation.",
+      "mechanisms": [
+        "Arterial dissection/rupture",
+        "aortic pathology",
+        "intestinal/organ rupture—primarily a vEDS concern, not a typical hEDS mechanism."
+      ],
+      "nextStep": "Immediate vEDS emergency branch; do not route through routine symptom self-care."
+    },
+    {
+      "id": "VASC-PAINFUL-RED-EYE",
+      "system": "Vascular Red Flag",
+      "label": "Painful red eye + pulsating/whooshing sound in head in vascular EDS",
+      "questions": [
+        {
+          "id": "VASC-PAINFUL-RED-EYE-01",
+          "prompt": "Is one or both eyes suddenly red and painful?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "VASC-PAINFUL-RED-EYE-02",
+          "prompt": "Do you hear pulsation/whooshing in your head?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "VASC-PAINFUL-RED-EYE-03",
+          "prompt": "Any bulging eye, vision change, severe headache, or neurologic symptoms?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "This combination in vEDS can indicate carotid-cavernous fistula and requires immediate hospital care.",
+      "triage": "Emergency evaluation.",
+      "mechanisms": [
+        "Carotid-cavernous fistula",
+        "arterial complication of vEDS."
+      ],
+      "nextStep": "Immediate vEDS eye emergency branch."
+    },
+    {
+      "id": "FATIGUE-SUDDEN-SEVERE-EXERCI",
+      "system": "Fatigue / Exercise",
+      "label": "Sudden severe exercise intolerance / collapse",
+      "questions": [
+        {
+          "id": "FATIGUE-SUDDEN-SEVERE-EXERCI-01",
+          "prompt": "Is this your usual post-exertional fatigue or a sudden major change?",
+          "answers": [
+            {
+              "id": "USUAL",
+              "label": "Usual post-exertional fatigue",
+              "isRedFlag": false
+            },
+            {
+              "id": "CHANGE",
+              "label": "A sudden major change",
+              "isRedFlag": true
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "FATIGUE-SUDDEN-SEVERE-EXERCI-02",
+          "prompt": "Any chest pain, fainting, severe shortness of breath, fever, or new weakness?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "FATIGUE-SUDDEN-SEVERE-EXERCI-03",
+          "prompt": "Did symptoms occur during exertion or afterward; are you recovering normally?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Collapse/syncope during exertion; chest pain; severe dyspnea; new focal weakness; heat illness signs.",
+      "triage": "Emergency for red flags; otherwise pacing/autonomic/ME-CFS or rehabilitation review as appropriate.",
+      "mechanisms": [
+        "Dysautonomia/POTS",
+        "deconditioning",
+        "pain/instability energy cost",
+        "ME/CFS may coexist",
+        "anemia/nutritional issues",
+        "cardiac/pulmonary causes need exclusion if acute."
+      ],
+      "nextStep": "Acute red flags → exertional syncope/cardiac → baseline fatigue branch."
+    },
+    {
+      "id": "FUNC-FALL-INJURY",
+      "system": "Functional / Falls",
+      "label": "Fall / injury",
+      "questions": [
+        {
+          "id": "FUNC-FALL-INJURY-01",
+          "prompt": "Did you hit your head, neck, chest, abdomen, or a joint?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "FUNC-FALL-INJURY-02",
+          "prompt": "Can you stand/walk/use the injured area normally?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "FUNC-FALL-INJURY-03",
+          "prompt": "Any loss of consciousness, vomiting, severe headache, deformity, new numbness/weakness, or anticoagulant use?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Head injury with concerning symptoms; neck/spine neurologic signs; deformity; inability to bear weight; severe chest/abdominal symptoms.",
+      "triage": "Emergency/urgent evaluation based on injury severity.",
+      "mechanisms": [
+        "Proprioceptive impairment",
+        "joint instability",
+        "dysautonomia/syncope",
+        "sprain/dislocation/fracture",
+        "soft-tissue injury."
+      ],
+      "nextStep": "Trauma location → head/spine screen → joint injury branch."
+    },
+    {
+      "id": "RESP-RIB-CHEST-WALL",
+      "system": "Respiratory / Chest Wall",
+      "label": "Rib / chest-wall pain",
+      "questions": [
+        {
+          "id": "RESP-RIB-CHEST-WALL-01",
+          "prompt": "Is pain reproducible with touch, movement, or breathing?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "RESP-RIB-CHEST-WALL-02",
+          "prompt": "Was there trauma, coughing, or a sensation of a rib shifting?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "RESP-RIB-CHEST-WALL-03",
+          "prompt": "Any severe shortness of breath, fainting, coughing blood, fever, or new pressure-like chest pain?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Severe dyspnea, fainting, coughing blood, significant trauma, or symptoms concerning for cardiac/vascular emergency.",
+      "triage": "Emergency for cardiopulmonary red flags; otherwise musculoskeletal assessment if persistent.",
+      "mechanisms": [
+        "Costochondral/chest-wall pain",
+        "rib/costovertebral instability",
+        "muscle strain",
+        "thoracic mechanics",
+        "non-EDS cardiac/pulmonary causes must be excluded when concerning."
+      ],
+      "nextStep": "Cardiopulmonary screen → trauma → mechanical rib branch."
+    },
+    {
+      "id": "SYMP-RECTAL-PROLAPSE-TISSUE-PROTRUDING",
+      "system": "GI / Rectal",
+      "label": "Rectal prolapse / tissue protruding",
+      "questions": [
+        {
+          "id": "SYMP-RECTAL-PROLAPSE-TISSUE-PROTRUDING-01",
+          "prompt": "Is tissue protruding from the anus and does it return on its own?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SYMP-RECTAL-PROLAPSE-TISSUE-PROTRUDING-02",
+          "prompt": "Is it painful, dark/purple, bleeding heavily, or stuck outside?",
+          "answers": [
+            {
+              "id": "OPT-PAINFUL",
+              "label": "Painful",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-DARK-PURPLE",
+              "label": "Dark/purple",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-BLEEDING-HEAVILY",
+              "label": "Bleeding heavily",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-STUCK-OUTSIDE",
+              "label": "Stuck outside",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "SYMP-RECTAL-PROLAPSE-TISSUE-PROTRUDING-03",
+          "prompt": "Are you able to pass stool/gas?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, I can pass stool or gas",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No, I cannot",
+              "isRedFlag": true
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Prolapse that is trapped, very painful, dark/black, heavily bleeding, or accompanied by obstruction/systemic illness.",
+      "triage": "Urgent/emergency if incarcerated/ischemic appearing; otherwise colorectal/pelvic-floor evaluation.",
+      "mechanisms": [
+        "Rectal prolapse",
+        "pelvic floor dysfunction",
+        "constipation/straining",
+        "connective-tissue laxity."
+      ],
+      "nextStep": "Viability/reducibility → obstruction → pelvic-floor/colorectal branch."
+    },
+    {
+      "id": "PELVIC-PELVIC-ORGAN-PROLAPS",
+      "system": "Pelvic",
+      "label": "Pelvic organ prolapse sensation / bulge",
+      "questions": [
+        {
+          "id": "PELVIC-PELVIC-ORGAN-PROLAPS-01",
+          "prompt": "Is there a vaginal/pelvic bulge or pressure sensation?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-PELVIC-ORGAN-PROLAPS-02",
+          "prompt": "Is it new, painful, bleeding, or preventing urination?",
+          "answers": [
+            {
+              "id": "OPT-NEW",
+              "label": "New",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-PAINFUL",
+              "label": "Painful",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-BLEEDING",
+              "label": "Bleeding",
+              "isRedFlag": false
+            },
+            {
+              "id": "OPT-PREVENTING-URINATION",
+              "label": "Preventing urination",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "PELVIC-PELVIC-ORGAN-PROLAPS-03",
+          "prompt": "Does it worsen with standing/straining and improve lying down?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Acute urinary retention, severe pain, heavy bleeding, or tissue that appears compromised.",
+      "triage": "Urgent for retention/severe acute symptoms; otherwise pelvic-floor/urogynecology evaluation.",
+      "mechanisms": [
+        "Pelvic organ prolapse",
+        "connective-tissue laxity",
+        "pelvic floor dysfunction",
+        "constipation/straining."
+      ],
+      "nextStep": "Retention/pain → prolapse severity → pelvic-floor branch."
+    },
+    {
+      "id": "GENERAL-SOMETHING-FEELS-DRAM",
+      "system": "General Emergency Screen",
+      "label": "Something feels dramatically different from my usual EDS symptoms",
+      "questions": [
+        {
+          "id": "GENERAL-SOMETHING-FEELS-DRAM-01",
+          "prompt": "What changed, and how quickly?",
+          "answers": [
+            {
+              "id": "SUDDEN",
+              "label": "It changed suddenly",
+              "isRedFlag": false
+            },
+            {
+              "id": "GRAD",
+              "label": "It changed gradually",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GENERAL-SOMETHING-FEELS-DRAM-02",
+          "prompt": "Is the symptom severe, sudden, rapidly worsening, or unlike your baseline?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes",
+              "isRedFlag": false
+            },
+            {
+              "id": "NO",
+              "label": "No",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        },
+        {
+          "id": "GENERAL-SOMETHING-FEELS-DRAM-03",
+          "prompt": "Any trouble breathing, chest pain, fainting, severe bleeding, new neurologic deficit, severe abdominal pain, or signs of shock?",
+          "answers": [
+            {
+              "id": "YES",
+              "label": "Yes, one or more of these",
+              "isRedFlag": true
+            },
+            {
+              "id": "NO",
+              "label": "No, none of these",
+              "isRedFlag": false
+            },
+            {
+              "id": "UNSURE",
+              "label": "Not sure",
+              "isRedFlag": false
+            }
+          ]
+        }
+      ],
+      "emergencyTrigger": "Any airway/breathing problem, severe chest/abdominal pain, uncontrolled bleeding, fainting with red flags, new neurologic deficit, or shock.",
+      "triage": "Emergency evaluation when red flags are present; the website should not attribute a new dangerous symptom to EDS without evaluation.",
+      "mechanisms": [
+        "EDS can coexist with ordinary emergencies",
+        "anchoring on EDS can delay diagnosis. Consider EDS-related mechanisms only after immediate threats are screened."
+      ],
+      "nextStep": "Universal emergency gate before system-specific flowchart."
+    }
+  ]
+}
