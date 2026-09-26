@@ -7,6 +7,7 @@ import { GuideCover } from '@/components/home/guide-cover'
 import { RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
 import { getStoreProduct } from '@/data/store-products'
+import { PurchaseIncludes } from '@/components/home/purchase-includes'
 import { getHypermobileGuideHref } from '@/utils/shopify-checkout'
 
 export const generateStaticParams = () => {
@@ -118,6 +119,7 @@ export default async function StoreProductPage({
         <div id="get-the-guide">
           <GuideCta href={buyHref} label="Get the Guide →" isDominant />
         </div>
+        <PurchaseIncludes />
 
         <LearnMoreSection title="Hypermobility Is More Than Being Flexible">
           <p>You don&apos;t have to be able to do the splits.</p>

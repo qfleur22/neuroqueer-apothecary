@@ -3,6 +3,7 @@ import { shopifyCatalog } from '@/data/shopify-catalog'
 
 const titlesBySlug: Record<string, string> = {
   'so-you-think-youre-hypermobile': 'So, You Think You’re Hypermobile?',
+  'eds-checklist': 'Hypermobility / EDS Symptom Checklist',
   'transition-guide-now-what': 'Transition Guide: Now What?',
   'trans-representation-in-anime': 'Trans+ Representation in Anime',
   'trans-representation-in-anime-panel-kit': 'Trans Representation in Anime Panel Kit',
@@ -14,12 +15,15 @@ const titlesBySlug: Record<string, string> = {
   'care-plan-workshop-kit': 'Care Plan Creation Workshop Kit',
   'know-your-rights': 'Know Your Rights: Bodily Autonomy, Boundaries & Consent',
   'know-your-rights-workshop': 'Know Your Rights Workshop & Presentation Kit',
+  'queer-sex-bodily-autonomy': 'Queer Sex, Consent & Bodily Autonomy',
+  'boundaries-consent-red-flags-worksheet': 'Boundaries, Consent & Red Flags Worksheet',
 }
 
 const extraAliasTitles: Record<string, string[]> = {
   'transition-guide-now-what': ['Transition Guide'],
   'medical-binder-guide': ['Medical Binder Guide + Template', 'How to Make Your Own Medical Binder'],
   'care-plan-guide': ['Care Plan Guide + Blank Template'],
+  'queer-sex-bodily-autonomy': ['Queer Sex & Bodily Autonomy Guide', 'Queer sex and bodily autonomy guide'],
 }
 
 export const libraryItems: LibraryItem[] = shopifyCatalog.flatMap((product) => {

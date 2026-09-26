@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { RoomPage, WallCard } from '@/components/home/room-page'
 import { RoomLink } from '@/components/home/room-link'
 import { GuideCta } from '@/components/home/guide-cta'
+import { PurchasedResources } from '@/components/library/purchased-resources'
 import { readCustomerSession } from '@/utils/customer-session'
 import { getOwnedLibraryItems } from '@/utils/customer-library'
 import { isShopifyCustomerAuthConfigured } from '@/utils/shopify-domain'
@@ -52,52 +53,26 @@ export default async function LibraryPage({
 
         {!session ? (
           <>
-            <p>
-              This room holds the guides and kits you have already bought. Log in with the same
-              Shopify customer account you used at checkout — Google works if you turn it on in
-              Shopify customer accounts.
-            </p>
+            <p>Log in to see the resources attached to your Shopify purchases.</p>
             <GuideCta href="/api/auth/shopify/login?returnTo=/library" label="Log in →" isDominant />
             <p>
-              Looking to buy something first? The public shelf is still in the{' '}
+              Looking to buy something first? The public shelf is in the{' '}
               <RoomLink href="/store">store</RoomLink>.
             </p>
           </>
-        ) : (
-          <>
-            <p>
-              Signed in{owned?.email ? ` as ${owned.email}` : ''}. These are the resources tied to
-              your Shopify purchases.
-            </p>
-            {loadError ? (
-              <p>We could not read your orders just now. Refresh, or come back in a minute.</p>
-            ) : null}
-            {owned && owned.items.length === 0 && !loadError ? (
-              <p>
-                No purchases are attached to this account yet. If you just checked out, give Shopify
-                a moment, then refresh. Sales pages stay on the{' '}
-                <RoomLink href="/store">store</RoomLink>.
-              </p>
-            ) : null}
-            {owned && owned.items.length > 0 ? (
-              <ul className="space-y-3">
-                {owned.items.map((item) => (
-                  <li key={item.slug}>
-                    <RoomLink href={item.href}>{item.title}</RoomLink>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-            <p className="text-center">
-              <a
-                href="/api/auth/shopify/logout"
-                className="font-display text-lg text-black underline decoration-room-gold underline-offset-4 transition hover:text-room-teal"
-              >
-                Log out
-              </a>
-            </p>
-          </>
-        )}
+        ) : null}
+
+        {session && loadError ? (
+          <p>We could not read your orders right now. Refresh, or come back in a minute.</p>
+        ) : null}
+
+        {session && !loadError ? <PurchasedResources items={owned?.items ?? []} /> : null}
+
+        {session ? (
+          <p className="text-center">
+            <RoomLink href="/profile">Your profile</RoomLink>
+          </p>
+        ) : null}
       </WallCard>
     </RoomPage>
   )

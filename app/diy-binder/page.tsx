@@ -5,6 +5,7 @@ import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { PurchaseIncludes } from '@/components/home/purchase-includes'
 import { getBinderGuideHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -154,6 +155,7 @@ export default function BinderPage() {
         </p>
         <p>There is a better way to carry your medical history.</p>
         <GuideCta href={buyHref} label={DIY_LABEL} isDominant />
+        <PurchaseIncludes />
 
         <LearnMoreSection title="Meet the Medical Binder System">
           <p>

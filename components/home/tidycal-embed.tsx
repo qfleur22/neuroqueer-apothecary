@@ -11,10 +11,11 @@ declare global {
   }
 }
 
-const SCRIPT_SRC = 'https://asset-tidycal.b-cdn.net/js/embed.js'
+const SCRIPT_SRC = 'https://tidycal.com/js/embed.js'
+const DEFAULT_PATH = 'neuroqueerapothecary'
 
 export const TidyCalEmbed = () => {
-  const path = process.env.NEXT_PUBLIC_TIDYCAL_PATH ?? ''
+  const path = process.env.NEXT_PUBLIC_TIDYCAL_PATH || DEFAULT_PATH
 
   const initialize = () => {
     window.TidyCal?.init()

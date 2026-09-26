@@ -41,13 +41,15 @@ export default function AboutPage() {
         <p>
           The Apothecary isn&apos;t here to sell you a cure or promise that I&apos;ve cracked the
           code to your body. It&apos;s here to help you build a map. Through affordable{' '}
-          <RoomLink href="/store">resource guides</RoomLink> and peer coaching, I can help you
+          <RoomLink href="/store">resource guides</RoomLink> and peer coaching—explained on{' '}
+          <RoomLink href="/how-nqa-works">How NQA Works</RoomLink>—I can help you
           recognize patterns, find language for experiences you&apos;ve struggled to describe,
           prepare for medical appointments, locate research and{' '}
           <RoomLink href="/resources">resources</RoomLink>, explore accommodations and management
-          strategies, and figure out which questions might actually be worth asking next. Sometimes
-          fifteen minutes with someone who already speaks the language can save months of wandering
-          through disconnected specialists, inaccessible research, and endless search results.
+          strategies, and figure out which questions might actually be worth asking next. A short
+          consult with someone who already speaks the language can help you leave with a clearer
+          roadmap—what to research, document, or ask next—without replacing your medical team or
+          promising that one conversation will settle months of care.
         </p>
         <p>
           This is community knowledge, not gatekeeping; harm reduction, not perfection;

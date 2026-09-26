@@ -66,9 +66,11 @@ const groups: ResourceGroup[] = [
         showDollar: true,
       },
       {
-        name: 'Queer sex and bodily autonomy guide',
-        href: 'https://docs.google.com/document/d/1A8GYMMVjo7gPZdA1nGedNwIw0sYjvb9vDvCtCZ3m7iE/edit?tab=t.0',
-        description: 'Notes on queer sex, consent, and bodily autonomy.',
+        name: 'Queer Sex, Consent & Bodily Autonomy',
+        href: '/bodily-autonomy',
+        description:
+          'A trans- and neurodivergent-informed toolkit for bodily autonomy, boundaries, consent, communication, safer sex, and intimacy—plus a companion worksheet.',
+        showDollar: true,
       },
       {
         name: 'Know your rights, boundaries, and consent',
@@ -106,6 +108,13 @@ const groups: ResourceGroup[] = [
         href: '/coaching#love-language-coaching',
         description:
           'Work with Quinn to turn giving and receiving profiles into specific, realistic, consent-based ways of building connection.',
+      },
+      {
+        name: 'Queer Sex, Consent & Bodily Autonomy',
+        href: '/bodily-autonomy',
+        description:
+          'A bodily autonomy and communication resource first—useful whether you are sexually active, exploring kink, or practicing boundaries.',
+        showDollar: true,
       },
     ],
   },

@@ -12,7 +12,8 @@ export const GET = async (request: NextRequest) => {
   const returnTo = getSafeReturnPath({ value: request.nextUrl.searchParams.get('returnTo') })
 
   if (!isShopifyCustomerAuthConfigured()) {
-    return Response.redirect(new URL('/library?auth=setup', request.url))
+    const setupPath = returnTo.startsWith('/profile') ? '/profile?auth=setup' : '/library?auth=setup'
+    return Response.redirect(new URL(setupPath, request.url))
   }
 
   try {

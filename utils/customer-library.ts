@@ -1,11 +1,17 @@
 import { LibraryItem } from '@/models/library-item'
 import { getLibraryItemsByHandle, libraryItems } from '@/data/library-items'
+import { CustomerAccount } from '@/models/customer-account'
 import { CustomerSession } from '@/models/customer-session'
 import { customerGraphql, refreshCustomerToken } from '@/utils/shopify-customer-auth'
 
 interface CustomerLibraryResponse {
   customer: {
+    displayName?: string
+    firstName?: string
+    lastName?: string
+    creationDate?: string
     emailAddress?: { emailAddress?: string }
+    phoneNumber?: { phoneNumber?: string }
     orders?: {
       nodes: {
         lineItems: {
@@ -22,8 +28,15 @@ interface CustomerLibraryResponse {
 const libraryQuery = `
   query CustomerLibrary {
     customer {
+      displayName
+      firstName
+      lastName
+      creationDate
       emailAddress {
         emailAddress
+      }
+      phoneNumber {
+        phoneNumber
       }
       orders(first: 50) {
         nodes {
@@ -74,7 +87,7 @@ export const getOwnedLibraryItems = async ({
   session,
 }: {
   session: CustomerSession
-}): Promise<{ items: LibraryItem[]; email?: string; session: CustomerSession }> => {
+}): Promise<CustomerAccount> => {
   let nextSession = session
 
   if (session.expiresAt < Date.now() + 60_000 && session.refreshToken) {
@@ -102,12 +115,19 @@ export const getOwnedLibraryItems = async ({
     }
   }
 
+  const email = data.customer.emailAddress?.emailAddress ?? session.email
+
   return {
     items: [...owned.values()],
-    email: data.customer.emailAddress?.emailAddress ?? session.email,
+    email,
+    displayName: data.customer.displayName,
+    firstName: data.customer.firstName,
+    lastName: data.customer.lastName,
+    phone: data.customer.phoneNumber?.phoneNumber,
+    createdAt: data.customer.creationDate,
     session: {
       ...nextSession,
-      email: data.customer.emailAddress?.emailAddress ?? session.email,
+      email,
     },
   }
 }

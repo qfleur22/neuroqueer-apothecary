@@ -82,6 +82,22 @@ export const storeProducts: StoreProduct[] = [
     tagline: 'slides, notes, ready to present',
   },
   {
+    slug: 'queer-sex-bodily-autonomy',
+    name: 'Queer Sex, Consent & Bodily Autonomy',
+    summary:
+      'A trans- and neurodivergent-informed toolkit for bodily autonomy, boundaries, consent, communication, safer sex, and intimacy—with a companion worksheet to apply it.',
+    href: '/bodily-autonomy',
+    tagline: 'your body belongs to you',
+  },
+  {
+    slug: 'boundaries-consent-red-flags-worksheet',
+    name: 'Boundaries, Consent & Red Flags Worksheet',
+    summary:
+      'The practical companion to the Queer Sex & Bodily Autonomy Guide: map yes/no/maybe, language, aftercare, and red flags.',
+    href: '/bodily-autonomy',
+    tagline: 'now apply this to yourself',
+  },
+  {
     slug: 'love-languages',
     name: 'Love Languages: Giving & Receiving Quizzes',
     summary:

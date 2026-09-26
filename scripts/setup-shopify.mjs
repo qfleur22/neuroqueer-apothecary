@@ -105,6 +105,24 @@ const catalog = [
     productType: 'Workshop kit',
     sku: 'NQA-CONSENT-KIT',
   },
+  {
+    envKey: 'NEXT_PUBLIC_SHOPIFY_BODILY_AUTONOMY_VARIANT_ID',
+    handle: 'queer-sex-bodily-autonomy',
+    title: 'Queer Sex, Consent & Bodily Autonomy',
+    description:
+      'A trans- and neurodivergent-informed toolkit for bodily autonomy, boundaries, consent, communication, safer sex, and intimacy.',
+    productType: 'Digital guide',
+    sku: 'NQA-BODILY-AUTONOMY',
+  },
+  {
+    envKey: 'NEXT_PUBLIC_SHOPIFY_BOUNDARIES_WORKSHEET_VARIANT_ID',
+    handle: 'boundaries-consent-red-flags-worksheet',
+    title: 'Boundaries, Consent & Red Flags Worksheet',
+    description:
+      'A fillable companion for mapping desires, yes/no/maybe boundaries, affirming language, aftercare, and red flags.',
+    productType: 'Digital worksheet',
+    sku: 'NQA-BOUNDARIES-WORKSHEET',
+  },
 ]
 
 const parseEnvFile = ({ filePath }) => {

@@ -139,6 +139,7 @@ const isBookActive = ({
       pathname === '/care-plan-workshop' ||
       pathname === '/consent' ||
       pathname === '/consent-workshop' ||
+      pathname === '/bodily-autonomy' ||
       pathname.startsWith('/love-languages')
     )
   }

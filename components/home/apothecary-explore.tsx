@@ -26,10 +26,12 @@ const sitemap: SitemapSection[] = [
     href: '/',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'How NQA Works', href: '/how-nqa-works' },
       { label: 'Coaching', href: '/coaching' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/about#contact' },
       { label: 'Sitemap', href: '/sitemap' },
+      { label: 'Your profile', href: '/profile' },
       { label: 'Your library', href: '/library' },
     ],
   },

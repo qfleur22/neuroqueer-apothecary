@@ -5,6 +5,7 @@ import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { PurchaseIncludes } from '@/components/home/purchase-includes'
 import { getCarePlanWorkshopHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -170,6 +171,7 @@ export default function CarePlanWorkshopPage() {
           cared for.
         </p>
         <GuideCta href={buyHref} label={KIT_LABEL} isDominant />
+        <PurchaseIncludes />
 
         <LearnMoreSection title="Stop Waiting for a Crisis to Learn How to Care for Each Other">
           <p>A lot of communities are very good at saying:</p>

@@ -5,6 +5,7 @@ import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { PurchaseIncludes } from '@/components/home/purchase-includes'
 import { getAnimeKitHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -164,6 +165,7 @@ export default function AnimePanelPage() {
           build your own version from the research.
         </p>
         <GuideCta href={buyHref} label={KIT_LABEL} isDominant />
+        <PurchaseIncludes />
 
         <LearnMoreSection title="Built for Anime Convention Panelists">
           <p>This kit is specifically for people who want to present at:</p>

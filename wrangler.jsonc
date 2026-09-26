@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
   "name": "neuroqueer-apothecary",
-  "compatibility_date": "2024-12-30",
+  "compatibility_date": "2026-09-11",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",
@@ -24,6 +24,7 @@
     "NEXT_PUBLIC_SHOPIFY_CARE_PLAN_VARIANT_ID": "49319944061098",
     "NEXT_PUBLIC_SHOPIFY_CARE_PLAN_WORKSHOP_VARIANT_ID": "49319944126634",
     "NEXT_PUBLIC_SHOPIFY_CONSENT_VARIANT_ID": "49319944159402",
-    "NEXT_PUBLIC_SHOPIFY_CONSENT_WORKSHOP_VARIANT_ID": "49320039547050"
+    "NEXT_PUBLIC_SHOPIFY_CONSENT_WORKSHOP_VARIANT_ID": "49320039547050",
+    "NEXT_PUBLIC_TIDYCAL_PATH": "neuroqueerapothecary"
   }
 }

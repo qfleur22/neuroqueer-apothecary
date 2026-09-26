@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { RoomPage, WallCard } from '@/components/home/room-page'
 import { RoomLink } from '@/components/home/room-link'
 import { GuideCta } from '@/components/home/guide-cta'
+import { EdsChecklistPage } from '@/components/library/eds-checklist-page'
+import { HypermobileLibraryGuide } from '@/components/library/hypermobile-library-guide'
 import { getLibraryItem } from '@/data/library-items'
 import { customerOwnsItem, getOwnedLibraryItems } from '@/utils/customer-library'
 import { readCustomerSession } from '@/utils/customer-session'
@@ -76,6 +78,14 @@ export default async function LibraryItemPage({
         </WallCard>
       </RoomPage>
     )
+  }
+
+  if (item.slug === 'so-you-think-youre-hypermobile') {
+    return <HypermobileLibraryGuide />
+  }
+
+  if (item.slug === 'eds-checklist') {
+    return <EdsChecklistPage />
   }
 
   return (

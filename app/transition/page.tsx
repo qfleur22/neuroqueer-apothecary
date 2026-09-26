@@ -5,6 +5,7 @@ import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { PurchaseIncludes } from '@/components/home/purchase-includes'
 import { getTransitionGuideHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -167,6 +168,7 @@ export default function TransitionGuidePage() {
         <p>You do not need to know exactly who you are before you begin.</p>
         <p>You just need somewhere to start.</p>
         <GuideCta href={buyHref} label="Get Transition Guide: Now What? →" isDominant />
+        <PurchaseIncludes />
 
         <LearnMoreSection title="You Don’t Need to Be Sure Yet">
           <p>There is no transgender entrance exam.</p>

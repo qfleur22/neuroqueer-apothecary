@@ -178,3 +178,34 @@ export const getConsentWorkshopHref = () => {
     variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_CONSENT_WORKSHOP_VARIANT_ID',
   })
 }
+
+export const getBodilyAutonomyGuideHref = () => {
+  return catalogPurchaseHref({
+    variantId: process.env.NEXT_PUBLIC_SHOPIFY_BODILY_AUTONOMY_VARIANT_ID ?? '',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_BODILY_AUTONOMY_VARIANT_ID',
+  })
+}
+
+export const getBoundariesWorksheetHref = () => {
+  return catalogPurchaseHref({
+    variantId: process.env.NEXT_PUBLIC_SHOPIFY_BOUNDARIES_WORKSHEET_VARIANT_ID ?? '',
+    variantEnvKey: 'NEXT_PUBLIC_SHOPIFY_BOUNDARIES_WORKSHEET_VARIANT_ID',
+  })
+}
+
+export const getBodilyAutonomyBundleHref = () => {
+  const guideId = parseShopifyVariantId({
+    variantId: process.env.NEXT_PUBLIC_SHOPIFY_BODILY_AUTONOMY_VARIANT_ID ?? '',
+  })
+  const worksheetId = parseShopifyVariantId({
+    variantId: process.env.NEXT_PUBLIC_SHOPIFY_BOUNDARIES_WORKSHEET_VARIANT_ID ?? '',
+  })
+
+  if (isConfiguredStorefront() && guideId && worksheetId) {
+    return `https://${storeDomain}/cart/${guideId}:1,${worksheetId}:1?checkout`
+  }
+
+  return mailtoPurchase({
+    subject: 'Queer Sex & Bodily Autonomy Guide + Boundaries Worksheet',
+  })
+}

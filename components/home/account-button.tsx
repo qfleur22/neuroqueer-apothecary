@@ -21,8 +21,8 @@ export const AccountButton = () => {
     void loadSession()
   }, [])
 
-  const href = isSignedIn ? '/library' : '/api/auth/shopify/login?returnTo=/library'
-  const label = isSignedIn ? 'Your library' : 'Log in'
+  const href = isSignedIn ? '/profile' : '/api/auth/shopify/login?returnTo=/profile'
+  const label = isSignedIn ? 'Your profile' : 'Log in'
 
   return (
     <div className="absolute right-3 top-3 z-20 sm:right-6 sm:top-4">

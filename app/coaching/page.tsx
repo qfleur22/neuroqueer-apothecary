@@ -34,6 +34,7 @@ const workshopItems = [
   'Neurodivergent Self-Advocacy — understanding needs, accommodations, communication, masking, executive dysfunction, sensory differences, and advocating for yourself without treating neurotypical behavior as the ultimate goal.',
   'Trans Healthcare & Self-Advocacy — tools for navigating gender-affirming care, preparing for appointments, understanding options, asking better questions, and maintaining autonomy within medical systems.',
   'Consent for Complicated Humans — consent through the lens of autism, ADHD, disability, queerness, trauma, non-monogamy, power, communication differences, and community care.',
+  'Kink 101 — an introductory conversation about curiosity, negotiation, safewords, risk awareness, aftercare, and exploring kink without treating consent as a substitute for safety.',
   'Radical Rest & Sustainable Care — moving beyond wellness culture toward disability-aware rest, pacing, nervous-system care, accessibility, and sustainable ways of living.',
 ]
 
@@ -368,7 +369,9 @@ export default function CoachingPage() {
             life can be two very different things.
           </p>
           <p>
-            These sessions use the framework from{' '}
+            These sessions can use the frameworks from{' '}
+            <RoomLink href="/bodily-autonomy">Queer Sex, Consent &amp; Bodily Autonomy</RoomLink>{' '}
+            and{' '}
             <RoomLink href="/consent">
               Know Your Rights: Bodily Autonomy, Boundaries &amp; Consent
             </RoomLink>{' '}

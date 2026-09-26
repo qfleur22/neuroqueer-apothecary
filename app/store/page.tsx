@@ -15,6 +15,10 @@ export default function StorePage() {
       <WallCard title="Store" wide>
         <p>
           Guides from the Neuroqueer Apothecary — take what helps, leave the rest on the shelf.
+          One purchase is ongoing site access and updates, not a PDF that goes stale.{' '}
+          <Link href="/how-nqa-works" className="text-room-teal underline decoration-room-gold underline-offset-4">
+            How NQA Works
+          </Link>
         </p>
         <ul className="grid gap-10 sm:grid-cols-2">
           {storeProducts.map((product) => (

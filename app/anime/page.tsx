@@ -5,6 +5,7 @@ import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { PurchaseIncludes } from '@/components/home/purchase-includes'
 import { getAnimeGuideHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -93,6 +94,7 @@ export default function AnimePage() {
         </p>
         <p className="italic">What actually makes trans representation good?</p>
         <GuideCta href={buyHref} label="Get Trans+ Representation in Anime →" isDominant />
+        <PurchaseIncludes />
         <GuideCta href={DATABASE} label="Explore Trans+ Representation in Anime →" />
 
         <LearnMoreSection title="More Than a List of Trans Anime Characters">

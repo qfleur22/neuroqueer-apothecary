@@ -5,6 +5,7 @@ import { GuideCta } from '@/components/home/guide-cta'
 import { GuideCover } from '@/components/home/guide-cover'
 import { BulletList, RoomSection } from '@/components/home/room-section'
 import { LearnMoreSection } from '@/components/home/learn-more-section'
+import { PurchaseIncludes } from '@/components/home/purchase-includes'
 import { getConsentWorkshopHref } from '@/utils/shopify-checkout'
 
 export const metadata: Metadata = {
@@ -69,6 +70,7 @@ export default function ConsentWorkshopPage() {
         <div id="get-the-kit">
           <GuideCta href={buyHref} label={KIT_LABEL} isDominant />
         </div>
+        <PurchaseIncludes />
 
         <LearnMoreSection title="What’s Included">
           <p>

@@ -23,6 +23,13 @@ export const siteMapSections: SiteMapSection[] = [
         cta: 'About NQA →',
       },
       {
+        title: 'How NQA Works',
+        description:
+          'What a purchase includes, why resources live on the site instead of as static PDFs, and how coaching is navigational support rather than clinical care.',
+        href: '/how-nqa-works',
+        cta: 'What Does This Get Me? →',
+      },
+      {
         title: 'About Quinn',
         description:
           'Meet Quinn Fleur and learn about the lived experience, community work, education, and resource-building behind Neuroqueer Apothecary.',
@@ -42,6 +49,20 @@ export const siteMapSections: SiteMapSection[] = [
           'Find downloadable guides, workshop kits, templates, educational materials, and other NQA resources.',
         href: '/store',
         cta: 'Visit the Store →',
+      },
+      {
+        title: 'Your Profile',
+        description:
+          'See the Shopify account you signed in with, the resources that purchase unlocked, and quiz results saved in this browser.',
+        href: '/profile',
+        cta: 'Open Your Profile →',
+      },
+      {
+        title: 'Your Library',
+        description:
+          'Open only the guides and kits attached to your Shopify purchases.',
+        href: '/library',
+        cta: 'Open Your Library →',
       },
     ],
   },
@@ -174,6 +195,13 @@ export const siteMapSections: SiteMapSection[] = [
         cta: 'Explore Voice Resources →',
       },
       {
+        title: 'Queer Sex, Consent & Bodily Autonomy',
+        description:
+          'A trans- and neurodivergent-informed toolkit for bodily autonomy, boundaries, consent, communication, safer sex, and intimacy, with a companion worksheet.',
+        href: '/bodily-autonomy',
+        cta: 'Explore the Guide →',
+      },
+      {
         title: 'Know Your Rights: Bodily Autonomy, Boundaries & Consent',
         description:
           'Explore practical tools for understanding bodily autonomy, boundaries, consent, healthcare interactions, and self-advocacy.',
@@ -213,6 +241,13 @@ export const siteMapSections: SiteMapSection[] = [
           'Discover which forms of affection, support, attention, and connection most reliably register as love for you.',
         href: '/love-languages/receiving',
         cta: 'Take the Receiving Quiz →',
+      },
+      {
+        title: 'Queer Sex, Consent & Bodily Autonomy',
+        description:
+          'Practice bodily autonomy, consent, communication, and boundaries—whether or not sex is part of the picture.',
+        href: '/bodily-autonomy',
+        cta: 'Explore Bodily Autonomy →',
       },
       {
         title: 'Love Language Coaching',

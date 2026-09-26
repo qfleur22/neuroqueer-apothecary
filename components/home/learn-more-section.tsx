@@ -1,20 +1,28 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 
 export const LearnMoreSection = ({
   title,
   children,
   id,
   headingLevel = 2,
+  defaultOpen = false,
 }: {
   title: string
   children: React.ReactNode
   id?: string
   headingLevel?: 2 | 3
+  defaultOpen?: boolean
 }) => {
   const detailsRef = useRef<HTMLDetailsElement>(null)
   const Heading = headingLevel === 3 ? 'h3' : 'h2'
+
+  useLayoutEffect(() => {
+    if (defaultOpen && detailsRef.current) {
+      detailsRef.current.open = true
+    }
+  }, [defaultOpen])
 
   useEffect(() => {
     if (!id) {
